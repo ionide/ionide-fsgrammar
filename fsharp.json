@@ -95,6 +95,26 @@
         "comments": {
             "patterns": [
                 {
+                    "name": "comment.block.markdown.fsharp",
+                    "begin": "(\\(\\*\\*(?!\\)))",
+                    "end": "(\\*\\))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "comment.block.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "comment.block.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "text.md"
+                        }
+                    ]
+                },
+                {
                     "name": "comment.block.fsharp",
                     "begin": "(\\(\\*(?!\\)))",
                     "end": "(\\*\\))",
@@ -108,7 +128,16 @@
                             "name": "comment.block.fsharp"
                         }
                     }
-
+                },
+                {
+                    "name": "comment.line.markdown.fsharp",
+                    "begin": "///",
+                    "end": "$",
+                    "patterns": [
+                        {
+                            "include": "text.md"
+                        }
+                    ]
                 },
                 {
                     "name": "comment.line.double-slash.fsharp",
