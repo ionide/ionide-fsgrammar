@@ -1,0 +1,50 @@
+{
+  "name"        : "FSharp-SyntaxTest",
+  "version"     : "0.0.0",
+  "publisher"   : "Ionide",
+  "description" : "Dev Tool for Quick Syntax Grammar Testing",
+  "categories"  : [ "Languages" ],
+  "icon"        : "images/logo.png",
+  "homepage"    : "http://ionide.io",
+  "repository"  : {
+    "type": "git",
+    "url": "https://github.com/ionide/ionide-fsgrammar.git"
+  },
+  "engines"     : { "vscode": "^0.10.0" },
+  "contributes" : {
+    "languages" : [
+      {
+        "id"        : "fsharp",
+        "aliases"   : [ "F# Syntax" ],
+        "extensions": [
+          ".fs",
+          ".fsx",
+          ".fsi"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fsharp",
+        "scopeName": "source.fsharp",
+        "path": "./syntaxes/fsharp.json"
+      },
+      {
+        "language": "fsharp",
+        "scopeName": "source.fsharp.fsx",
+        "path": "./syntaxes/fsharp.fsx.json"
+      },
+      {
+        "language": "fsharp",
+        "scopeName": "source.fsharp.fsi",
+        "path": "./syntaxes/fsharp.fsi.json"
+      },
+      {
+        "language": "fsharp",
+        "scopeName": "source.fsharp.fsl",
+        "path": "./syntaxes/fsharp.fsl.json"
+      }
+    ]
+  }
+}

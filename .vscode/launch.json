@@ -1,0 +1,21 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "preLaunchTask": "FakeBuild",
+      "name": "Launch Extension",
+      "type": "extensionHost",
+      "runtimeExecutable": "${execPath}",      
+      "args": [
+
+        // open the extension instace in this directory
+        "${workspaceRoot}/sample-code",
+        // launch the extension host using the package in this directory
+        "--extensionDevelopmentPath=${workspaceRoot}/fsharp.syntaxtest"
+      ],
+      "stopOnEntry": false,
+      "request": "launch"
+    }
+  ]
+}
