@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SampleCode", "sample-code\SampleCode\SampleCode.fsproj", "{3451B674-AAFF-4F5F-8350-F7D2D97704DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{9332FE36-1213-4E68-9E66-6CC0ADA1A20D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+		build.sh = build.sh
+		CONTRIBUTING.md = CONTRIBUTING.md
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grammar", "grammar", "{61DD59B1-BB16-4185-8612-4924EDB3DB96}"
+	ProjectSection(SolutionItems) = preProject
+		grammar\fsharp.fsi.json = grammar\fsharp.fsi.json
+		grammar\fsharp.fsl.json = grammar\fsharp.fsl.json
+		grammar\fsharp.fsx.json = grammar\fsharp.fsx.json
+		grammar\fsharp.json = grammar\fsharp.json
+		grammar\paket.dependencies.json = grammar\paket.dependencies.json
+		grammar\paket.lock.json = grammar\paket.lock.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fsharp.syntaxtest", "fsharp.syntaxtest", "{FBDCCF5A-C599-4D52-AEB6-0983D89A21F1}"
+	ProjectSection(SolutionItems) = preProject
+		fsharp.syntaxtest\.vscodeignore = fsharp.syntaxtest\.vscodeignore
+		fsharp.syntaxtest\language-configuration.json = fsharp.syntaxtest\language-configuration.json
+		fsharp.syntaxtest\package.json = fsharp.syntaxtest\package.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".vscode", ".vscode", "{15A177D6-62C0-43AB-8AF2-F2A49C7813C0}"
+	ProjectSection(SolutionItems) = preProject
+		.vscode\launch.json = .vscode\launch.json
+		.vscode\tasks.json = .vscode\tasks.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
