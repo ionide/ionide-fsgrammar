@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SampleCode", "sample-code\SampleCode\SampleCode.fsproj", "{3451B674-AAFF-4F5F-8350-F7D2D97704DB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{9332FE36-1213-4E68-9E66-6CC0ADA1A20D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -39,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".vscode", ".vscode", "{15A1
 		.vscode\launch.json = .vscode\launch.json
 		.vscode\tasks.json = .vscode\tasks.json
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SampleCode", "sample-code\SampleCode.fsproj", "{3451B674-AAFF-4F5F-8350-F7D2D97704DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
