@@ -6,6 +6,10 @@ syntax definiton files located in `/grammar/`
 Open VSCode at the repository root and use either `F5` or `> Start Debugging` to start the extension host
 which will open at `/sample-code/`
 
+
+![](http://i.imgur.com/QKTVUzR.gif)
+
+
 ## Important Notes
   
 - Only modifications made to the syntax files in `/grammar/` will be tracked by Git
