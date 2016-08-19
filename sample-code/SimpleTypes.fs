@@ -1,0 +1,18 @@
+﻿module SampleCode.SimpleTypes
+
+type Alias = int
+
+type Alpha = class end
+
+type LightDU =
+    | CaseA
+    | CaseB
+
+type Underscore_Name = | Underscore_Name of string 
+
+      
+type Class1() = 
+    member this.X = "F#"
+
+
+

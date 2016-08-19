@@ -1,3 +1,7 @@
 source https://www.nuget.org/api/v2
 nuget FAKE
-nuget Npm.js
+nuget npm.js
+
+github Ionide/ionide-vscode-helpers Fable.Import.VSCode.fs
+github Ionide/ionide-vscode-helpers Helpers.fs
+github Ionide/ionide-vscode-helpers Fable.Import.Axios.fs

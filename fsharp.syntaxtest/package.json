@@ -1,21 +1,34 @@
 {
-  "name"        : "FSharp-SyntaxTest",
-  "version"     : "0.0.0",
-  "publisher"   : "Ionide",
-  "description" : "Dev Tool for Quick Syntax Grammar Testing",
-  "categories"  : [ "Languages" ],
-  "icon"        : "images/logo.png",
-  "homepage"    : "http://ionide.io",
-  "repository"  : {
+  "name": "FSharp-SyntaxTest",
+  "version": "0.0.0",
+  "publisher": "Ionide",
+  "description": "Dev Tool for Quick Syntax Grammar Testing",
+  "categories": [
+    "Languages"
+  ],
+  "icon": "images/logo.png",
+  "homepage": "http://ionide.io",
+  "contributors": [
+    {
+      "name": "Jared Hester",
+      "email": "jared.hester@gmail.com",
+      "url": "https://twitter.com/cloudRoutine"
+    }
+  ],
+  "repository": {
     "type": "git",
     "url": "https://github.com/ionide/ionide-fsgrammar.git"
   },
-  "engines"     : { "vscode": "^0.10.0" },
-  "contributes" : {
-    "languages" : [
+  "engines": {
+    "vscode": "^0.10.0"
+  },
+  "contributes": {
+    "languages": [
       {
-        "id"        : "fsharp",
-        "aliases"   : [ "F# Syntax" ],
+        "id": "fsharp",
+        "aliases": [
+          "F# Syntax"
+        ],
         "extensions": [
           ".fs",
           ".fsx",
@@ -45,6 +58,34 @@
         "scopeName": "source.fsharp.fsl",
         "path": "./syntaxes/fsharp.fsl.json"
       }
+    ],
+    "commands": [
+      {
+        "command": "",
+        "title": ""
+      }
+    ],
+    "outputChannels": [
+      "Textmate Tokens"
     ]
+  },
+  "activationEvents": [
+    ""
+  ],
+  "extensionDependencies": [
+    "vscode.fsharp"
+  ],
+  "scripts": {
+    "build": "fable ../src/FSharp.SyntaxTools.fsproj -s -o ../fsharp.syntaxtest -m commonjs --verbose"
+  },
+  "dependencies": {
+    "axios": "^0.13.1",
+    "fable-core": "^0.5.4",
+    "node-gyp": "^3.4.0",
+    "vscode-textmate": "^2.1.1"
+  },
+  "devDependencies": {
+    "vscode": "^0.11.17",
+    "fable-compiler": "^0.5.6"
   }
 }
