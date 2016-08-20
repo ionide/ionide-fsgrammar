@@ -7,7 +7,7 @@ Open VSCode at the repository root and use either `F5` or `> Start Debugging` to
 which will open at `/sample-code/`
 
 
-![](http://i.imgur.com/QKTVUzR.gif)
+
 
 
 ## Important Notes
