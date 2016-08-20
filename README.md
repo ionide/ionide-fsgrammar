@@ -13,6 +13,8 @@ and [Atom](https://atom.io/packages/ionide-fsharp)
 
 [Part of the Ionide Package Suite](https://ionide.io/)
 
+![](http://i.imgur.com/QKTVUzR.gif)
+
 [Interested in contributing? Check out CONTRIBUTING.md](CONTRIBUTING.md)
 
 
