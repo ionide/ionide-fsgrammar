@@ -470,7 +470,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([a-zA-Z0-9'<>^:,. ]+)((with)|(=)|(\\(\\)))",
+                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([a-zA-Z0-9'<>^:,. ]+)[\\s]*(\\([a-zA-Z0-9'\\:]+\\))?[\\s]*((with)|(as [a-zA-Z0-9']+)|(=)|(\\(\\)))",
 
                     "captures": {
                         "1": {
@@ -482,13 +482,19 @@
                         "3": {
                             "name": "entity.name.type.fsharp"
                         },
-                        "5": {
-                            "name": "keyword.other.fsharp"
+                        "4":{
+                            "name": "entity.name.type.fsharp"
                         },
                         "6": {
                             "name": "keyword.other.fsharp"
                         },
                         "7": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "8": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "9": {
                             "name": "constant.language.unit.fsharp"
                         }
                     }

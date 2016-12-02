@@ -15,4 +15,9 @@ type Class1() =
     member this.X = "F#"
 
 
+type FancyClass(thing:int) as xxx =
+
+    let pf() = xxx.Test()
+
+    member xxx.Test() = "F#"
 
