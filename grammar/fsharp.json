@@ -470,7 +470,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([a-zA-Z0-9'<>^:,. ]+)[\\s]*(\\([a-zA-Z0-9'\\:]+\\))?[\\s]*((with)|(as [a-zA-Z0-9']+)|(=)|(\\(\\)))",
+                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([a-zA-Z0-9'<>^:,. ]+)[\\s]*(\\([a-zA-Z0-9'<>^:,. ]+\\))?[\\s]*((with)|(as [a-zA-Z0-9']+)|(=)|(\\(\\)))",
 
                     "captures": {
                         "1": {
