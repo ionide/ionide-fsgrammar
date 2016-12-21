@@ -140,7 +140,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "(val mutable|val|let mutable|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+private|internal|public)?\\s+(\\([^\\s-]*\\)|[_a-zA-Z]([_a-zA-Z0-9,\\.]|(?<=,)\\s)*)",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+private|internal|public)?\\s+(\\([^\\s-]*\\)|[_a-zA-Z]([_a-zA-Z0-9,\\.]|(?<=,)\\s)*)",
                     "end": "((``.*``)|(with)|=|$)",
                     "beginCaptures": {
                         "1": {
@@ -179,7 +179,7 @@
             "patterns": [
                 {
                     "name": "keyword.other.fsharp",
-                    "match": "\\b(function|yield!|yield|class|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|member|try|finally|and|when|use|use\\!|struct)\\b"
+                    "match": "\\b(function|yield!|yield|class|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|member|try|finally|and|when|use|use\\!|struct|while)\\b"
                 },
                 {
                     "name": "meta.preprocessor.fsharp",
