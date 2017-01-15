@@ -59,19 +59,10 @@
         "path": "./syntaxes/fsharp.fsl.json"
       }
     ],
-    "commands": [
-      {
-        "command": "",
-        "title": ""
-      }
-    ],
     "outputChannels": [
       "Textmate Tokens"
     ]
   },
-  "activationEvents": [
-    ""
-  ],
   "extensionDependencies": [
     "vscode.fsharp"
   ],
