@@ -41,6 +41,10 @@ let binding = "empty"
 let aString : string = "typed"
 let accentué = "accentué"
 
+printf  "\d"
+printfn "\s"
+sprintf ""
+
 let tupA1, tupA2 = 1, 2
 let (tupB1, tupB2) : decimal * decimal = 40m, 50M
 
