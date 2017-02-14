@@ -30,3 +30,7 @@ module accentué =
     let t = 1
 
 open test
+
+type MutableMembersTest = {
+    mutable test: string
+}
