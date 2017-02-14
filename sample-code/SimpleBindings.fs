@@ -36,10 +36,17 @@ let e_float64    = 0x0000000000000000LF
 
 let a_bigint     = 304554I
 
+let π = 3.1415
+
 
 let binding = "empty"
 let aString : string = "typed"
 let accentué = "accentué"
+
+let [<Literal>] literal_test = 11
+
+[<Literal>]
+let literal_test2 = 11
 
 printf  "\d"
 printfn "\s"

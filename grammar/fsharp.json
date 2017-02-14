@@ -17,9 +17,6 @@
             "include": "#structure"
         },
         {
-            "include": "#attributes"
-        },
-        {
             "include": "#strings"
         },
         {
@@ -30,6 +27,9 @@
         },
         {
             "include": "#definition"
+        },
+         {
+            "include": "#attributes"
         },
         {
             "include": "#method_calls"
@@ -49,6 +49,7 @@
         {
             "include": "#cexprs"
         },
+
         {
             "include": "#text"
         }
@@ -140,7 +141,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+private|internal|public)?\\s+(\\([^\\s-]*\\)|[_[:alpha:]]([_[:alpha:]0-9,\\.]|(?<=,)\\s)*)",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?(\\s+private|internal|public)?\\s+(\\([^\\s-]*\\)|[_[:alpha:]]([_[:alpha:]0-9,\\._]|(?<=,)\\s)*)",
                     "end": "((``.*``)|(with)|=|$)",
                     "beginCaptures": {
                         "1": {
@@ -149,10 +150,13 @@
                         "2": {
                             "name": "keyword.other.function-recursive.fsharp"
                         },
-                        "3": {
-                            "name": "keyword.other.access.fsharp"
+                        "3":{
+                            "name": "support.function.attribute.fsharp"
                         },
                         "4": {
+                            "name": "keyword.other.access.fsharp"
+                        },
+                        "5": {
                             "name": "variable.other.binding.fsharp"
                         }
                     },
