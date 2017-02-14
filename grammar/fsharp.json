@@ -60,7 +60,7 @@
                 {
                     "name": "function.anonymous",
                     "begin": "\\b(fun)\\b",
-                    "end": "[(->)\\n]",
+                    "end": "(->)",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.other.function-definition.fsharp"

@@ -55,3 +55,4 @@ sprintf ""
 let tupA1, tupA2 = 1, 2
 let (tupB1, tupB2) : decimal * decimal = 40m, 50M
 
+let x = fun a -> 17
