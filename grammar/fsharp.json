@@ -141,7 +141,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?(\\s+private|internal|public)?\\s+(\\([^\\s-]*\\)|[_[:alpha:]]([_[:alpha:]0-9,\\._]|(?<=,)\\s)*)",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\([^\\s-]*\\)|[_[:alpha:]]([_[:alpha:]0-9,\\._]|(?<=,)\\s)*)",
                     "end": "((``.*``)|(with)|=|$)",
                     "beginCaptures": {
                         "1": {
@@ -200,7 +200,7 @@
             "patterns": [
                 {
                     "name": "entity.name.section.fsharp",
-                    "begin": "\\b(namespace|module)(\\s+public|internal|private)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
+                    "begin": "\\b(namespace|module)\\s*(public|internal|private)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {

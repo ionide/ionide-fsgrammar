@@ -56,3 +56,21 @@ let tupA1, tupA2 = 1, 2
 let (tupB1, tupB2) : decimal * decimal = 40m, 50M
 
 let x = fun a -> 17
+
+let internal add a b = a + b
+let private add2 a b = a + b
+let public add3 a b = a + b
+let add4 a b = a + b
+
+
+module public test =
+    let x = 1
+
+module internal test2 =
+    let x = 1
+
+module private test3 =
+    let x = 1
+
+module test4 =
+    let x = 1
