@@ -83,7 +83,7 @@
           "name": "keyword.other.fsharp"
         },
         {
-          "match": "\\b(framework|import_targets|content|redirects)\\b",
+          "match": "\\b(framework|import_targets|content|redirects|clitool)\\b",
           "name": "keyword.other.fsharp"
         },
         {
