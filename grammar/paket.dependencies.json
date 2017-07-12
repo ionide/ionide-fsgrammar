@@ -83,7 +83,7 @@
     "keywords": {
       "patterns": [
         {
-          "match": "\\b(source|github|nuget|gist|http|group|strategy|framework|references|content|copy_content_to_output_dir|import_targets|copy_local|redirects|lowest_matching|version_in_path|prerelease)\\b",
+          "match": "\\b(source|github|nuget|clitool|gist|http|group|strategy|framework|references|content|copy_content_to_output_dir|import_targets|copy_local|redirects|lowest_matching|version_in_path|prerelease)\\b",
           "name": "keyword.other.fsharp"
         },
         {
