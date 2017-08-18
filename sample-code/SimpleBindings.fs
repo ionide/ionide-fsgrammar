@@ -54,6 +54,10 @@ sprintf ""
 
 let tupA1, tupA2 = 1, 2
 let (tupB1, tupB2) : decimal * decimal = 40m, 50M
+let [| a; b |] = [| 1; 2 |]
+let [ c; d ] = [1; 2]
+let ``test`` = ""
+let ``test mutiple words`` = ""
 
 let x = fun a -> 17
 
