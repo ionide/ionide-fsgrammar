@@ -51,6 +51,24 @@ let literal_test2 = 11
 printf  "\d"
 printfn "\s"
 sprintf ""
+printf "some tup %A dasda" ((2),2)
+printf "%O" (1,2,3)
+printf "%s" ""
+printf "%E" 2.0
+printf "%1e" 1.0
+printf "sss  %-1e" 2.
+printf "%-10s" "2"
+printf "%020.1f" 0.2f
+
+sprintf "75.9%% ss"
+sprintf """
+dfdfdf %s
+"""
+
+let numbers = [ 1 .. 10 ]
+let square x = x * x
+let squares = List.map square numbers
+printfn "N^2 = %A" squares
 
 let tupA1, tupA2 = 1, 2
 let (tupB1,tupB2) : decimal * decimal = 40m, 50M
