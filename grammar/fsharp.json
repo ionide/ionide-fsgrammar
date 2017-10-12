@@ -326,7 +326,12 @@
                         "1": {
                             "name": "punctuation.definition.string.end.fsharp"
                         }
-                    }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#string_formatter"
+                        }
+                    ]
                 },
                 {
                     "name": "string.quoted.double.fsharp",
@@ -354,8 +359,24 @@
                         {
                             "name": "invalid.illeagal.character.string.fsharp",
                             "match": "\\\\(?![\\\\''ntbr]|u[a-fA-F0-9]{4}|u[a-fA-F0-9]{8})."
+                        },                        
+                        {
+                            "include": "#string_formatter"
                         }
                     ]
+                }
+            ]
+        },
+        "string_formatter": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.format.specifier.fsharp",
+                    "match": "(%0?-?(\\d+)?((a|t)|(\\.\\d+)?(f|F|e|E|g|G|M)|(b|c|s|d|i|x|X|o)|(s|b|O)|(\\+?A)))",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.format.specifier.fsharp"
+                        }                     
+                    }
                 }
             ]
         },
