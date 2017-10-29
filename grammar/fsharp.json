@@ -183,7 +183,7 @@
             "patterns": [
                 {
                     "name": "keyword.other.fsharp",
-                    "match": "\\b(function|yield!|yield|class|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|member|try|finally|and|when|use|use\\!|struct|while|mutable)\\b"
+                    "match": "\\b(function|yield!|yield|class|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)\\b"
                 },
                 {
                     "name": "meta.preprocessor.fsharp",
@@ -359,7 +359,7 @@
                         {
                             "name": "invalid.illeagal.character.string.fsharp",
                             "match": "\\\\(?![\\\\''ntbr]|u[a-fA-F0-9]{4}|u[a-fA-F0-9]{8})."
-                        },                        
+                        },
                         {
                             "include": "#string_formatter"
                         }
@@ -375,7 +375,7 @@
                     "captures": {
                         "1": {
                             "name": "keyword.other.format.specifier.fsharp"
-                        }                     
+                        }
                     }
                 }
             ]
