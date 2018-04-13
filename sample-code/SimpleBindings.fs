@@ -90,6 +90,8 @@ let internal add a b = a + b
 let private add2 a b = a + b
 let public add3 a b = a + b
 let add4 a b = a + b
+let update _msg model =
+  model
 
 
 module public test =
