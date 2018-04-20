@@ -388,7 +388,7 @@
                 },
                 {
                     "name": "variable.parameter.fsharp",
-                    "match": "[[:alpha:]']\\w*"
+                    "match": "[[:alpha:]'_]\\w*"
                 }
             ]
         },
