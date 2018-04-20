@@ -415,7 +415,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._ ]+)[\\s]*(\\([[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|(\\(\\)))",
+                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]*(\\([[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|(\\(\\)))",
 
                     "captures": {
                         "1": {
