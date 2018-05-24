@@ -415,7 +415,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]*(\\([[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|[\\n=]|(\\(\\)))",
+                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]?(private|internal|public)?[\\s]*(\\([?[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|[\\n=]|(\\(\\)))",
 
                     "captures": {
                         "1": {
@@ -427,11 +427,11 @@
                         "3": {
                             "name": "entity.name.type.fsharp"
                         },
-                        "4":{
-                            "name": "entity.name.type.fsharp"
-                        },
-                        "6": {
+                        "4": {
                             "name": "keyword.other.fsharp"
+                        },
+                        "5":{
+                            "name": "entity.name.type.fsharp"
                         },
                         "7": {
                             "name": "keyword.other.fsharp"
@@ -440,6 +440,9 @@
                             "name": "keyword.other.fsharp"
                         },
                         "9": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "10": {
                             "name": "constant.language.unit.fsharp"
                         }
                     }
