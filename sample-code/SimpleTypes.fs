@@ -19,6 +19,9 @@ type Accentué = int
 type Class1() =
     member this.X = "F#"
 
+// Check accessibility modifier coloring
+type R = private { X  : int }
+type U = private | X of int
 
 type FancyClass(thing:int, var2 : string) as xxx =
 
