@@ -20,11 +20,20 @@ type Class1() =
     member this.X = "F#"
 
 
-type FancyClass(thing:int) as xxx =
+type FancyClass(thing:int, var2 : string) as xxx =
 
     let pf() = xxx.Test()
 
     member xxx.Test() = "F#"
+
+type FancyClass(?thing:int) =
+    class end
+
+type private FancyClass (?thing:int) =
+    class end
+
+type FancyClass private (?thing:int) =
+    class end
 
 module test =
     let t = 1
