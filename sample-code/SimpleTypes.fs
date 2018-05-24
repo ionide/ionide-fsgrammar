@@ -60,3 +60,6 @@ let test2 return' =
     match return' with
     | CaseA -> ""
     | CaseB -> ""
+
+[<Measure>]
+type kg
