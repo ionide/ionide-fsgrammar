@@ -8,10 +8,13 @@ type LightDU =
     | CaseA
     | CaseB
 
+type EgalNewLine
+    = CaseA
+    | CaseB
+
 type Underscore_Name = | Underscore_Name of string
 
 type Accentué = int
-
 
 type Class1() =
     member this.X = "F#"
