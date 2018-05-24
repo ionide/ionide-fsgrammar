@@ -26,13 +26,13 @@ type FancyClass(thing:int, var2 : string) as xxx =
 
     member xxx.Test() = "F#"
 
-type FancyClass(?thing:int) =
+type FancyClass1(?thing:int) =
     class end
 
-type private FancyClass (?thing:int) =
+type private FancyClass2 (?thing:int) =
     class end
 
-type FancyClass private (?thing:int) =
+type FancyClass3 private (?thing:int) =
     class end
 
 module test =
@@ -53,7 +53,7 @@ let test match' =
     | CaseA -> ""
     | CaseB -> ""
 
-let test return' =
+let test2 return' =
     match return' with
     | CaseA -> ""
     | CaseB -> ""
