@@ -60,3 +60,11 @@ let test2 return' =
     match return' with
     | CaseA -> ""
     | CaseB -> ""
+
+type RequestData =
+    { Params : string }
+
+type Client () =
+    member this.Request (req : RequestData) = ""
+
+let res (client : Client) = client.Request { Params = "" }
