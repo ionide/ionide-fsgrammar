@@ -37,3 +37,14 @@ open test
 type MutableMembersTest = {
     mutable test: string
 }
+
+// Test that variable named like: keyword' isn't colored in a match statement
+let test match' =
+    match match' with
+    | CaseA -> ""
+    | CaseB -> ""
+
+let test return' =
+    match return' with
+    | CaseA -> ""
+    | CaseB -> ""
