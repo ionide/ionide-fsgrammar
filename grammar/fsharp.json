@@ -111,7 +111,7 @@
                     },
                     "patterns": [
                         {
-                            "include": "text.md"
+                            "include": "text.html.markdown"
                         }
                     ]
                 },
@@ -136,7 +136,7 @@
                     "end": "$",
                     "patterns": [
                         {
-                            "include": "text.md"
+                            "include": "text.html.markdown"
                         }
                     ]
                 },
