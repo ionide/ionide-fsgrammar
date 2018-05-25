@@ -453,9 +453,9 @@
             "patterns": [
                 {
                     "name": "cexpr.fsharp",
-                    "match": "\\b([[:alpha:]]*\\s+\\{)",
+                    "match": "\\b((?:[[:alpha:]]+\\.[[:alpha:]]+)|([[:alpha:]]+))\\s+\\{",
                     "captures": {
-                        "1": {
+                        "2": {
                             "name": "keyword.other.fsharp"
                         }
                     }

@@ -61,5 +61,14 @@ let test2 return' =
     | CaseA -> ""
     | CaseB -> ""
 
+type RequestData =
+    { Params : string }
+
+type Client () =
+    member this.Request (req : RequestData) = ""
+
+let res (client : Client) = client.Request { Params = "" }
+
 [<Measure>]
 type kg
+
