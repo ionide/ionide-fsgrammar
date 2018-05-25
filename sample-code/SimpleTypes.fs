@@ -45,13 +45,13 @@ type Class1() =
 type R = private { X  : int }
 type U = private | X of int
 
-type FancyClass(thing:int, var2 : string, ``ddzdz``: string) as xxx =
+type FancyClass(thing:int, var2 : string, ``ddzdz``: string, extra) as xxx =
 
     let pf() = xxx.Test()
 
     member xxx.Test() = "F#"
 
-    member __.Test2(thing:int, var2 : string, ``ddzdz``: string) = ""
+    member __.Test2(thing:int, var2 : string, ``ddzdz``: string, extra) = ""
 
 type FancyClass1(?thing:int) =
     class end
@@ -61,6 +61,10 @@ type private FancyClass2 (?thing:int) =
 
 type FancyClass3 private (?thing:int) =
     class end
+
+let paramsColorWorksHereToo (client : obj, extraParam) = ""
+
+let (name : string, age) = "", 0
 
 module test =
     let t = 1
@@ -91,7 +95,7 @@ type RequestData =
 type Client () =
     member this.Request (req : RequestData) = ""
 
-let res (client : Client) = client.Request { Params = "" }
+let res (client : Client, extraParam) = client.Request { Params = "" }
 
 [<Measure>]
 type kg
