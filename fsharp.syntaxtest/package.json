@@ -57,6 +57,16 @@
         "language": "fsharp",
         "scopeName": "source.fsharp.fsl",
         "path": "./syntaxes/fsharp.fsl.json"
+      },
+      {
+        "language": "paket-dependencies",
+        "scopeName": "source.paket.dependencies",
+        "path": "./syntaxes/paket.dependencies.json"
+      },
+      {
+        "language": "paket-lock",
+        "scopeName": "source.paket.lock",
+        "path": "./syntaxes/paket.lock.json"
       }
     ],
     "outputChannels": [

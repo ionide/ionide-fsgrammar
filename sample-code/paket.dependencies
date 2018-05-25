@@ -1,0 +1,28 @@
+# Sample paket.depencencies used for testing purpose
+version 5.142.0
+
+source https://www.nuget.org/api/v2
+storage:none
+
+clitool dotnet-fable 1.2.4
+nuget Fable.Core 1.2.4
+nuget Fable.Import.Node 0.1.5
+nuget Fable.Import.Browser 0.1.2
+
+git https://github.com/fsharp/FsAutoComplete.git master build:"build.cmd LocalRelease", OS: windows
+git https://github.com/fsharp-editing/Forge.git master build:"build.cmd Build", OS: windows
+
+git https://github.com/fsharp/FsAutoComplete.git master build:"build.sh LocalRelease", OS: mono
+git https://github.com/fsharp-editing/Forge.git master build:"build.sh Build", OS: mono
+
+git git@github.com:ionide/ionide-fsgrammar.git
+git git@github.com:ionide/version.git
+
+github ionide/ionide-vscode-helpers src/Fable.Import.VSCode.fs
+github ionide/ionide-vscode-helpers src/version.fs
+
+group build
+    source https://www.nuget.org/api/v2
+
+    github fsharp/FAKE modules/Octokit/Octokit.fsx
+    nuget Fake
