@@ -1,4 +1,22 @@
-﻿module SampleCode.SimpleTypes
+﻿(**
+# First-level heading
+Some more documentation using `Markdown`.
+*)
+module SampleCode.SimpleTypes
+
+/// **Description**
+///
+/// **Parameters**
+///   * `arg1` - parameter of type `string`
+///   * `arg2` - parameter of type `string`
+///
+/// **Output Type**
+///   * `string`
+///
+/// **Exceptions**
+///
+let markdownDemo (arg1 : string) (arg2 : string) =
+    ""
 
 type Alias = int
 
