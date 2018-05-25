@@ -49,6 +49,11 @@ type Class1() =
 type R = private { X  : int }
 type U = private | X of int
 
+// Check builder detection (based on a whitelist)
+let a = promise { }
+let b = pipeline { }
+let c = noColor { }
+
 type FancyClass(thing:int, var2 : string) as xxx =
 
     let pf() = xxx.Test()
