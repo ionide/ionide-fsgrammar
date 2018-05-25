@@ -18,6 +18,10 @@ module SampleCode.SimpleTypes
 let markdownDemo (arg1 : string) (arg2 : string) =
     ""
 
+/// **Checking that markdown is really working on single line**
+let markdownDemo2 (arg1 : string) (arg2 : string) =
+    ""
+
 // **This comment isn't formatted**
 
 (* Neither this one *)
