@@ -18,6 +18,10 @@ module SampleCode.SimpleTypes
 let markdownDemo (arg1 : string) (arg2 : string) =
     ""
 
+// **This comment isn't formatted**
+
+(* Neither this one *)
+
 type Alias = int
 
 type Alpha = class end
