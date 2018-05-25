@@ -12,15 +12,15 @@ open Fake.ProcessHelper
 
 System.IO.Directory.SetCurrentDirectory __SOURCE_DIRECTORY__
 
-/// Stores F#, Paket, FsLex & FsYacc Syntax Definition Files  
+/// Stores F#, Paket, FsLex & FsYacc Syntax Definition Files
 let syntaxDir           = "grammar"
-/// Location of the FSharp-SyntaxTest VSCode Extension    
+/// Location of the FSharp-SyntaxTest VSCode Extension
 let extensionDir        = "fsharp.syntaxtest"
-/// FSharp-SyntaxTest will load the Syntax Definition files in this dir    
+/// FSharp-SyntaxTest will load the Syntax Definition files in this dir
 let extensionSyntaxDir  = extensionDir</>"syntaxes"
 
 
-let CopyGrammar & cg = "CopyGrammar" 
+let CopyGrammar & cg = "CopyGrammar"
 Target cg  (fun _ ->
     trace "Copying F# Syntax Definition Files\n"
     ensureDirectory extensionSyntaxDir
@@ -30,6 +30,8 @@ Target cg  (fun _ ->
         syntaxDir </> "fsharp.fsl.json"
         syntaxDir </> "fsharp.fsx.json"
         syntaxDir </> "fsharp.json"
+        syntaxDir </> "paket.dependencies.json"
+        syntaxDir </> "paket.lock.json"
     ]
 )
 
@@ -37,29 +39,29 @@ let platformTool tool path =
     isUnix |> function | true -> tool | _ -> path
 
 /// Node Package Manager
-let npmTool =    
+let npmTool =
     platformTool "npm" ("packages"</>"Npm.js"</>"tools"</>"npm.cmd" |> FullName)
 
 
 let run cmd args workingDir =
     if  execProcess (fun info ->
-        if not (String.IsNullOrWhiteSpace workingDir) then 
+        if not (String.IsNullOrWhiteSpace workingDir) then
             info.WorkingDirectory <- workingDir
-        info.FileName <- cmd    
+        info.FileName <- cmd
         info.Arguments <- args
         ) System.TimeSpan.MaxValue = false then
         traceError <| sprintf "Error while running '%s' with args: %s" cmd args
 
 
-let BuildExtension & bext = "BuildExtension" 
+let BuildExtension & bext = "BuildExtension"
 Target bext  (fun () ->
     trace "Building VSCode Extension - FSharp-SyntaxTest"
     // install any necessary dependencies for the FSharp-SyntaxTest Extension
-    run npmTool "install --verbose" extensionDir   
+    run npmTool "install --verbose" extensionDir
 )
 
 
-let Notify & nt = "Notify" 
+let Notify & nt = "Notify"
 Target nt  (fun () ->
     traceLine ()
     traceError <|
