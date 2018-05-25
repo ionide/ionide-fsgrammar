@@ -23,11 +23,13 @@ type Class1() =
 type R = private { X  : int }
 type U = private | X of int
 
-type FancyClass(thing:int, var2 : string) as xxx =
+type FancyClass(thing:int, var2 : string, ``ddzdz``: string) as xxx =
 
     let pf() = xxx.Test()
 
     member xxx.Test() = "F#"
+
+    member __.Test2(thing:int, var2 : string, ``ddzdz``: string) = ""
 
 type FancyClass1(?thing:int) =
     class end

@@ -415,9 +415,9 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]?(private|internal|public)?[\\s]*(\\([?[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|[\\n=]|(\\(\\)))",
-
-                    "captures": {
+                    "begin": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]?(private|internal|public)?[\\s]*",
+                    "end": "[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|[\\n=]|(\\(\\)))",
+                    "beginCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
                         },
@@ -429,23 +429,41 @@
                         },
                         "4": {
                             "name": "keyword.other.fsharp"
-                        },
-                        "5":{
-                            "name": "entity.name.type.fsharp"
-                        },
-                        "7": {
+                        }
+                    },
+                    "endCaptures": {
+                        "2": {
                             "name": "keyword.other.fsharp"
                         },
-                        "8": {
+                        "3": {
                             "name": "keyword.other.fsharp"
                         },
-                        "9": {
+                        "4": {
                             "name": "keyword.other.fsharp"
                         },
-                        "10": {
+                        "5": {
                             "name": "constant.language.unit.fsharp"
                         }
-                    }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\(",
+                            "end": "\\)",
+                            "patterns": [
+                                {
+                                    "match": "([?[:alpha:]0-9'`<>^._]+)\\s*:\\s*([?[:alpha:]0-9'<>^._]+)",
+                                    "captures": {
+                                        "1": {
+                                            "name": "variable.parameter.fsharp"
+                                        },
+                                        "2": {
+                                            "name": "entity.name.type.fsharp"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
