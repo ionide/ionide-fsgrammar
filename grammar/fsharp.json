@@ -133,7 +133,7 @@
                 {
                     "name": "comment.line.markdown.fsharp",
                     "begin": "///",
-                    "end": "$",
+                    "while": "///",
                     "patterns": [
                         {
                             "include": "text.html.markdown"
