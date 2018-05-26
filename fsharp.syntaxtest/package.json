@@ -35,9 +35,23 @@
           ".fsi"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "fsharp.output",
+        "aliases": [
+          "F# output channel"
+        ],
+        "mimetypes": [
+          "text/x-code-output"
+        ]
       }
     ],
     "grammars": [
+      {
+        "language": "fsharp.output",
+        "scopeName": "output.fsharp",
+        "path": "./syntaxes/fsharp.output.json"
+      },
       {
         "language": "fsharp",
         "scopeName": "source.fsharp",

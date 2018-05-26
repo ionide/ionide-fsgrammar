@@ -1,0 +1,39 @@
+{
+  "fileTypes": [
+  ],
+  "foldingStartMarker": "",
+  "foldingStopMarker": "",
+  "name": "F# output channel",
+  "patterns": [
+    {
+      "include": "#keywords"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\[([\\d:]+)\\s+(\\b(ERROR)|(WARNING)|(INFO)|(DEBUG)\\b)\\s*]",
+          "captures": {
+            "1": {
+              "name": "keyword.other.fsharp.output"
+            },
+            "3": {
+              "name": "token.error-token"
+            },
+            "4": {
+              "name": "token.warn-token"
+            },
+            "5": {
+              "name": "token.info-token"
+            },
+            "6": {
+              "name": "token.debug-token"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "output.fsharp"
+}

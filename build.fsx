@@ -32,6 +32,7 @@ Target cg  (fun _ ->
         syntaxDir </> "fsharp.json"
         syntaxDir </> "paket.dependencies.json"
         syntaxDir </> "paket.lock.json"
+        syntaxDir </> "fsharp.output.json"
     ]
 )
 
