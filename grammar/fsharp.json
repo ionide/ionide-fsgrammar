@@ -97,8 +97,8 @@
             "patterns": [
                 {
                     "name": "comment.block.markdown.fsharp",
-                    "begin": "(\\(\\*\\*(?!\\)))",
-                    "end": "(\\*\\))",
+                    "begin": "^\\s*(\\(\\*\\*(?!\\)))(?!\\*\\))$",
+                    "while": "^(?!\\s*\\*\\)$)",
                     "beginCaptures": {
                         "1": {
                             "name": "comment.block.fsharp"
@@ -114,6 +114,15 @@
                             "include": "text.html.markdown"
                         }
                     ]
+                },
+                {
+                    "name": "comment.block.markdown.fsharp.end",
+                    "match": "^(\\s*\\*\\)$)",
+                    "captures": {
+                        "1": {
+                            "name": "comment.block.fsharp"
+                        }
+                    }
                 },
                 {
                     "name": "comment.block.fsharp",
