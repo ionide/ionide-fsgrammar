@@ -4,6 +4,28 @@ Some more documentation using `Markdown`.
 *)
 module SampleCode.SimpleTypes
 
+module Test =
+
+    (** **Check** that this line isn't capture for the markdown grammar *)
+    let a = ""
+
+    (**
+    This is an edge case, because in early implementation this is commented the whilte file
+
+    Line with indentation isn't colorized because markdown can't set up his context.
+    *)
+    let b = ""
+
+    (**
+This block is colorized becasue markdown can set up his context.
+
+# First-level heading
+This should be parsed as `markdown`.
+This is an edge case, because in early implementation this is parser the whole
+file as markdown
+    *)
+    let c = ""
+
 /// **Description**
 ///
 /// **Parameters**
