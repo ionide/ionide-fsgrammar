@@ -179,7 +179,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\([^-]*\\)|\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]|(?<=,)\\s)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]|(?<=,)\\s)*)",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]|(?<=,)\\s)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]|(?<=,)\\s)*)?",
                     "end": "((``.*``)|(with)|=|$)",
                     "beginCaptures": {
                         "1": {
@@ -212,6 +212,9 @@
                     "patterns": [
                         {
                             "include": "#variables"
+                        },
+                        {
+                            "include": "#member_declaration"
                         }
                     ]
                 }
@@ -430,6 +433,27 @@
                 }
             ]
         },
+        "member_declaration": {
+            "patterns": [
+                {
+                    "begin": "\\(",
+                    "end": "\\)",
+                    "patterns": [
+                        {
+                            "match": "\\?{0,1}([[:alpha:]0-9'`<>^._]+)\\s*(:{0,1}\\s*([?[:alpha:]0-9'<>^._]+)){0,1}",
+                            "captures": {
+                                "1": {
+                                    "name": "variable.parameter.fsharp"
+                                },
+                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "double_tick": {
             "patterns": [
                 {
@@ -453,9 +477,9 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "match": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]?(private|internal|public)?[\\s]*(\\([?[:alpha:]0-9'<>^:,._ ]+\\))?[\\s]*((with)|(as [[:alpha:]0-9']+)|(=)|[\\n=]|(\\(\\)))",
-
-                    "captures": {
+                    "begin": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'<>^:,._]+)[\\s]?(private|internal|public)?[\\s]*",
+                    "end": "[\\s]*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
+                    "beginCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
                         },
@@ -467,23 +491,33 @@
                         },
                         "4": {
                             "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "2": {
+                            "name": "keyword.other.fsharp"
                         },
-                        "5":{
-                            "name": "entity.name.type.fsharp"
+                        "3": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "4": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "5": {
+                            "name": "variable.parameter.fsharp"
+                        },
+                        "6": {
+                            "name": "keyword.other.fsharp"
                         },
                         "7": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "8": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "9": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "10": {
                             "name": "constant.language.unit.fsharp"
                         }
-                    }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#member_declaration"
+                        }
+                    ]
                 }
             ]
         },
