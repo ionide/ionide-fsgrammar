@@ -4,6 +4,28 @@ Some more documentation using `Markdown`.
 *)
 module SampleCode.SimpleTypes
 
+module Test =
+
+    (** **Check** that this line isn't capture for the markdown grammar *)
+    let a = ""
+
+    (**
+    This is an edge case, because in early implementation this is commented the whilte file
+
+    Line with indentation isn't colorized because markdown can't set up his context.
+    *)
+    let b = ""
+
+    (**
+This block is colorized becasue markdown can set up his context.
+
+# First-level heading
+This should be parsed as `markdown`.
+This is an edge case, because in early implementation this is parser the whole
+file as markdown
+    *)
+    let c = ""
+
 /// **Description**
 ///
 /// **Parameters**
@@ -16,6 +38,10 @@ module SampleCode.SimpleTypes
 /// **Exceptions**
 ///
 let markdownDemo (arg1 : string) (arg2 : string) =
+    ""
+
+/// **Checking that markdown is really working on single line**
+let markdownDemo2 (arg1 : string) (arg2 : string) =
     ""
 
 // **This comment isn't formatted**
@@ -44,6 +70,11 @@ type Class1() =
 // Check accessibility modifier coloring
 type R = private { X  : int }
 type U = private | X of int
+
+// Check builder detection (based on a whitelist)
+let a = promise { }
+let b = pipeline { }
+let c = noColor { }
 
 type FancyClass(thing:int, var2 : string, ``ddzdz``: string, extra) as xxx =
 

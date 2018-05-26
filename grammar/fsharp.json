@@ -97,8 +97,8 @@
             "patterns": [
                 {
                     "name": "comment.block.markdown.fsharp",
-                    "begin": "(\\(\\*\\*(?!\\)))",
-                    "end": "(\\*\\))",
+                    "begin": "^\\s*(\\(\\*\\*(?!\\)))(?!\\*\\))$",
+                    "while": "^(?!\\s*\\*\\)$)",
                     "beginCaptures": {
                         "1": {
                             "name": "comment.block.fsharp"
@@ -114,6 +114,15 @@
                             "include": "text.html.markdown"
                         }
                     ]
+                },
+                {
+                    "name": "comment.block.markdown.fsharp.end",
+                    "match": "^(\\s*\\*\\)$)",
+                    "captures": {
+                        "1": {
+                            "name": "comment.block.fsharp"
+                        }
+                    }
                 },
                 {
                     "name": "comment.block.fsharp",
@@ -133,7 +142,7 @@
                 {
                     "name": "comment.line.markdown.fsharp",
                     "begin": "///",
-                    "end": "$",
+                    "while": "///",
                     "patterns": [
                         {
                             "include": "text.html.markdown"
@@ -516,9 +525,9 @@
             "patterns": [
                 {
                     "name": "cexpr.fsharp",
-                    "match": "\\b((?:[[:alpha:]]+\\.[[:alpha:]]+)|([[:alpha:]]+))\\s+\\{",
+                    "match": "\\b(async|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)\\s+\\{",
                     "captures": {
-                        "2": {
+                        "1": {
                             "name": "keyword.other.fsharp"
                         }
                     }
