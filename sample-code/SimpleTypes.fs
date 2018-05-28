@@ -131,3 +131,7 @@ let res (client : Client, extraParam) = client.Request { Params = "" }
 [<Measure>]
 type kg
 
+
+let forLoop =
+    [ for index = 0 to 1 do
+        yield "" ]
