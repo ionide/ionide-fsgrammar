@@ -131,7 +131,14 @@ let res (client : Client, extraParam) = client.Request { Params = "" }
 [<Measure>]
 type kg
 
-
 let forLoop =
     [ for index = 0 to 1 do
-        yield "" ]
+        yield index ]
+
+type TestDUTypeColoration =
+    | CaseA
+    | CaseB of int
+    | CaseC of int * string
+    | CaseD of name :string * age:int
+    | CaseE of client: Client
+    | CaseF of client: Client * string * port : int
