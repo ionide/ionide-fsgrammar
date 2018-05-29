@@ -440,12 +440,15 @@
                     "end": "\\)",
                     "patterns": [
                         {
-                            "match": "\\?{0,1}([[:alpha:]0-9'`<>^._]+)\\s*(:{0,1}\\s*([?[:alpha:]0-9'<>^._]+)){0,1}",
+                            "match": "\\?{0,1}([[:alpha:]0-9'`<>^._]+)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'<>^._]+)){0,1}",
                             "captures": {
                                 "1": {
                                     "name": "variable.parameter.fsharp"
                                 },
                                 "2": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "3": {
                                     "name": "entity.name.type.fsharp"
                                 }
                             }
