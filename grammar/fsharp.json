@@ -236,7 +236,7 @@
                     },
                     "patterns": [
                         {
-                            "match": "([[:alpha:]0-9'`<>^._][[:alpha:]0-9'`<>^._]+)(:)([[:alpha:]0-9'`<>^._]+)",
+                            "match": "([[:alpha:]0-9'`<>^._]+)\\s*(:)\\s*([[:alpha:]0-9'`<>^._]+)",
                             "captures": {
                                 "1": {
                                     "name": "variable.parameter.fsharp"
