@@ -142,3 +142,5 @@ type TestDUTypeColoration =
     | CaseD of name :string * age:int
     | CaseE of client: Client
     | CaseF of client: Client * string * port : int
+    | CaseG of (obj -> unit)
+    | CaseH of string * (obj -> unit)

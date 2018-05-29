@@ -236,7 +236,7 @@
                     },
                     "patterns": [
                         {
-                            "match": "([^:*]+)(:)([^:*]+)",
+                            "match": "([[:alpha:]0-9'`<>^._][[:alpha:]0-9'`<>^._]+)(:)([[:alpha:]0-9'`<>^._]+)",
                             "captures": {
                                 "1": {
                                     "name": "variable.parameter.fsharp"
@@ -250,7 +250,17 @@
                             }
                         },
                         {
-                            "match": "([^:*]+)",
+                            "match": "([[:alpha:]0-9'`<>^._]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "begin": "\\(",
+                            "end": "\\)",
+                            "match": "([[:alpha:]0-9'`<>^._]+)",
                             "captures": {
                                 "1": {
                                     "name": "entity.name.type.fsharp"
