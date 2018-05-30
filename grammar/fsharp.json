@@ -226,7 +226,7 @@
             "patterns": [
                 {
                     "name": "du_declaration.fsharp",
-                    "begin": "(of)",
+                    "begin": "(of)\\b",
                     "end": "$|(\\|)",
                     "beginCaptures": {
                         "1": {
