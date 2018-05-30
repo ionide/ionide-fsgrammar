@@ -144,3 +144,5 @@ type TestDUTypeColoration =
     | CaseF of client: Client * string * port : int
     | CaseG of (obj -> unit)
     | CaseH of string * (obj -> unit)
+    // Check multiple declaration on one line
+    | CaseI of int | CaseJ of int
