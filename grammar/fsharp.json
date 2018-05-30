@@ -52,7 +52,6 @@
         {
             "include": "#cexprs"
         },
-
         {
             "include": "#text"
         }
@@ -228,8 +227,13 @@
                 {
                     "name": "du_declaration.fsharp",
                     "begin": "(of)",
-                    "end": "$",
+                    "end": "$|(\\|)",
                     "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "endCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
                         }
