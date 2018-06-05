@@ -586,7 +586,7 @@
             "patterns": [
                 {
                     "name": "cexpr.fsharp",
-                    "match": "\\b(async|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)\\s*\\{",
+                    "match": "\\b(async|seq|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)\\s*\\{",
                     "captures": {
                         "0": {
                             "name": "keyword.other.fsharp"
