@@ -76,6 +76,13 @@ let a = promise { }
 let b = pipeline { }
 let c = noColor { }
 
+// Check that known builder names aren't captured as builders when a
+// value name begins with one of them (e.g. `asyncResult`)
+// Also see ionide/ionide-vscode-fsharp#836
+let d =
+    let asyncF = async { }
+    asyncF
+
 type FancyClass(thing:int, var2 : string, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
