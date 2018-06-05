@@ -79,7 +79,7 @@
     "keywords": {
       "patterns": [
         {
-          "match": "\\b(GITHUB|NUGET|GIST|HTTP|GROUP|specs|remote)\\b",
+          "match": "\\b(GITHUB|NUGET|GIST|HTTP|GROUP|specs|remote|STORAGE|RESTRICTION)\\b",
           "name": "keyword.other.fsharp"
         },
         {
