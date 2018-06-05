@@ -110,6 +110,10 @@ let (name : string, age) = "", 0
 // Check that option is also colored as part of the type definition
 let debounce (debounce : int option) = ""
 
+// Check output type coloration
+let mutable timeoutID : float = 0.
+let test2 test (timeoutID : float option) : int option = None
+
 module test =
     let t = 1
 
