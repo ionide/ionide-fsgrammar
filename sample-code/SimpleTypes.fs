@@ -1,4 +1,4 @@
-﻿(**
+(**
 # First-level heading
 Some more documentation using `Markdown`.
 *)
@@ -82,6 +82,9 @@ let c = noColor { }
 let d =
     let asyncF = async { }
     asyncF
+
+// Whitespace between builder and opening brace is optional
+let e = async{ return 0 }
 
 type FancyClass(thing:int, var2 : string, ``ddzdz``: string list, extra) as xxx =
 
