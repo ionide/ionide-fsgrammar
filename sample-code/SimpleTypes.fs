@@ -76,13 +76,13 @@ let a = promise { }
 let b = pipeline { }
 let c = noColor { }
 
-type FancyClass(thing:int, var2 : string, ``ddzdz``: string, extra) as xxx =
+type FancyClass(thing:int, var2 : string, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
 
     member xxx.Test() = "F#"
 
-    member __.Test2(thing:int, var2 : string, ``ddzdz``: string, extra) = ""
+    member __.Test2(thing:int, var2 : string, ``ddzdz``: string option, extra) = ""
 
 type FancyClass1(?thing:int) =
     class end
@@ -96,6 +96,9 @@ type FancyClass3 private (?thing:int) =
 let paramsColorWorksHereToo (client : obj, extraParam) = ""
 
 let (name : string, age) = "", 0
+
+// Check that option is also colored as part of the type definition
+let debounce (debounce : int option) = ""
 
 module test =
     let t = 1
