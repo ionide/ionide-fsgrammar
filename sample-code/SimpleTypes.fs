@@ -1,4 +1,4 @@
-﻿(**
+(**
 # First-level heading
 Some more documentation using `Markdown`.
 *)
@@ -75,6 +75,16 @@ type U = private | X of int
 let a = promise { }
 let b = pipeline { }
 let c = noColor { }
+
+// Check that known builder names aren't captured as builders when a
+// value name begins with one of them (e.g. `asyncResult`)
+// Also see ionide/ionide-vscode-fsharp#836
+let d =
+    let asyncF = async { }
+    asyncF
+
+// Whitespace between builder and opening brace is optional
+let e = async{ return 0 }
 
 type FancyClass(thing:int, var2 : string, ``ddzdz``: string list, extra) as xxx =
 
