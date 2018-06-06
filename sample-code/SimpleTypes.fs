@@ -62,6 +62,9 @@ type EgalNewLine
 
 type Underscore_Name = | Underscore_Name of string
 
+let i32 = typeof<int>
+let list = typedefof<_ list>
+
 type Accentué = int
 
 type Class1() =
