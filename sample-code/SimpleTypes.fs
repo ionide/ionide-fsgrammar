@@ -1,4 +1,4 @@
-(**
+﻿(**
 # First-level heading
 Some more documentation using `Markdown`.
 *)
@@ -47,6 +47,8 @@ let markdownDemo2 (arg1 : string) (arg2 : string) =
 // **This comment isn't formatted**
 
 (* Neither this one *)
+
+exception UndefinedValueException of string
 
 type Alias = int
 
