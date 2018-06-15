@@ -509,6 +509,17 @@
                     "end": "\\)",
                     "patterns": [
                         {
+                            "match": "\\s*(->)\\s*([[:alpha:]0-9'`<>^._]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
                             "match": "\\?{0,1}([[:alpha:]0-9'`<>^._]+)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'<>^._ ]+)){0,1}",
                             "captures": {
                                 "1": {
