@@ -91,13 +91,16 @@ let d =
 // Whitespace between builder and opening brace is optional
 let e = async{ return 0 }
 
-type FancyClass(thing:int, var2 : string, ``ddzdz``: string list, extra) as xxx =
+type FancyClass(thing:int, var2 : string -> int, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
 
     member xxx.Test() = "F#"
 
     member __.Test2(thing:int, var2 : string, ``name with space``: string option, extra) = ""
+
+// Arrow should be colored as a keyword and int as type definition
+let exec (buildOptions: int -> int -> int -> int) args = ""
 
 type FancyClass1(?thing:int) =
     class end
