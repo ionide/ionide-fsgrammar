@@ -97,7 +97,7 @@ type FancyClass(thing:int, var2 : string -> int, ``ddzdz``: string list, extra) 
 
     member xxx.Test() = "F#"
 
-    member __.Test2(thing:int, var2 : string, ``ddzdz``: string option, extra) = ""
+    member __.Test2(thing:int, var2 : string, ``name with space``: string option, extra) = ""
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
@@ -171,3 +171,35 @@ type TestDUTypeColoration =
     | CaseH of string * (obj -> unit)
     // Check multiple declaration on one line
     | CaseI of int | CaseJ of int
+
+type GenType<'a> = 'a
+
+type ``type with space`` = obj
+
+let t : ``type with space`` = null
+let t2 : obj = null
+
+type TestRecordColoration<'a> =
+    { Firstname : string
+      Lastname : string
+      Age : int
+      Notify : string -> unit
+      Notify2 : string ->unit
+      Notify3 : string-> unit
+      Notify4 : string   ->    unit
+      Callback : (string * int) -> GenType<'a> -> Client
+      TypeWithSpace : ``type with space``
+      Nested : ((string * int) -> RequestData) -> Client
+      mutable Mutable : obj }
+
+type CheckSingleLineRecord =
+    { Param1 : string; Param2 : obj }
+
+// Check that compression expression aren't mess up by the record coloration
+let a =
+    async {
+        let! a = async {
+            return 0
+        }
+        return a
+    }
