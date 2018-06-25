@@ -203,3 +203,25 @@ let a =
         }
         return a
     }
+
+// Edge cases provided by @selketjah
+// In this code some of the `type` word where colored in purple
+type Example =
+   { Type : int
+     SType : int
+     Stype : int
+     STypeT : int
+     StypeT : int
+     TypeS : int
+     typeTest : int
+     stype : int
+     stypes : int
+     s_type : int }
+
+// Edge cases provided by @selketjah
+// `type` was colored as keyword
+// `with` as a Type declaration
+let temp (s : Example) =
+   match s.stype with
+   | 0 -> "whatever"
+   | 1 -> "you lazy bastard"

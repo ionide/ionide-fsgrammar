@@ -566,7 +566,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "begin": "(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`<>^:,._ ]+)[\\s]?(private|internal|public)?[\\s]*",
+                    "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`<>^:,._ ]+)[\\s]?(private|internal|public)?[\\s]*",
                     "end": "[\\s]*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
