@@ -238,3 +238,11 @@ let temp (s : Example) =
    match s.stype with
    | 0 -> "whatever"
    | 1 -> "you lazy bastard"
+
+type Program<'arg, 'model, 'msg, 'view > =
+    { Arg : 'arg
+      Model : 'model
+      Msg : 'msg
+      View : 'view }
+
+let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
