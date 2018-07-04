@@ -655,6 +655,9 @@
                             "include": "#keywords"
                         },
                         {
+                            "include": "#anonymous_functions"
+                        },
+                        {
                             "include": "#strings"
                         },
                         {
