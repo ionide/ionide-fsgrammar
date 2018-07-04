@@ -192,6 +192,19 @@ type TestRecordColoration<'a> =
       Nested : ((string * int) -> RequestData) -> Client
       mutable Mutable : obj }
 
+let testRecordColoration =
+    { Firstname = "string"
+      Lastname = "string"
+      Age = 10
+      Notify = fun _ -> ()
+      Notify2 = fun s -> ()
+      Notify3 = fun _ -> ()
+      Notify4 = fun _ -> ()
+      Callback = fun (a, b) t -> unbox null
+      TypeWithSpace = null
+      Nested = fun func -> unbox null
+      Mutable = null }
+
 type CheckSingleLineRecord =
     { Param1 : string; Param2 : obj }
 
