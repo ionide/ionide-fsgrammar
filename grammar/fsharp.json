@@ -216,6 +216,9 @@
                     },
                     "patterns": [
                         {
+                            "include": "#comments"
+                        },
+                        {
                             "include": "#variables"
                         },
                         {
@@ -512,6 +515,9 @@
                     "end": "\\)",
                     "patterns": [
                         {
+                            "include": "#comments"
+                        },
+                        {
                             "match": "\\s*(->)\\s*([[:alpha:]0-9'`<>^._ ]+)",
                             "captures": {
                                 "1": {
@@ -603,6 +609,9 @@
                         }
                     },
                     "patterns": [
+                        {
+                            "include": "#comments"
+                        },
                         {
                             "include": "#member_declaration"
                         }
