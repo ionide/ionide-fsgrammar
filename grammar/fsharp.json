@@ -208,7 +208,7 @@
                             "name": "keyword.other.fsharp"
                         },
                         "2": {
-                            "name": "variable.other.binding.fsharp"
+                            "name": "entity.name.type.fsharp"
                         },
                         "3": {
                             "name": "keyword.other.fsharp"
