@@ -111,7 +111,23 @@ type private FancyClass2 (?thing:int) =
 type FancyClass3 private (?thing:int) =
     class end
 
-let paramsColorWorksHereToo (client : obj, extraParam) = ""
+let paramsColorWorksHereToo (client : obj, extraParam) (name : unit -> obj) = ""
+
+let endOfThisLineShouldBeCommented// (client : obj, extraParam) = ""
+    = ""
+
+// Fixed width comments also works and coloration is still correct after it
+let endOfThisLineShouldBeCommented2 (*(client : obj, extraParam) = ""*) (name: int) = ""
+
+// Fixed width comments also works even in tuples parameters
+// and coloration is still correct after it
+let private _emitLetBinding (il:int, (*methods:MethodSymbolTable, locals:LocalsSymbolTable,*) binding:obj) =
+    ""
+
+type EndOfThisLineShouldBe//Commented (a:int, b:int) =
+    (a: int, b: int) = // This line isn't colored, not sure if we can fix it easily
+    // Also, this is an edge case so let's ignore it
+        class end
 
 let (name : string, age) = "", 0
 
