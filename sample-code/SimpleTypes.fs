@@ -91,7 +91,7 @@ let d =
 // Whitespace between builder and opening brace is optional
 let e = async{ return 0 }
 
-type FancyClass(thing:int, var2 : string -> int, ``ddzdz``: string list, extra) as xxx =
+type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
 
@@ -101,6 +101,27 @@ type FancyClass(thing:int, var2 : string -> int, ``ddzdz``: string list, extra) 
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
+
+type Program<'arg, 'model, 'msg, 'view> =
+    { Arg : 'arg
+      Model : 'model
+      Msg : 'msg
+      View : 'view }
+
+let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
+let run2 (program : unit -> Program<'arg, 'model, 'msg, 'view>) = ""
+
+type T =
+    abstract member Name: string option with get, set
+    abstract member NameTestComment: string (*I am a comments*) option with get, set
+    abstract member NameTestComment2: string //option with get, set
+    abstract member Keys: unit -> Program<'arg, 'model, 'msg, array<'view>>
+    abstract Run : program : Program<'arg, 'model, 'msg, 'view> -> unit
+    abstract ``open``: cacheName: string -> obj
+    abstract DrawElementsInstancedANGLE: mode: float * count: float * ``type``: float * offset: float * primcount: float
+
+type FancyClass with
+    member __.Run (program : Program<'arg, 'model, 'msg, array<'view>>) = ()
 
 type FancyClass1(?thing:int) =
     class end
@@ -125,8 +146,7 @@ let private _emitLetBinding (il:int, (*methods:MethodSymbolTable, locals:LocalsS
     ""
 
 type EndOfThisLineShouldBe//Commented (a:int, b:int) =
-    (a: int, b: int) = // This line isn't colored, not sure if we can fix it easily
-    // Also, this is an edge case so let's ignore it
+    (a: int, b: int) =
         class end
 
 let (name : string, age) = "", 0
@@ -254,11 +274,3 @@ let temp (s : Example) =
    match s.stype with
    | 0 -> "whatever"
    | 1 -> "you lazy bastard"
-
-type Program<'arg, 'model, 'msg, 'view > =
-    { Arg : 'arg
-      Model : 'model
-      Msg : 'msg
-      View : 'view }
-
-let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
