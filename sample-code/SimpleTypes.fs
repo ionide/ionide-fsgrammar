@@ -154,6 +154,18 @@ type EndOfThisLineShouldBe//Commented (a:int, b:int) =
 
 let (name : string, age) = "", 0
 
+let variable = "value"
+
+// Check that style is apply even when declaration is on multiple lines
+let func arg1 arg2 = ""
+
+let func
+    arg1 arg2 = ""
+
+let func
+    arg1
+    arg2 = ""
+
 // Check that option is also colored as part of the type definition
 let debounce (debounce : int option) = ""
 
