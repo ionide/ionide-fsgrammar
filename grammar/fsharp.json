@@ -84,6 +84,9 @@
                             "include": "#comments"
                         },
                         {
+                            "include": "#keywords"
+                        },
+                        {
                             "include": "#variables"
                         }
                     ]
@@ -374,7 +377,7 @@
                 },
                 {
                     "name": "keyword.other.fsharp",
-                    "match": "(&&&|\\|\\|\\||\\^\\^\\^|~~~|<<<|>>>|\\|>|\\->|\\<\\-|:>|:\\?>|:|\\[|\\]|\\;|<>|=|@|\\|\\||&&|{|}|\\||_|\\.\\.|\\,|\\+|\\-|\\*|\\/|\\^|\\!|\\>|\\>\\=|\\>\\>|\\<|\\<\\=|\\<\\<)"
+                    "match": "(&&&|\\|\\|\\||\\^\\^\\^|~~~|<<<|>>>|\\|>|\\->|\\<\\-|:>|:\\?>|:|\\[|\\]|\\;|<>|=|@|\\|\\||&&|{|}|\\||_|\\.\\.|\\,|\\+|\\-|\\*|\\/|\\^|\\!|\\>|\\>\\=|\\>\\>|\\<|\\<\\=|\\(|\\)|\\<\\<)"
                 }
             ]
         },
@@ -661,8 +664,18 @@
         "member_declaration": {
             "patterns": [
                 {
-                    "begin": "\\(",
-                    "end": "\\)",
+                    "begin": "(\\()",
+                    "end": "(\\))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
                     "patterns": [
                         {
                             "include": "#comments"
@@ -715,7 +728,7 @@
                 {
                     "name": "record.fsharp",
                     "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+)(<)",
-                    "end": "\\s*(>)\\s*(private|internal|public)?",
+                    "end": "\\s*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
@@ -731,54 +744,6 @@
                         }
                     },
                     "endCaptures": {
-                        "1": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "2": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "4": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "5": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "6": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "7": {
-                            "name": "variable.parameter.fsharp"
-                        },
-                        "8": {
-                            "name": "keyword.other.fsharp"
-                        },
-                        "9": {
-                            "name": "constant.language.unit.fsharp"
-                        }
-                    },
-                    "patterns": [
-                        {
-                            "include": "#comments"
-                        },
-                        {
-                            "match": "([[:alpha:]0-9'`^._ ]+)",
-                            "captures": {
-                                "1": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            }
-                        },
-                        {
-                            "include": "#keywords"
-                        }
-                    ]
-                },
-                {
-                    "include": "#member_declaration"
-                },
-                {
-                    "match": "\\s*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
-                    "captures": {
                         "2": {
                             "name": "keyword.other.fsharp"
                         },
@@ -797,7 +762,55 @@
                         "7": {
                             "name": "constant.language.unit.fsharp"
                         }
-                    }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "match": "\\s*(>)\\s*(private|internal|public)?",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "4": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "5": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "6": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "7": {
+                                    "name": "variable.parameter.fsharp"
+                                },
+                                "8": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "9": {
+                                    "name": "constant.language.unit.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "match": "([[:alpha:]0-9'`^._ ]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#member_declaration"
+                        },
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
                 },
                 {
                     "name": "record.fsharp",
