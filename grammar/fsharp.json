@@ -81,6 +81,9 @@
                     },
                     "patterns": [
                         {
+                            "include": "#comments"
+                        },
+                        {
                             "include": "#variables"
                         }
                     ]
@@ -316,6 +319,9 @@
                         }
                     },
                     "patterns": [
+                        {
+                            "include": "#comments"
+                        },
                         {
                             "match": "([[:alpha:]0-9'`<>^._]+)\\s*(:)\\s*([[:alpha:]0-9'`<>^._]+)",
                             "captures": {
@@ -752,6 +758,9 @@
                     },
                     "patterns": [
                         {
+                            "include": "#comments"
+                        },
+                        {
                             "match": "([[:alpha:]0-9'`^._ ]+)",
                             "captures": {
                                 "1": {
@@ -761,9 +770,6 @@
                         },
                         {
                             "include": "#keywords"
-                        },
-                        {
-                            "include": "#comments"
                         }
                     ]
                 },
@@ -854,6 +860,9 @@
                     "end": "(?<=\\})",
                     "patterns": [
                         {
+                            "include": "#comments"
+                        },
+                        {
                             "begin": "(((mutable)\\s[[:alpha:]]+)|[[:alpha:]0-9'`<>^._]*)\\s*(:)\\s*",
                             "beginCaptures": {
                                 "3": {
@@ -870,6 +879,9 @@
                                 }
                             },
                             "patterns": [
+                                {
+                                    "include": "#comments"
+                                },
                                 {
                                     "match": "([[:alpha:]0-9'`<>^_ ]+)",
                                     "captures": {

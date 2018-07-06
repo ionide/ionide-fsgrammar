@@ -102,7 +102,7 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
 
-type TestGeneric<'arg, 'model, 'msg, 'view> private (a: 'arg, model: 'model, msg: 'msg, view: 'view, notify : string -> unit ) as xxx =
+type TestGeneric<'arg, 'model, 'msg, 'view> private (*comments test*) (a: 'arg, model: 'model, msg: 'msg, view: 'view, notify : string -> unit ) as xxx =
     class end
 
 type Program<'arg, 'model, 'msg, 'view> =
@@ -217,11 +217,12 @@ type TestDUTypeColoration =
     | CaseC of int * string
     | CaseD of name :string * age:int
     | CaseE of client: Client
-    | CaseF of client: Client * string * port : int
+    | CaseF of client: Client (*comment tests*) * (*comment tests*) string * port : int
     | CaseG of (obj -> unit)
     | CaseH of string * (obj -> unit)
     // Check multiple declaration on one line
     | CaseI of int | CaseJ of int
+    | CaseF2 of client: Client // * string * port : int
 
 type GenType<'a> = 'a
 
@@ -233,36 +234,38 @@ let t2 : obj = null
 type TestRecordColoration<'a> =
     { Firstname : string
       Lastname : string
-      Age : int
+      /// Test docs comments works with `markdown`
+      Age : (*comment tests*) int
       Notify : string -> unit
       Notify2 : string ->unit
       Notify3 : string-> unit
       Notify4 : string   ->    unit
-      Callback : (string * int) -> GenType<'a> -> Client
+      Callback : (string * int) -> GenType<'a> -> Client // Comments tests
       TypeWithSpace : ``type with space``
-      Nested : ((string * int) -> RequestData) -> Client
+      Nested : ((string * int) -> (*comment tests*) RequestData) -> Client
       mutable Mutable : obj }
 
 let testRecordColoration =
-    { Firstname = "string"
+    { Firstname = "string" // Comments should work here
       Lastname = "string"
       Age = 10
       Notify = fun _ -> ()
       Notify2 = fun s -> ()
       Notify3 = fun _ -> ()
       Notify4 = fun _ -> ()
-      Callback = fun (a, b) t -> unbox null
+      Callback = fun (a, (*b) comments should works here too*) b) -> unbox null
       TypeWithSpace = null
       Nested = fun func -> unbox null
       Mutable = null }
 
 type CheckSingleLineRecord =
-    { Param1 : string; Param2 : obj }
+    { Param1 : string; (*comment tests*) Param2 : obj }
 
 // Check that compression expression aren't mess up by the record coloration
 let a =
     async {
         let! a = async {
+            (*comment tests*)
             return 0
         }
         return a
@@ -275,8 +278,8 @@ type Example =
      SType : int
      Stype : int
      STypeT : int
-     StypeT : int
-     TypeS : int
+     StypeT : int // comments tests
+     TypeS : int (*comment tests*)
      typeTest : int
      stype : int
      stypes : int
