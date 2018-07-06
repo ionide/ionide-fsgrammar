@@ -102,6 +102,9 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
 
+type TestGeneric<'arg, 'model, 'msg, 'view> private (a: 'arg, model: 'model, msg: 'msg, view: 'view, notify : string -> unit ) as xxx =
+    class end
+
 type Program<'arg, 'model, 'msg, 'view> =
     { Arg : 'arg
       Model : 'model
