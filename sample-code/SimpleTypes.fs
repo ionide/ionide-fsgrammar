@@ -102,6 +102,9 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
 
+// This line is to check that member_declaration isn't propagate output of declaration scopes
+let p value = System.Int32.Parse(value)
+
 type TestGeneric<'arg, 'model, 'msg, 'view> private (*comments test*) (a: 'arg, model: 'model, msg: 'msg, view: 'view, notify : string -> unit ) as xxx =
     class end
 
@@ -223,6 +226,7 @@ type TestDUTypeColoration =
     // Check multiple declaration on one line
     | CaseI of int | CaseJ of int
     | CaseF2 of client: Client // * string * port : int
+    | FetchDomainsSuccess of Result<int list * int * int, string>
 
 type GenType<'a> = 'a
 
