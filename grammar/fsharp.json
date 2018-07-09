@@ -886,7 +886,7 @@
                                     "include": "#comments"
                                 },
                                 {
-                                    "match": "([[:alpha:]0-9'`<>^_ ]+)",
+                                    "match": "([[:alpha:]0-9'`^_ ]+)",
                                     "captures": {
                                         "1": {
                                             "name": "entity.name.type.fsharp"
