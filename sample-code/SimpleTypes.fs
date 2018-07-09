@@ -108,6 +108,9 @@ let p value = System.Int32.Parse(value)
 type TestGeneric<'arg, 'model, 'msg, 'view> private (*comments test*) (a: 'arg, model: 'model, msg: 'msg, view: 'view, notify : string -> unit ) as xxx =
     class end
 
+type ``Program with spaces``<'arg, 'model, 'msg, 'view> =
+    class end
+
 type Program<'arg, 'model, 'msg, 'view> =
     { Arg : 'arg
       Model : 'model
@@ -151,7 +154,7 @@ let endOfThisLineShouldBeCommented2 (*(client : obj, extraParam) = ""*) (name: i
 let private _emitLetBinding (il:int, (*methods:MethodSymbolTable, locals:LocalsSymbolTable,*) binding:obj) =
     ""
 
-type EndOfThisLineShouldBe//Commented (a:int, b:int) =
+type EndOfThisLineShouldBe //Commented (a:int, b:int)
     (a: int, b: int) =
         class end
 
