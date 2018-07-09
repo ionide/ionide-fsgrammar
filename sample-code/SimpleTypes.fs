@@ -296,3 +296,10 @@ let temp (s : Example) =
    match s.stype with
    | 0 -> "whatever"
    | 1 -> "you lazy bastard"
+
+// Edge case when there is something after } the next type is not colored
+type One =
+    { Id : string } // test
+
+type Two =
+    { Id : int }

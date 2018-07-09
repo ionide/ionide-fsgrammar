@@ -885,7 +885,7 @@
                                     "name": "keyword.other.fsharp"
                                 }
                             },
-                            "end": "$|(;)",
+                            "end": "$|(;|\\})",
                             "endCaptures": {
                                 "1": {
                                     "name": "keyword.other.fsharp"
