@@ -727,8 +727,8 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+)(<)",
-                    "end": "\\s*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
+                    "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
+                    "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
@@ -815,7 +815,7 @@
                 {
                     "name": "record.fsharp",
                     "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+<(.*)>|[[:alpha:]0-9'^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)[\\s]?(private|internal|public)?[\\s]*",
-                    "end": "\\s*((with)|((as) ([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
+                    "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.other.fsharp"
