@@ -124,7 +124,7 @@ type T =
     abstract member Keys: unit -> Program<'arg, 'model, 'msg, array<'view>>
     abstract Run : program : Program<'arg, 'model, 'msg, 'view> -> unit
     abstract ``open``: cacheName: string -> obj
-    abstract DrawElementsInstancedANGLE: mode: float * count: float * ``type``: float * offset: float * primcount: float
+    abstract DrawElementsInstancedANGLE: mode: float * count: float * ``type with spaces``: float * offset: float * primcount: float
 
 type FancyClass with
     member __.Run (program : Program<'arg, 'model, 'msg, array<'view>>) = ()
