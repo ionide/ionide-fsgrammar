@@ -217,6 +217,13 @@ let forLoop =
     [ for index = 0 to 1 do
         yield index ]
 
+type GenType<'a> = 'a
+
+type ``type with spaces`` = obj
+
+let t : ``type with spaces`` = null
+let t2 : obj = null
+
 type TestDUTypeColoration =
     | CaseA
     | CaseB of int
@@ -229,14 +236,11 @@ type TestDUTypeColoration =
     // Check multiple declaration on one line
     | CaseI of int | CaseJ of int
     | CaseF2 of client: Client // * string * port : int
-    | FetchDomainsSuccess of Result<int list * int * int, string>
-
-type GenType<'a> = 'a
-
-type ``type with space`` = obj
-
-let t : ``type with space`` = null
-let t2 : obj = null
+    | FetchDomainsSuccess of Result<int list * ``type with spaces`` * int, ``type with spaces``>
+    | CaseK of ``var with spaces``: string
+    | CaseL of ``var with spaces``: ``type with spaces``
+    | CaseM of v1 : ``type with spaces``
+    | CaseN of ``type with spaces``
 
 type TestRecordColoration<'a> =
     { Firstname : string
@@ -248,7 +252,7 @@ type TestRecordColoration<'a> =
       Notify3 : string-> unit
       Notify4 : string   ->    unit
       Callback : (string * int) -> GenType<'a> -> Client // Comments tests
-      TypeWithSpace : ``type with space``
+      TypeWithSpace : ``type with spaces``
       Nested : ((string * int) -> (*comment tests*) RequestData) -> Client
       mutable Mutable : obj }
 
