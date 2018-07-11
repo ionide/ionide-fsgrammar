@@ -299,7 +299,44 @@
                             "include": "#member_declaration"
                         },
                         {
-                            "match": "(:)(\\s*([?[:alpha:]0-9'`<>^._ ]+))*",
+                            "begin": "(:)\\s*(\\()",
+                            "end": ""
+                        },
+                        {
+                            "begin": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)(<)",
+                            "end": "(>)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                },
+                                "3": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#keywords"
+                                },
+                                {
+                                    "match": "([?[:alpha:]0-9'`^._ ]+)",
+                                    "captures": {
+                                        "1": {
+                                            "name": "entity.name.type.fsharp"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "match": "(:)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
                             "captures": {
                                 "1": {
                                     "name": "keyword.other.fsharp"
@@ -308,6 +345,9 @@
                                     "name": "entity.name.type.fsharp"
                                 }
                             }
+                        },
+                        {
+                            "include": "#keywords"
                         },
                         {
                             "include": "#variables"
