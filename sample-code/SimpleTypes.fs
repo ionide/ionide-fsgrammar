@@ -141,10 +141,10 @@ type private FancyClass2 (?thing:int) =
 type FancyClass3 private (?thing:int) =
     class end
 
-let paramsColorWorksHereToo (client : obj, extraParam) (name : unit -> obj) = ""
+let paramsColorWorksHereToo (client : obj, extraParam) (name : unit -> obj) : string = ""
 
 let endOfThisLineShouldBeCommented// (client : obj, extraParam) = ""
-    = ""
+    : string = ""
 
 // Fixed width comments also works and coloration is still correct after it
 let endOfThisLineShouldBeCommented2 (*(client : obj, extraParam) = ""*) (name: int) = ""
@@ -159,6 +159,24 @@ type EndOfThisLineShouldBe //Commented (a:int, b:int)
         class end
 
 let (name : string, age) = "", 0
+
+// Test signature coloration
+let primitive : int = 0
+
+let tupleOfPrimitives : int * string = 0, ""
+let tupleOfPrimitives : (int * string) = 0, ""
+
+let generics : Result<string list, int array> = Ok []
+
+let tupleWithGenerics : Result<string list, int array> * int = Ok [], 0
+
+let tupleWithGenerics2 : (Result<string list, int array> * int) = Ok [], 0
+
+let lambda : int -> unit = ignore
+let lambda : (int -> unit) = ignore
+let lambda : (int -> unit) -> unit = ignore
+let lambda : (Result<string list, int array> -> (string * int)) -> unit = ignore
+let lambda : (Result<string list, int array> -> string * int) -> unit = ignore
 
 let variable = "value"
 
@@ -314,3 +332,40 @@ type Two =
 // Check anonymous function type signature
 let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, int>) -> ()
 
+/// Some failing test for now, I keep them here I can go back to them later
+
+let private mixedArray msg (decoders: string []) (path: string) (values: obj[]): Result<obj list, int> =
+    Ok []
+
+type Auto =
+    // Here `<`& `>` not in purple
+    static member GenerateDecoder<'T> (?isCamelCase : bool): GenType<'T> = failwith ""
+
+    // Here generics not colored
+    static member FromString<'T>(json: string, ?isCamelCase : bool): 'T = failwith ""
+
+type Example1 = { Test : int list }
+let test = { Test = [ 1;2;3 ] }
+// test.test shouldn't be colored
+let temp = { test with Test = 3 :: test.Test }
+
+type EitherBuilder() =
+   member __.Bind(x) = x
+   member __.Return(x) = x
+
+let either = EitherBuilder()
+
+let test x =
+    // Ensure coloration is working correctly in custom computation expressions
+   either {
+       let x = x
+       let! c = ""
+
+       return 0
+   }
+
+// Type attribute should be colored
+type [<Pojo>] AppState = {
+    render : unit -> ReactElement
+    setState : AppState -> unit
+}
