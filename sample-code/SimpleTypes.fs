@@ -310,3 +310,7 @@ type One =
 
 type Two =
     { Id : int }
+
+// Check anonymous function type signature
+let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, int>) -> ()
+
