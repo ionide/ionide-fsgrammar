@@ -84,7 +84,18 @@
                             "include": "#comments"
                         },
                         {
-                            "include": "#keywords"
+                            "include": "#member_declaration"
+                        },
+                        {
+                            "match": "(:)(\\s*([?[:alpha:]0-9'`<>^._ ]+))*",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
                         },
                         {
                             "include": "#variables"
