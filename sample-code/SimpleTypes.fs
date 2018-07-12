@@ -365,7 +365,8 @@ let test x =
    }
 
 // Type attribute should be colored
-type [<Pojo>] AppState = {
-    render : unit -> ReactElement
-    setState : AppState -> unit
-}
+type [<AllowNullLiteral>] AppState() =
+    class end
+
+// Generic
+let inline isLoadingTime<'a> = ""
