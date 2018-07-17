@@ -8,13 +8,13 @@
     "foldingStopMarker": "",
     "patterns": [
         {
+            "include": "#compiler_directives"
+        },
+        {
             "include": "#comments"
         },
         {
             "include": "#constants"
-        },
-        {
-            "include": "#structure"
         },
         {
             "include": "#strings"
@@ -410,11 +410,6 @@
                 {
                     "name": "keyword.other.fsharp",
                     "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
-                },
-                {
-                    "name": "meta.preprocessor.fsharp",
-                    "begin": "^\\s*#\\s*(light)\\b",
-                    "end": "(\\s|$)"
                 },
                 {
                     "name": "keyword.other.fsharp",
@@ -999,6 +994,19 @@
                 {
                     "name": "text.fsharp",
                     "match": "\\\\"
+                }
+            ]
+        },
+        "compiler_directives": {
+            "patterns": [
+                {
+                    "name": "compiler_directive.fsharp",
+                    "match": "\\s?(#if|#elif|#elseif|#endif|#light|#nowarn)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.compiler_directive.fsharp"
+                        }
+                    }
                 }
             ]
         }

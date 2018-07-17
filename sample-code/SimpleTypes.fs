@@ -4,6 +4,17 @@ Some more documentation using `Markdown`.
 *)
 module SampleCode.SimpleTypes
 
+// Compiler directives
+
+#if true
+#elif false
+#elseif false
+#endif
+#light "on"
+#nowarn
+#nowarn "9" "40"
+
+
 module Test =
 
     (** **Check** that this line isn't capture for the markdown grammar *)
