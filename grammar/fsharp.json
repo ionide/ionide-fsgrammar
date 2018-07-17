@@ -109,7 +109,7 @@
                 {
                     "name": "support.function.attribute.fsharp",
                     "begin": "\\[\\<",
-                    "end": "\\>\\]",
+                    "end": "\\>\\]|\\]",
                     "patterns": [
                         {
                             "include": "$self"
