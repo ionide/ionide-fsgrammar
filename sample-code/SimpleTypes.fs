@@ -105,10 +105,28 @@ let e = async{ return 0 }
 type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
+    let mutable myInternalValue = null
 
     member xxx.Test() = "F#"
 
-    member __.Test2(thing:int, var2 : string, ``name with space``: string option, extra) = ""
+    // A read-only property.
+    member __.MyReadOnlyProperty = myInternalValue
+    // A write-only property.
+    member __.MyWriteOnlyProperty with set (value) = myInternalValue <- value
+    // A read-write property.
+    member __.MyReadWriteProperty
+        with get () = myInternalValue
+        and set (value) = myInternalValue <- value
+
+    member __.MyReadWriteProperty with get () = myInternalValue
+    member __.MyReadWriteProperty with set (value) = myInternalValue <- value
+
+    member val Property1 = thing
+    member val Property2 = "" with get, set
+
+    /// The typo in withh is intentional, because with is one of the `end` possibility
+    /// We consider it ok, because there is a low chance that a person will use `with` in a quoted variable
+    member __.Test2(thing:int, var2 : string, ``name withh spaces``: string option, extra) = ""
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
@@ -210,6 +228,8 @@ let lambda ( x : (Result<Result<Result<Result<string, string>, string>, string> 
 
 let inline isLoadingTime<'a> = ""
 let inline isLoadingTime<'a, 'b, 'c> = ""
+
+let v ``var with spaces``= ""
 
 let printFullName { Firstname = firstname; Surname = surname } : string = firstname + " " + surname
 let printFirstName { Firstname = firstname } : string = firstname
