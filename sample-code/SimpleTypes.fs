@@ -391,8 +391,6 @@ type Two =
 // Check anonymous function type signature
 let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, int>) -> ()
 
-/// Some failing test for now, I keep them here I can go back to them later
-
 let private mixedArray msg (decoders: string []) (path: string) (values: obj[]): Result<obj list, int> =
     Ok []
 
