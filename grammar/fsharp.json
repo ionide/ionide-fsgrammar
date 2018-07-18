@@ -158,7 +158,7 @@
                     "end": "(->)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.function-definition.fsharp"
+                            "name": "keyword.fsharp"
                         }
                     },
                     "endCaptures": {
@@ -293,21 +293,21 @@
             "end": "\\s*(with)\\b|=|$",
             "beginCaptures": {
                 "1": {
-                    "name": "keyword.other.binding.fsharp"
+                    "name": "keyword.fsharp"
                 },
                 "2": {
-                    "name": "keyword.other.binding.fsharp"
+                    "name": "keyword.fsharp"
                 },
                 "3": {
                     "name": "support.function.attribute.fsharp"
                 },
                 "5": {
-                    "name": "keyword.other.binding.fsharp"
+                    "name": "keyword.fsharp"
                 }
             },
             "endCaptures": {
                 "1": {
-                    "name": "keyword.other.binding.fsharp"
+                    "name": "keyword.fsharp"
                 }
             },
             "patterns": [
@@ -353,19 +353,19 @@
                     "end": "\\s*(with\\b|=|\\n+=)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.binding.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.function-recursive.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
                             "name": "support.function.attribute.fsharp"
                         },
                         "4": {
-                            "name": "keyword.other.access.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "5": {
-                            "name": "variable.other.binding.fsharp"
+                            "name": "variable.fsharp"
                         }
                     },
                     "endCaptures": {
@@ -541,7 +541,7 @@
                 {
                     "name": "entity.name.section.fsharp",
                     "begin": "\\b(namespace|module)\\s*(public|internal|private)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
-                    "end": "(\\s|$)",
+                    "end": "(\\s?=|\\s|$)",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
@@ -551,6 +551,11 @@
                         },
                         "3": {
                             "name": "entity.name.section.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -601,7 +606,7 @@
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.namespace-definition.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.namespace.fsharp"
@@ -714,7 +719,7 @@
                     "match": "(%0?-?(\\d+)?((a|t)|(\\.\\d+)?(f|F|e|E|g|G|M)|(b|c|s|d|i|x|X|o)|(s|b|O)|(\\+?A)))",
                     "captures": {
                         "1": {
-                            "name": "keyword.other.format.specifier.fsharp"
+                            "name": "keyword.format.specifier.fsharp"
                         }
                     }
                 }
