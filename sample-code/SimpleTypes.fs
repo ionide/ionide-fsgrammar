@@ -140,6 +140,7 @@ type T =
     abstract ``open``: cacheName: string -> obj
     abstract DrawElementsInstancedANGLE: mode: float * count: float * ``type with spaces``: float * offset: float * primcount: float
     abstract Test : Result<string list, int array>
+    abstract Test2 : mode: float * test : (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)
     abstract TupleOfTuples : (int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)))
 
 type FancyClass with
