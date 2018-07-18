@@ -135,10 +135,12 @@ type T =
     abstract member Name: string option with get, set
     abstract member NameTestComment: string (*I am a comments*) option with get, set
     abstract member NameTestComment2: string //option with get, set
-    abstract member Keys: unit -> Program<'arg, 'model, 'msg, array<'view>>
-    abstract Run : program : Program<'arg, 'model, 'msg, 'view> -> unit
+    abstract member Keys: unit -> Program<'arg, 'model, 'msg, array<array<array<'view>>>>
+    abstract Run : program : Program<'arg, 'model, 'msg, array<array<array<'view>>>> -> unit
     abstract ``open``: cacheName: string -> obj
     abstract DrawElementsInstancedANGLE: mode: float * count: float * ``type with spaces``: float * offset: float * primcount: float
+    abstract Test : Result<string list, int array>
+    abstract TupleOfTuples : (int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)))
 
 type FancyClass with
     member __.Run (program : Program<'arg, 'model, 'msg, array<'view>>) = ()
@@ -171,23 +173,48 @@ type EndOfThisLineShouldBe //Commented (a:int, b:int)
 
 let (name : string, age) = "", 0
 
+type NameRecord =
+    { Firstname : string
+      Surname : string }
+
+type NestedRecord =
+    { Nested : NestedRecord
+      PropB : string }
+
+
 // Test signature coloration
 let primitive : int = 0
 
 let tupleOfPrimitives : int * string = 0, ""
 let tupleOfPrimitives : (int * string) = 0, ""
+let tupleOfTuples : (int * (int * (int * int))) = failwith ""
+let tupleOfTuples : int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)) = failwith ""
+let tupleOfTuples : (int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int))) = failwith ""
 
 let generics : Result<string list, int array> = Ok []
 
 let tupleWithGenerics : Result<string list, int array> * int = Ok [], 0
 
-let tupleWithGenerics2 : (Result<string list, int array> * int) = Ok [], 0
+// Really complexe nested generic type
+let tupleWithGenerics2 : (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int) = Ok [], 0
 
 let lambda : int -> unit = ignore
 let lambda : (int -> unit) = ignore
 let lambda : (int -> unit) -> unit = ignore
 let lambda : (Result<string list, int array> -> (string * int)) -> unit = ignore
-let lambda : (Result<string list, int array> -> string * int) -> unit = ignore
+let lambda : (Result<Result<Result<Result<string, string>, string>, string> list, int array> -> Result<Result<string, string> list, int array> * int) -> unit = ignore
+let lambda ( x : (Result<Result<Result<Result<string, string>, string>, string> list, int array>
+                -> Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)
+                -> unit) : ('T -> unit ) = ignore
+
+let inline isLoadingTime<'a> = ""
+let inline isLoadingTime<'a, 'b, 'c> = ""
+
+let printFullName { Firstname = firstname; Surname = surname } : string = firstname + " " + surname
+let printFirstName { Firstname = firstname } : string = firstname
+let printFirstName ({ Firstname = ``var with spaces`` } : NameRecord) ( _ : obj) : string = ``var with spaces``
+
+let nestedRecords ({ Nested = { Nested = { Nested = { Nested = value }; PropB = _ } }; PropB = propB } : NestedRecord) : string = value.PropB + " " + propB
 
 let variable = "value"
 
@@ -378,6 +405,3 @@ let test x =
 // Type attribute should be colored
 type [<AllowNullLiteral>] AppState() =
     class end
-
-// Generic
-let inline isLoadingTime<'a> = ""

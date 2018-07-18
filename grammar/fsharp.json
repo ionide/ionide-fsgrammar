@@ -63,6 +63,96 @@
         }
     ],
     "repository": {
+        "generic_declaration": {
+            "patterns": [
+                {
+                    "match": "([^<>,])",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "begin": "(<)",
+                    "end": "(>)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "match": "([^<>,])",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#generic_declaration"
+                        }
+                    ]
+                },
+                {
+                    "include": "#keywords"
+                }
+            ]
+        },
+        "record_signature": {
+            "patterns": [
+                {
+                    "match": "[[:alpha:]0-9'`^_ ]+(=)([[:alpha:]0-9'`^_ ]+)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        },
+                        "2": {
+                            "name": "variable.parameter.fsharp"
+                        }
+                    }
+                },
+                {
+                    "begin": "({)",
+                    "end": "(})",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.other.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "match": "[[:alpha:]0-9'`^_ ]+(=)([[:alpha:]0-9'`^_ ]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "variable.parameter.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#record_signature"
+                        }
+                    ]
+                },
+                {
+                    "include": "#keywords"
+                }
+            ]
+        },
         "anonymous_functions": {
             "patterns": [
                 {
@@ -245,7 +335,8 @@
                     }
                 },
                 {
-                    "match": "(?!with|get|set\\b)\\b([\\w0-9'`<>^._]+)",
+                    "match": "(?!with|get|set\\b)\\b([\\w0-9'`^._]+)",
+                    "comments": "Here we need the \\w modifier in order to check that the words isn't blacklisted",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.fsharp"
@@ -296,47 +387,21 @@
                             "include": "#comments"
                         },
                         {
-                            "include": "#member_declaration"
-                        },
-                        {
-                            "begin": "(:)\\s*(\\()",
-                            "end": ""
-                        },
-                        {
-                            "begin": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)(<)",
-                            "end": "(>)",
-                            "beginCaptures": {
+                            "match": "(:)\\s*(\\()?\\s*(([?[:alpha:]0-9'`^._ ]+))*",
+                            "captures": {
                                 "1": {
                                     "name": "keyword.other.fsharp"
                                 },
                                 "2": {
-                                    "name": "entity.name.type.fsharp"
+                                    "name": "keyword.other.fsharp"
                                 },
                                 "3": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "entity.name.type.fsharp"
                                 }
-                            },
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.other.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "include": "#keywords"
-                                },
-                                {
-                                    "match": "([?[:alpha:]0-9'`^._ ]+)",
-                                    "captures": {
-                                        "1": {
-                                            "name": "entity.name.type.fsharp"
-                                        }
-                                    }
-                                }
-                            ]
+                            }
                         },
                         {
-                            "match": "(:)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
+                            "match": "(\\*\\s*\\()\\s*(([?[:alpha:]0-9'`^._ ]+))*",
                             "captures": {
                                 "1": {
                                     "name": "keyword.other.fsharp"
@@ -347,10 +412,73 @@
                             }
                         },
                         {
-                            "include": "#keywords"
+                            "match": "(->)\\s*(\\()?\\s*([?[:alpha:]0-9'`^._ ]+)*",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "3": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "match": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
+                            "captures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                },
+                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "begin": "(<)",
+                            "end": "(>)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#generic_declaration"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "({)",
+                            "end": "(})",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.other.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#record_signature"
+                                }
+                            ]
                         },
                         {
                             "include": "#variables"
+                        },
+                        {
+                            "include": "#keywords"
                         }
                     ]
                 }
