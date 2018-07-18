@@ -35,9 +35,6 @@
             "include": "#attributes"
         },
         {
-            "include": "#method_calls"
-        },
-        {
             "include": "#modules"
         },
         {
@@ -1049,19 +1046,41 @@
                             ]
                         },
                         {
-                            "include": "#keywords"
+                            "include": "#chars"
                         },
                         {
-                            "include": "#anonymous_functions"
+                            "include": "#compiler_directives"
+                        },
+
+                        {
+                            "include": "#constants"
                         },
                         {
                             "include": "#strings"
                         },
                         {
-                            "include": "#constants"
+                            "include": "#chars"
                         },
                         {
-                            "include": "#chars"
+                            "include": "#double_tick"
+                        },
+                        {
+                            "include": "#definition"
+                        },
+                        {
+                            "include": "#attributes"
+                        },
+                        {
+                            "include": "#anonymous_functions"
+                        },
+                        {
+                            "include": "#keywords"
+                        },
+                        {
+                            "include": "#cexprs"
+                        },
+                        {
+                            "include": "#text"
                         }
                     ]
                 }
