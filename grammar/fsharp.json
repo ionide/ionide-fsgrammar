@@ -882,7 +882,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
+                    "begin": "\\b(type)[\\s]+(private|internal|public)?(\\s*\\[\\<.*\\>\\])?[\\s]*([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
                     "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
@@ -892,9 +892,12 @@
                             "name": "keyword.fsharp"
                         },
                         "3": {
-                            "name": "entity.name.type.fsharp"
+                            "name": "support.function.attribute.fsharp"
                         },
                         "4": {
+                            "name": "entity.name.type.fsharp"
+                        },
+                        "5": {
                             "name": "keyword.symbol.fsharp"
                         }
                     },
@@ -951,7 +954,7 @@
                 },
                 {
                     "name": "record.fsharp",
-                    "begin": "\\b(type)[\\s]+(private|internal|public)?[\\s]*([[:alpha:]0-9'`^:,._]+<(.*)>|[[:alpha:]0-9'^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)[\\s]?(private|internal|public)?[\\s]*",
+                    "begin": "\\b(type)[\\s]+(private|internal|public)?(\\s*\\[\\<.*\\>\\])?[\\s]*([[:alpha:]0-9'`^:,._]+<(.*)>|[[:alpha:]0-9'^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)[\\s]?(private|internal|public)?[\\s]*",
                     "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
@@ -961,9 +964,12 @@
                             "name": "keyword.fsharp"
                         },
                         "3": {
+                            "name": "support.function.attribute.fsharp"
+                        },
+                        "4": {
                             "name": "entity.name.type.fsharp"
                         },
-                        "5": {
+                        "6": {
                             "name": "keyword.fsharp"
                         }
                     },

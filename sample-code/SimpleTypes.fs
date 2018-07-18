@@ -423,6 +423,8 @@ let test x =
        return 0
    }
 
-// Type attribute should be colored
-type [<AllowNullLiteral>] AppState() =
+type [<AllowNullLiteral>] AppState2() =
+    class end
+
+type [<AllowNullLiteral>] AppState<'a, 'b>() =
     class end
