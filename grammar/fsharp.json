@@ -78,12 +78,12 @@
                     "end": "(>)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -111,7 +111,7 @@
                     "match": "[[:alpha:]0-9'`^_ ]+(=)([[:alpha:]0-9'`^_ ]+)",
                     "captures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "2": {
                             "name": "variable.parameter.fsharp"
@@ -123,12 +123,12 @@
                     "end": "(})",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -136,7 +136,7 @@
                             "match": "[[:alpha:]0-9'`^_ ]+(=)([[:alpha:]0-9'`^_ ]+)",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
                                     "name": "variable.parameter.fsharp"
@@ -166,7 +166,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         }
                     },
                     "patterns": [
@@ -180,7 +180,7 @@
                             "match": "(:)(\\s*([?[:alpha:]0-9'`<>^._ ]+))*",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
                                     "name": "entity.name.type.fsharp"
@@ -327,7 +327,7 @@
                             "name": "variable.parameter.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "3": {
                             "name": "entity.name.type.fsharp"
@@ -373,13 +373,10 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
-                        },
-                        "3": {
-                            "name": "keyword.other.fsharp"
                         }
                     },
                     "patterns": [
@@ -390,10 +387,10 @@
                             "match": "(:)\\s*(\\()?\\s*(([?[:alpha:]0-9'`^._ ]+))*",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "3": {
                                     "name": "entity.name.type.fsharp"
@@ -404,7 +401,7 @@
                             "match": "(\\*\\s*\\()\\s*(([?[:alpha:]0-9'`^._ ]+))*",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
                                     "name": "entity.name.type.fsharp"
@@ -415,10 +412,10 @@
                             "match": "(->)\\s*(\\()?\\s*([?[:alpha:]0-9'`^._ ]+)*",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "3": {
                                     "name": "entity.name.type.fsharp"
@@ -429,7 +426,7 @@
                             "match": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
                                     "name": "entity.name.type.fsharp"
@@ -441,12 +438,12 @@
                             "end": "(>)",
                             "beginCaptures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "endCaptures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "patterns": [
@@ -460,12 +457,12 @@
                             "end": "(})",
                             "beginCaptures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "endCaptures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "patterns": [
@@ -492,12 +489,12 @@
                     "end": "$|(\\|)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -511,7 +508,7 @@
                                     "name": "variable.parameter.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "3": {
                                     "name": "entity.name.type.fsharp"
@@ -536,11 +533,11 @@
         "keywords": {
             "patterns": [
                 {
-                    "name": "keyword.other.fsharp",
+                    "name": "keyword.fsharp",
                     "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
                 },
                 {
-                    "name": "keyword.other.fsharp",
+                    "name": "keyword.symbol.fsharp",
                     "match": "(&&&|\\|\\|\\||\\^\\^\\^|~~~|<<<|>>>|\\|>|\\->|\\<\\-|:>|:\\?>|:|\\[|\\]|\\;|<>|=|@|\\|\\||&&|{|}|\\||_|\\.\\.|\\,|\\+|\\-|\\*|\\/|\\^|\\!|\\>|\\>\\=|\\>\\>|\\<|\\<\\=|\\(|\\)|\\<\\<)"
                 }
             ]
@@ -553,10 +550,10 @@
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
                             "name": "entity.name.section.fsharp"
@@ -583,7 +580,7 @@
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
                             "name": "entity.name.section.fsharp"
@@ -748,18 +745,18 @@
                     "end": "(>)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
                         },
                         "3": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -780,7 +777,7 @@
                     "match": "\\s*(->)\\s*([[:alpha:]0-9'`^._ ]+)",
                     "captures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
@@ -795,10 +792,10 @@
                             "name": "variable.parameter.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "3": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "4": {
                             "name": "entity.name.type.fsharp"
@@ -806,7 +803,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -832,12 +829,12 @@
                     "end": "(\\))",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -854,7 +851,7 @@
                                     "name": "variable.parameter.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "3": {
                                     "name": "entity.name.type.fsharp"
@@ -895,33 +892,33 @@
                     "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
                             "name": "entity.name.type.fsharp"
                         },
                         "4": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "4": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "5": {
                             "name": "variable.parameter.fsharp"
                         },
                         "6": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "7": {
                             "name": "constant.language.unit.fsharp"
@@ -935,28 +932,10 @@
                             "match": "\\s*(>)\\s*(private|internal|public)?",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.other.fsharp"
-                                },
-                                "4": {
-                                    "name": "keyword.other.fsharp"
-                                },
-                                "5": {
-                                    "name": "keyword.other.fsharp"
-                                },
-                                "6": {
-                                    "name": "keyword.other.fsharp"
-                                },
-                                "7": {
-                                    "name": "variable.parameter.fsharp"
-                                },
-                                "8": {
-                                    "name": "keyword.other.fsharp"
-                                },
-                                "9": {
-                                    "name": "constant.language.unit.fsharp"
+                                    "name": "keyword.fsharp"
                                 }
                             }
                         },
@@ -982,33 +961,33 @@
                     "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
                             "name": "entity.name.type.fsharp"
                         },
                         "5": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         }
                     },
                     "endCaptures": {
                         "2": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "3": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "4": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         },
                         "5": {
                             "name": "variable.parameter.fsharp"
                         },
                         "6": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "7": {
                             "name": "constant.language.unit.fsharp"
@@ -1031,7 +1010,7 @@
                     "begin": "(\\{)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "end": "(?<=\\})",
@@ -1043,16 +1022,16 @@
                             "begin": "(((mutable)\\s[[:alpha:]]+)|[[:alpha:]0-9'`<>^._]*)\\s*(:)\\s*",
                             "beginCaptures": {
                                 "3": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.fsharp"
                                 },
                                 "4": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "end": "$|(;|\\})",
                             "endCaptures": {
                                 "1": {
-                                    "name": "keyword.other.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
                             },
                             "patterns": [
@@ -1098,7 +1077,7 @@
                     "match": "\\b(async|seq|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)\\s*\\{",
                     "captures": {
                         "0": {
-                            "name": "keyword.other.fsharp"
+                            "name": "keyword.fsharp"
                         }
                     }
                 }
