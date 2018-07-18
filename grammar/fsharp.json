@@ -1019,7 +1019,7 @@
                             "include": "#comments"
                         },
                         {
-                            "begin": "(((mutable)\\s[[:alpha:]]+)|[[:alpha:]0-9'`<>^._]*)\\s*(:)\\s*",
+                            "begin": "(((mutable)\\s[[:alpha:]]+)|[[:alpha:]0-9'`<>^._]*)\\s*((?<!:):(?!:))\\s*",
                             "beginCaptures": {
                                 "3": {
                                     "name": "keyword.fsharp"
