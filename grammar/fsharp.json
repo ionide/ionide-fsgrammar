@@ -1130,11 +1130,8 @@
             "patterns": [
                 {
                     "name": "compiler_directive.fsharp",
-                    "match": "\\s?(#if|#elif|#elseif|#endif|#light|#nowarn)",
+                    "match": "\\s?(#if|#elif|#else|#elseif|#endif|#light|#nowarn)",
                     "captures": {
-                        "1": {
-                            "name": "keyword.compiler_directive.fsharp"
-                        }
                     }
                 }
             ]
