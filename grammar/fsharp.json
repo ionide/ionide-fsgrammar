@@ -811,7 +811,7 @@
                 },
                 {
                     "name": "variable.parameter.fsharp",
-                    "match": "[[:alpha:]0-9'`<>^._ ]\\w*"
+                    "match": "``[[:alpha:]0-9'`^:,._ ]+``|[[:alpha:]0-9'`<>^._ ]\\w*"
                 }
             ]
         },
