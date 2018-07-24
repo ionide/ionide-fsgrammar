@@ -204,12 +204,15 @@ type NestedRecord =
 // Test signature coloration
 let primitive : int = 0
 
-let tupleOfPrimitives : int * string = 0, ""
+let tupleOfPrimitives : int * string list = 0, []
 let tupleOfPrimitives : (int * string) = 0, ""
 let tupleOfTuples : (int * (int * (int * int))) = failwith ""
 let tupleOfTuples : int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)) = failwith ""
 let tupleOfTuples : (int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int))) = failwith ""
-
+let listOfTuples
+    (files : (string * string) list)
+    (files2 : (string * string) list)
+    : (int * (int * (Result<Result<string, string> list, int array> * int))) list = []
 let generics : Result<string list, int array> = Ok []
 
 let tupleWithGenerics : Result<string list, int array> * int = Ok [], 0
@@ -304,7 +307,7 @@ let t2 : obj = null
 type TestDUTypeColoration =
     | CaseA
     | CaseB of int
-    | CaseC of int * string
+    | CaseC of (int * (string * string) list)
     | CaseD of name :string * age:int
     | CaseE of client: Client
     | CaseF of client: Client (*comment tests*) * (*comment tests*) string * port : int
