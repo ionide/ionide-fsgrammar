@@ -150,6 +150,7 @@ let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
 let run2 (program : unit -> Program<'arg, 'model, 'msg, 'view>) = ""
 
 type T =
+    abstract Item: selector: string -> string with get, set
     abstract member Name: string option with get, set
     abstract member NameTestComment: string (*I am a comments*) option with get, set
     abstract member NameTestComment2: string //option with get, set

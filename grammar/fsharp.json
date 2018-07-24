@@ -851,7 +851,7 @@
                     ]
                 },
                 {
-                    "match": "\\s*(->)\\s*([[:alpha:]0-9'`^._ ]+)",
+                    "match": "\\s*(->)\\s*(?!with|get|set\\b)\\b([\\w0-9'`^._]+)",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
