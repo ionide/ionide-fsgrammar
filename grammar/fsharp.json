@@ -420,6 +420,9 @@
                             "include": "#comments"
                         },
                         {
+                            "include": "#attributes"
+                        },
+                        {
                             "begin": "(:)\\s*(\\()",
                             "beginCaptures": {
                                 "1": {
@@ -965,7 +968,7 @@
             "patterns": [
                 {
                     "name": "record.fsharp",
-                    "begin": "\\b(type)[\\s]+(private|internal|public)?(\\s*\\[\\<.*\\>\\])?[\\s]*([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
+                    "begin": "\\b(type)[\\s]+(private|internal|public)?\\s*",
                     "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
@@ -976,12 +979,6 @@
                         },
                         "3": {
                             "name": "support.function.attribute.fsharp"
-                        },
-                        "4": {
-                            "name": "entity.name.type.fsharp"
-                        },
-                        "5": {
-                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
@@ -1007,6 +1004,20 @@
                     "patterns": [
                         {
                             "include": "#comments"
+                        },
+                        {
+                            "include": "#attributes"
+                        },
+                        {
+                            "match": "([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                },
+                                "2": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            }
                         },
                         {
                             "match": "\\s*(>)\\s*(private|internal|public)?",
@@ -1032,56 +1043,6 @@
                         },
                         {
                             "include": "#keywords"
-                        }
-                    ]
-                },
-                {
-                    "name": "record.fsharp",
-                    "begin": "\\b(type)[\\s]+(private|internal|public)?(\\s*\\[\\<.*\\>\\])?[\\s]*([[:alpha:]0-9'`^:,._]+<(.*)>|[[:alpha:]0-9'^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)[\\s]?(private|internal|public)?[\\s]*",
-                    "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.fsharp"
-                        },
-                        "2": {
-                            "name": "keyword.fsharp"
-                        },
-                        "3": {
-                            "name": "support.function.attribute.fsharp"
-                        },
-                        "4": {
-                            "name": "entity.name.type.fsharp"
-                        },
-                        "6": {
-                            "name": "keyword.fsharp"
-                        }
-                    },
-                    "endCaptures": {
-                        "2": {
-                            "name": "keyword.fsharp"
-                        },
-                        "3": {
-                            "name": "keyword.fsharp"
-                        },
-                        "4": {
-                            "name": "keyword.fsharp"
-                        },
-                        "5": {
-                            "name": "variable.parameter.fsharp"
-                        },
-                        "6": {
-                            "name": "keyword.symbol.fsharp"
-                        },
-                        "7": {
-                            "name": "constant.language.unit.fsharp"
-                        }
-                    },
-                    "patterns": [
-                        {
-                            "include": "#comments"
-                        },
-                        {
-                            "include": "#member_declaration"
                         }
                     ]
                 }
