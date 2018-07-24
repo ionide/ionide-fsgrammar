@@ -425,8 +425,26 @@ let test x =
        return 0
    }
 
+
+open System
+
+type QueueTrigger(msg : string, b : bool) =
+    inherit Attribute()
+
 type [<AllowNullLiteral>] AppState2() =
     class end
 
 type [<AllowNullLiteral>] AppState<'a, 'b>() =
+    class end
+
+let run ([<QueueTrigger("something", false); QueueTrigger("something", false)>] content:string) = failwith ""
+
+type [<QueueTrigger("something", false)>] TestInlineAttributeGenerics<'a, 'b>(content:string) =
+    class end
+
+type [<QueueTrigger("something", false)>] TestInlineAttribute(content:string) =
+    class end
+
+[<QueueTrigger("something", false); QueueTrigger("something", false)>]
+type TestAttribue2(content:string) =
     class end
