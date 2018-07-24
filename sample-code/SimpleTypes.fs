@@ -146,6 +146,14 @@ type Program<'arg, 'model, 'msg, 'view> =
       Msg : 'msg
       View : 'view }
 
+
+type Decoder<'a> =
+    class end
+
+let keyValuePairs (decoder : Decoder<'value>) : Decoder<(string * 'value) list> = failwith ""
+let keyValuePairs (decoder : Decoder<'value>) : Decoder<(string * 'value) list -> obj> = failwith ""
+
+
 let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
 let run2 (program : unit -> Program<'arg, 'model, 'msg, 'view>) = ""
 
