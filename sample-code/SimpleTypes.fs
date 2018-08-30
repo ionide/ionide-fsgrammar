@@ -128,6 +128,10 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     /// We consider it ok, because there is a low chance that a person will use `with` in a quoted variable
     member __.Test2(thing:int, var2 : string, ``name withh spaces``: string option, extra) = ""
 
+    static member (>) (v1 : int, v2 : int) = v1 > v2
+    static member (<) (v1 : int, v2 : int) = v2 < v2
+    static member (< ) (v1 : int, v2 : int) = v2 < v2
+
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
 
