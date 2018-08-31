@@ -800,7 +800,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.format.specifier.fsharp",
-                    "match": "(%0?-?(\\d+)?((a|t)|(\\.\\d+)?(f|F|e|E|g|G|M)|(b|c|s|d|i|x|X|o)|(s|b|O)|(\\+?A)))",
+                    "match": "(%0?-?(\\d+)?((a|t)|(\\.\\d+)?(f|F|e|E|g|G|M)|(b|c|s|d|i|x|X|o|u)|(s|b|O)|(\\+?A)))",
                     "captures": {
                         "1": {
                             "name": "keyword.format.specifier.fsharp"
