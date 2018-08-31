@@ -156,7 +156,7 @@ type Decoder<'a> =
 
 let keyValuePairs (decoder : Decoder<'value>) : Decoder<(string * 'value) list> = failwith ""
 let keyValuePairs (decoder : Decoder<'value>) : Decoder<(string * 'value) list -> obj> = failwith ""
-
+let tuple2 (decoder1: Decoder<'T1>) (decoder2: Decoder<'T2>) : Decoder<'T1 * 'T2> = failwith ""
 
 let run (program : Program<'arg, 'model, 'msg, 'view>) = ""
 let run2 (program : unit -> Program<'arg, 'model, 'msg, 'view>) = ""
