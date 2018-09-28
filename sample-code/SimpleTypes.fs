@@ -460,3 +460,108 @@ type [<QueueTrigger("something", false)>] TestInlineAttribute(content:string) =
 [<QueueTrigger("something", false); QueueTrigger("something", false)>]
 type TestAttribue2(content:string) =
     class end
+
+// let inline create<'a when 'a: (new: unit -> 'a)> () : 'b = failwith ""
+// let inline create<'a, 'b when 'a :> Decoder<'b> and 'a: (new: unit -> 'a)> () : 'b = failwith ""
+
+// // Make sure coloration support SRTP synthax
+// // The next code has been copied from
+// // https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/statically-resolved-type-parameters
+// let inline konst x _ = x
+
+// type CFunctor() =
+//     static member inline fmap (f: ^a -> ^b, a: ^a list) = List.map f a
+//     static member inline fmap (f: ^a -> ^b, a: ^a option) =
+//         match a with
+//         | None -> None
+//         | Some x -> Some (f x)
+
+//     // default implementation of replace
+//     static member inline replace< ^a, ^b, ^c, ^d, ^e when ^a :> CFunctor and (^a or ^d): (static member fmap: (^b -> ^c) * ^d -> ^e) > (a, f) =
+//         ((^a or ^d) : (static member fmap : (^b -> ^c) * ^d -> ^e) (konst a, f))
+
+//     // call overridden replace if present
+//     static member inline replace< ^a, ^b, ^c when ^b: (static member replace: ^a * ^b -> ^c)>(a: ^a, f: ^b) =
+//         (^b : (static member replace: ^a * ^b -> ^c) (a, f))
+
+// let inline replace_instance< ^a, ^b, ^c, ^d when (^a or ^c): (static member replace: ^b * ^c -> ^d)> (a: ^b, f: ^c) =
+//         ((^a or ^c): (static member replace: ^b * ^c -> ^d) (a, f))
+
+// // Note the concrete type 'CFunctor' specified in the signature
+// let inline replace (a: ^a) (f: ^b): ^a0 when (CFunctor or  ^b): (static member replace: ^a *  ^b ->  ^a0) =
+//     replace_instance<CFunctor, _, _, _> (a, f)
+
+// End of SRTP synthax
+
+// Make sure constraints are correctly colored
+// https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/constraints
+
+// Base Type Constraint
+type Class1<'T when 'T :> System.Exception> =
+    class end
+
+// Interface Type Constraint
+type Class2<'T when 'T :> System.IComparable> =
+    class end
+
+// Null constraint
+type Class3<'T when 'T : null> =
+    class end
+
+// Member constraint with static member
+type Class4<'T when 'T : (static member staticMethod1 : unit -> 'T) > =
+    class end
+
+// Member constraint with instance member
+type Class5<'T when 'T : (member Method1 : 'T -> int)> =
+    class end
+
+// Member constraint with property
+type Class6<'T when 'T : (member Property1 : int)> =
+    class end
+
+// Constructor constraint
+type Class7<'T when 'T : (new : unit -> 'T)>(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
+    member val Field = new 'T()
+
+// Reference type constraint
+type Class8<'T when 'T : not struct> =
+    class end
+
+// Enumeration constraint with underlying value specified
+type Class9<'T when 'T : enum<uint32>> =
+    class end
+
+// 'T must implement IComparable, or be an array type with comparable
+// elements, or be System.IntPtr or System.UIntPtr. Also, 'T must not have
+// the NoComparison attribute.
+type Class10<'T when 'T : comparison> =
+    class end
+
+// 'T must support equality. This is true for any type that does not
+// have the NoEquality attribute.
+type Class11<'T when 'T : equality> =
+    class end
+
+type Class12<'T when 'T : delegate<obj * System.EventArgs, unit>> =
+    class end
+
+type Class13<'T when 'T : unmanaged> =
+    class end
+
+// Member constraints with two type parameters
+// Most often used with static type parameters in inline functions
+let inline add(value1 : ^T when ^T : (static member (+) : ^T * ^T -> ^T), value2: ^T) =
+    value1 + value2
+
+// ^T and ^U must support operator +
+let inline heterogenousAdd(value1 : ^T when (^T or ^U) : (static member (+) : ^T * ^U -> ^T), value2 : ^U) =
+    value1 + value2
+
+// If there are multiple constraints, use the and keyword to separate them.
+type Class14<'T,'U when 'T : equality and 'U : equality> =
+    class end
+
+
+type Class15<'``generic type with space`` when '``generic type with space`` :> System.Exception> =
+    class end

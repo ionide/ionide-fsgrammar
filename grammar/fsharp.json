@@ -63,6 +63,17 @@
         "generic_declaration": {
             "patterns": [
                 {
+                    "name": "keyword.fsharp",
+                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
+                },
+                {
+                    "name": "keyword.fsharp",
+                    "match": ":"
+                },
+                {
+                    "include": "#constants"
+                },
+                {
                     "match": "([^<>,*()-])",
                     "captures": {
                         "1": {
@@ -390,6 +401,148 @@
                 }
             ]
         },
+        "common_binding_definition": {
+            "patterns": [
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#attributes"
+                },
+                {
+                    "begin": "(:)\\s*(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "end": "(\\)\\s*(([?[:alpha:]0-9'`^._ ]+))+)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#tuple_signature"
+                        }
+                    ]
+                },
+                {
+                    "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)*",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "match": "(->)\\s*(\\()?\\s*([?[:alpha:]0-9'`^._ ]+)*",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "3": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "begin": "(\\*)\\s*(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "end": "(\\)\\s*(([?[:alpha:]0-9'`^._ ]+))+)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#tuple_signature"
+                        }
+                    ]
+                },
+                {
+                    "match": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "begin": "(<(?![[:space:]]*\\)))",
+                    "beginComment": "The group (?![[:space:]]*\\) is for protection against overload operator. static member (<)",
+                    "end": "((?<!:)>)",
+                    "endComment": "The group (?<!:) prevent us from stopping on :> when using SRTP synthax",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#generic_declaration"
+                        }
+                    ]
+                },
+                {
+                    "begin": "({)",
+                    "end": "(})",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#record_signature"
+                        }
+                    ]
+                },
+                {
+                    "include": "#variables"
+                },
+                {
+                    "include": "#keywords"
+                }
+            ]
+        },
         "definition": {
             "patterns": [
                 {
@@ -420,140 +573,7 @@
                     },
                     "patterns": [
                         {
-                            "include": "#comments"
-                        },
-                        {
-                            "include": "#attributes"
-                        },
-                        {
-                            "begin": "(:)\\s*(\\()",
-                            "beginCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "end": "(\\)\\s*(([?[:alpha:]0-9'`^._ ]+))+)",
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "include": "#tuple_signature"
-                                }
-                            ]
-                        },
-                        {
-                            "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)*",
-                            "captures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            }
-                        },
-                        {
-                            "match": "(->)\\s*(\\()?\\s*([?[:alpha:]0-9'`^._ ]+)*",
-                            "captures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "3": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            }
-                        },
-                        {
-                            "begin": "(\\*)\\s*(\\()",
-                            "beginCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "end": "(\\)\\s*(([?[:alpha:]0-9'`^._ ]+))+)",
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "include": "#tuple_signature"
-                                }
-                            ]
-                        },
-                        {
-                            "match": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
-                            "captures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "entity.name.type.fsharp"
-                                }
-                            }
-                        },
-                        {
-                            "begin": "(<(?![[:space:]]*\\)))",
-                            "end": "(>)",
-                            "beginCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "include": "#generic_declaration"
-                                }
-                            ]
-                        },
-                        {
-                            "begin": "({)",
-                            "end": "(})",
-                            "beginCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "include": "#record_signature"
-                                }
-                            ]
-                        },
-                        {
-                            "include": "#variables"
-                        },
-                        {
-                            "include": "#keywords"
+                            "include": "#common_binding_definition"
                         }
                     ]
                 }
@@ -1012,18 +1032,82 @@
                             "include": "#attributes"
                         },
                         {
-                            "match": "([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)(<)",
+                            "match": "([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)",
                             "captures": {
                                 "1": {
                                     "name": "entity.name.type.fsharp"
-                                },
-                                "2": {
-                                    "name": "keyword.symbol.fsharp"
                                 }
                             }
                         },
                         {
-                            "match": "\\s*(>)\\s*(private|internal|public)?",
+                            "begin": "(<)",
+                            "end": "((?<!:)>)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.fsharp"
+                                }
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "match": "(('|^)``[[:alpha:]0-9`^:,._ ]+``|('|^)[[:alpha:]0-9`^:,._]+)",
+                                    "captures": {
+                                        "1": {
+                                            "name": "entity.name.type.fsharp"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "keyword.fsharp",
+                                    "match": "\\b(interface|with|abstract|and|when|or|not|struct|equality|comparison|unmanaged|delegate|enum)\\b"
+                                },
+                                {
+                                    "begin": "(\\()",
+                                    "end": "(\\))",
+                                    "beginCaptures": {
+                                        "1": {
+                                            "name": "keyword.symbol.fsharp"
+                                        }
+                                    },
+                                    "endCaptures": {
+                                        "1": {
+                                            "name": "keyword.symbol.fsharp"
+                                        }
+                                    },
+                                    "patterns": [
+                                        {
+                                            "match": "(static member|member|new)",
+                                            "captures": {
+                                                "1": {
+                                                    "name": "keyword.fsharp"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "include": "#common_binding_definition"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "match": "([\\w0-9'`^._]+)",
+                                    "comments": "Here we need the \\w modifier in order to check that the words isn't blacklisted",
+                                    "captures": {
+                                        "1": {
+                                            "name": "entity.name.type.fsharp"
+                                        }
+                                    }
+                                },
+                                {
+                                    "include": "#keywords"
+                                }
+                            ]
+                        },
+                        {
+                            "match": "\\s*(private|internal|public)",
                             "captures": {
                                 "1": {
                                     "name": "keyword.symbol.fsharp"
