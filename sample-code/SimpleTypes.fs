@@ -467,6 +467,7 @@ type TestAttribue2(content:string) =
 // // Make sure coloration support SRTP synthax
 // // The next code has been copied from
 // // https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/statically-resolved-type-parameters
+
 // let inline konst x _ = x
 
 // type CFunctor() =
@@ -551,6 +552,17 @@ type Class13<'T when 'T : unmanaged> =
 
 // Member constraints with two type parameters
 // Most often used with static type parameters in inline functions
+
+// Test that we are correctly detecting the end of the STRP syntahx when there is only one argument
+let inline doNothing(_value1 : ^T when ^T : (static member (+) : ^T * ^T -> ^T)) =
+    ""
+
+let inline doNothing(_value1 : ^Word when ^Word : (static member toJson : ^Word * ^Word -> ^Word)) =
+    ""
+
+let inline add2(value1 : ^T, value2: ^T when ^T : (static member (+) : ^T * ^T -> ^T)) =
+    value1 + value2
+
 let inline add(value1 : ^T when ^T : (static member (+) : ^T * ^T -> ^T), value2: ^T) =
     value1 + value2
 
@@ -558,10 +570,19 @@ let inline add(value1 : ^T when ^T : (static member (+) : ^T * ^T -> ^T), value2
 let inline heterogenousAdd(value1 : ^T when (^T or ^U) : (static member (+) : ^T * ^U -> ^T), value2 : ^U) =
     value1 + value2
 
+let inline heterogenousAdd(value1 : ^Word when (^Word or ^U) : (static member (+) : ^Word * ^U -> ^Word), value2 : ^U) =
+    value1 + value2
+
 // If there are multiple constraints, use the and keyword to separate them.
 type Class14<'T,'U when 'T : equality and 'U : equality> =
     class end
 
-
 type Class15<'``generic type with space`` when '``generic type with space`` :> System.Exception> =
     class end
+
+// Type constrainst coloration also works in the constructor
+type Class16(value1 : ^T when (^T or ^U) : (static member (+) : ^T * ^U -> ^T), value2 : ^U) =
+    class end
+
+// Make sure that `:>` isn't closing the current generic tag
+let inline create<'a, 'b when 'a :> obj and 'a: (new: unit -> 'a)> () : 'b =  failwith ""
