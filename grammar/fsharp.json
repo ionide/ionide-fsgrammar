@@ -374,15 +374,18 @@
                     "include": "#common_declaration"
                 },
                 {
-                    "match": "\\?{0,1}([[:alpha:]0-9'`^._ ]+)\\s*(:)(\\s*([?[:alpha:]0-9'`^._ ]+)){0,1}",
+                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._ ]+)\\s*(:)(\\s*([[:alpha:]0-9'`^._ ]+)){0,1}",
                     "captures": {
                         "1": {
-                            "name": "variable.parameter.fsharp"
-                        },
-                        "2": {
                             "name": "keyword.symbol.fsharp"
                         },
+                        "2": {
+                            "name": "variable.parameter.fsharp"
+                        },
                         "3": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "4": {
                             "name": "entity.name.type.fsharp"
                         }
                     }
@@ -410,6 +413,43 @@
                     "include": "#attributes"
                 },
                 {
+                    "comments": "If the next block start with `(` then we are still inside the SRTP block. If it was a type definition we would start by `: (`",
+                    "begin": "(:)\\s*(\\()\\s*(static member|member)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "end": "(\\))\\s*((?=,)|(?=\\=))",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "match": "(\\^[[:alpha:]0-9'._]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#variables"
+                        },
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
+                },
+                {
                     "begin": "(:)\\s*(\\()",
                     "beginCaptures": {
                         "1": {
@@ -435,7 +475,45 @@
                     ]
                 },
                 {
-                    "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)*",
+                    "begin": "(:)\\s*(\\^[[:alpha:]0-9'._]+)\\s*(when)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "entity.name.type.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "end": "(?=:)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "match": "(\\^[[:alpha:]0-9'._]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "name": "keyword.fsharp",
+                            "match": "\\b(and|when|or)\\b"
+                        },
+                        {
+                            "name": "keyword.symbol.fsharp",
+                            "match": "(\\(|\\))"
+                        }
+                    ]
+                },
+                {
+                    "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
@@ -547,7 +625,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member val|member|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member val|member|static member inline|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(with\\b|=|\\n+=|(?<=\\=))",
                     "beginCaptures": {
                         "1": {
@@ -836,8 +914,15 @@
                     "match": "\\(\\)"
                 },
                 {
-                    "name": "variable.parameter.fsharp",
-                    "match": "``[[:alpha:]0-9'`^:,._ ]+``|[[:alpha:]0-9'`<>^._ ]\\w*"
+                    "match": "(\\?{0,1})(``[[:alpha:]0-9'`^:,._ ]+``|[[:alpha:]0-9'`<>^._ ]\\w*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "variable.parameter.fsharp"
+                        }
+                    }
                 }
             ]
         },
@@ -888,19 +973,22 @@
                     }
                 },
                 {
-                    "begin": "\\?{0,1}([[:alpha:]0-9'`^._ ]+)\\s*(:)(\\s*([?[:alpha:]0-9'`^._ ]+)(<))",
+                    "begin": "(\\?{0,1})([[:alpha:]0-9'`^._ ]+)\\s*(:)(\\s*([?[:alpha:]0-9'`^._ ]+)(<))",
                     "end": "(>)",
                     "beginCaptures": {
                         "1": {
-                            "name": "variable.parameter.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "2": {
-                            "name": "keyword.symbol.fsharp"
+                            "name": "variable.parameter.fsharp"
                         },
                         "3": {
                             "name": "keyword.symbol.fsharp"
                         },
                         "4": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "5": {
                             "name": "entity.name.type.fsharp"
                         }
                     },
@@ -948,16 +1036,29 @@
                             "include": "#common_declaration"
                         },
                         {
-                            "match": "\\?{0,1}([[:alpha:]0-9'`^._ ]+)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'`<>^._ ]+)){0,1}",
+                            "match": "(\\^[[:alpha:]0-9'._]+)",
                             "captures": {
                                 "1": {
-                                    "name": "variable.parameter.fsharp"
-                                },
-                                "2": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "name": "keyword.fsharp",
+                            "match": "\\b(and|when|or)\\b"
+                        },
+                        {
+                            "name": "keyword.symbol.fsharp",
+                            "match": "(\\(|\\))"
+                        },
+                        {
+                            "match": "(\\?{0,1})([[:alpha:]0-9'`^._]+)",
+                            "captures": {
+                                "1": {
                                     "name": "keyword.symbol.fsharp"
                                 },
-                                "3": {
-                                    "name": "entity.name.type.fsharp"
+                                "2": {
+                                    "name": "variable.parameter.fsharp"
                                 }
                             }
                         },
@@ -999,9 +1100,6 @@
                         },
                         "2": {
                             "name": "keyword.fsharp"
-                        },
-                        "3": {
-                            "name": "support.function.attribute.fsharp"
                         }
                     },
                     "endCaptures": {
@@ -1032,7 +1130,44 @@
                             "include": "#attributes"
                         },
                         {
-                            "match": "([[:alpha:]0-9'`^:,._]+|``[[:alpha:]0-9'`^:,._ ]+``)",
+                            "comments": "If the next block start with `(` then we are still inside the SRTP block. If it was a type definition we would start by `: (`",
+                            "begin": "(:)\\s*(\\()\\s*(static member|member)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                },
+                                "2": {
+                                    "name": "keyword.symbol.fsharp"
+                                },
+                                "3": {
+                                    "name": "keyword.fsharp"
+                                }
+                            },
+                            "end": "(\\))\\s*((?=,)|(?=\\=))",
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "match": "(\\^[[:alpha:]0-9'._]+)",
+                                    "captures": {
+                                        "1": {
+                                            "name": "entity.name.type.fsharp"
+                                        }
+                                    }
+                                },
+                                {
+                                    "include": "#variables"
+                                },
+                                {
+                                    "include": "#keywords"
+                                }
+                            ]
+                        },
+                        {
+                            "match": "([[:alpha:]0-9'`^._]+|``[[:alpha:]0-9'`^:,._ ]+``)",
                             "captures": {
                                 "1": {
                                     "name": "entity.name.type.fsharp"
@@ -1054,7 +1189,7 @@
                             },
                             "patterns": [
                                 {
-                                    "match": "(('|^)``[[:alpha:]0-9`^:,._ ]+``|('|^)[[:alpha:]0-9`^:,._]+)",
+                                    "match": "(('|^)``[[:alpha:]0-9`^:,._ ]+``|('|^)[[:alpha:]0-9`^:._]+)",
                                     "captures": {
                                         "1": {
                                             "name": "entity.name.type.fsharp"
@@ -1188,7 +1323,6 @@
                         {
                             "include": "#compiler_directives"
                         },
-
                         {
                             "include": "#constants"
                         },
@@ -1262,8 +1396,7 @@
                 {
                     "name": "compiler_directive.fsharp",
                     "match": "\\s?(#if|#elif|#else|#elseif|#endif|#light|#nowarn)",
-                    "captures": {
-                    }
+                    "captures": {}
                 }
             ]
         }
