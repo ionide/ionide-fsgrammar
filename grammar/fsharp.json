@@ -413,7 +413,7 @@
                     "include": "#attributes"
                 },
                 {
-                    "comments": "If the next block start with `(` then we are still inside the SRTP block. If it was a type definition we would start by `: (`",
+                    "comments": "SRTP syntax support",
                     "begin": "(:)\\s*(\\()\\s*(static member|member)",
                     "beginCaptures": {
                         "1": {
@@ -1130,7 +1130,7 @@
                             "include": "#attributes"
                         },
                         {
-                            "comments": "If the next block start with `(` then we are still inside the SRTP block. If it was a type definition we would start by `: (`",
+                            "comments": "SRTP syntax support",
                             "begin": "(:)\\s*(\\()\\s*(static member|member)",
                             "beginCaptures": {
                                 "1": {
