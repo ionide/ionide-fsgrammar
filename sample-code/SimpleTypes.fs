@@ -395,7 +395,7 @@ type Example =
 let temp (s : Example) =
    match s.stype with
    | 0 -> "whatever"
-   | 1 -> "you lazy bastard"
+   | 1 -> ""
 
 // Edge case when there is something after } the next type is not colored
 type One =

@@ -227,18 +227,23 @@
                             "include": "#comments"
                         },
                         {
-                            "include": "#member_declaration"
-                        },
-                        {
-                            "match": "(:)(\\s*([?[:alpha:]0-9'`<>^._ ]+))*",
-                            "captures": {
+                            "begin": "(\\()",
+                            "end": "\\s*(?=(->))",
+                            "beginCaptures": {
                                 "1": {
                                     "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "entity.name.type.fsharp"
                                 }
-                            }
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#member_declaration"
+                                }
+                            ]
                         },
                         {
                             "include": "#variables"
@@ -1016,25 +1021,32 @@
         "member_declaration": {
             "patterns": [
                 {
-                    "begin": "(\\()",
-                    "end": "(\\))",
+                    "include": "#comments"
+                },
+                {
+                    "include": "#common_declaration"
+                },
+                {
+                    "comments": "SRTP syntax support",
+                    "begin": "(:)\\s*(\\()\\s*(static member|member)",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.fsharp"
                         }
                     },
+                    "end": "(\\))\\s*((?=,)|(?=\\=))",
                     "endCaptures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
-                        {
-                            "include": "#comments"
-                        },
-                        {
-                            "include": "#common_declaration"
-                        },
                         {
                             "match": "(\\^[[:alpha:]0-9'._]+)",
                             "captures": {
@@ -1044,28 +1056,48 @@
                             }
                         },
                         {
-                            "name": "keyword.fsharp",
-                            "match": "\\b(and|when|or)\\b"
-                        },
-                        {
-                            "name": "keyword.symbol.fsharp",
-                            "match": "(\\(|\\))"
-                        },
-                        {
-                            "match": "(\\?{0,1})([[:alpha:]0-9'`^._]+)",
-                            "captures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "variable.parameter.fsharp"
-                                }
-                            }
+                            "include": "#variables"
                         },
                         {
                             "include": "#keywords"
                         }
                     ]
+                },
+                {
+                    "match": "(\\^[[:alpha:]0-9'._]+)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "name": "keyword.fsharp",
+                    "match": "\\b(and|when|or)\\b"
+                },
+                {
+                    "name": "keyword.symbol.fsharp",
+                    "match": "(\\(|\\))"
+                },
+                {
+                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._]+|``[[:alpha:]0-9'`^:,._ ]+``)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'`<>._ ]+)){0,1}",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "variable.parameter.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "4": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
+                },
+                {
+                    "include": "#keywords"
                 }
             ]
         },
@@ -1093,7 +1125,7 @@
                 {
                     "name": "record.fsharp",
                     "begin": "\\b(type)[\\s]+(private|internal|public)?\\s*",
-                    "end": "\\s*((with)|((as)\\s*([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
+                    "end": "\\s*((with)|((as)\\s+([[:alpha:]0-9']+))|(=)|[\\n=]|(\\(\\)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
@@ -1130,44 +1162,7 @@
                             "include": "#attributes"
                         },
                         {
-                            "comments": "SRTP syntax support",
-                            "begin": "(:)\\s*(\\()\\s*(static member|member)",
-                            "beginCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "3": {
-                                    "name": "keyword.fsharp"
-                                }
-                            },
-                            "end": "(\\))\\s*((?=,)|(?=\\=))",
-                            "endCaptures": {
-                                "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                }
-                            },
-                            "patterns": [
-                                {
-                                    "match": "(\\^[[:alpha:]0-9'._]+)",
-                                    "captures": {
-                                        "1": {
-                                            "name": "entity.name.type.fsharp"
-                                        }
-                                    }
-                                },
-                                {
-                                    "include": "#variables"
-                                },
-                                {
-                                    "include": "#keywords"
-                                }
-                            ]
-                        },
-                        {
-                            "match": "([[:alpha:]0-9'`^._]+|``[[:alpha:]0-9'`^:,._ ]+``)",
+                            "match": "([[:alpha:]0-9'^._]+|``[[:alpha:]0-9'`^:,._ ]+``)",
                             "captures": {
                                 "1": {
                                     "name": "entity.name.type.fsharp"
@@ -1253,15 +1248,23 @@
                             }
                         },
                         {
-                            "match": "([[:alpha:]0-9'`^._ ]+)",
-                            "captures": {
+                            "begin": "(\\()",
+                            "end": "\\s*(?=(=)|[\\n=]|(\\(\\))|(as))",
+                            "beginCaptures": {
                                 "1": {
-                                    "name": "entity.name.type.fsharp"
+                                    "name": "keyword.symbol.fsharp"
                                 }
-                            }
-                        },
-                        {
-                            "include": "#member_declaration"
+                            },
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#member_declaration"
+                                }
+                            ]
                         },
                         {
                             "include": "#keywords"
