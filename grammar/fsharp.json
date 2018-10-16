@@ -63,6 +63,62 @@
         "generic_declaration": {
             "patterns": [
                 {
+                    "comments": "SRTP syntax support",
+                    "begin": "(:)\\s*(\\()\\s*(static member|member)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.symbol.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "end": "(\\))",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "(\\()",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "end": "(\\))",
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#member_declaration"
+                                }
+                            ]
+                        },
+                        {
+                            "match": "(\\^[[:alpha:]0-9'._]+)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#variables"
+                        },
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
+                },
+                {
                     "name": "keyword.fsharp",
                     "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
                 },
@@ -74,7 +130,7 @@
                     "include": "#constants"
                 },
                 {
-                    "match": "([^<>,*()-])",
+                    "match": "(\\^[[:alpha:]0-9'._]+)",
                     "captures": {
                         "1": {
                             "name": "entity.name.type.fsharp"
@@ -96,7 +152,7 @@
                     },
                     "patterns": [
                         {
-                            "match": "([^<>,*()-])",
+                            "match": "(\\^[[:alpha:]0-9'._]+)",
                             "captures": {
                                 "1": {
                                     "name": "entity.name.type.fsharp"
@@ -110,6 +166,15 @@
                             "include": "#generic_declaration"
                         }
                     ]
+                },
+                {
+                    "match": "(?!when|and|or\\b)\\b([\\w0-9'`^._]+)",
+                    "comments": "Here we need the \\w modifier in order to check that the words isn't blacklisted",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.fsharp"
+                        }
+                    }
                 },
                 {
                     "include": "#keywords"
@@ -619,6 +684,9 @@
                     ]
                 },
                 {
+                    "include": "#definition"
+                },
+                {
                     "include": "#variables"
                 },
                 {
@@ -630,7 +698,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member val|member|static member inline|static member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
+                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member val|static member inline|static member|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(with\\b|=|\\n+=|(?<=\\=))",
                     "beginCaptures": {
                         "1": {
@@ -715,7 +783,7 @@
             "patterns": [
                 {
                     "name": "keyword.fsharp",
-                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
+                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|or|use|use\\!|struct|while|mutable)(?!')\\b"
                 },
                 {
                     "name": "keyword.symbol.fsharp",
@@ -1047,6 +1115,25 @@
                         }
                     },
                     "patterns": [
+                        {
+                            "begin": "(\\()",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "end": "(\\))",
+                            "endCaptures": {
+                                "1": {
+                                    "name": "keyword.symbol.fsharp"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "include": "#member_declaration"
+                                }
+                            ]
+                        },
                         {
                             "match": "(\\^[[:alpha:]0-9'._]+)",
                             "captures": {
