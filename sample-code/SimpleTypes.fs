@@ -461,9 +461,6 @@ type [<QueueTrigger("something", false)>] TestInlineAttribute(content:string) =
 type TestAttribue2(content:string) =
     class end
 
-// let inline create<'a when 'a: (new: unit -> 'a)> () : 'b = failwith ""
-// let inline create<'a, 'b when 'a :> Decoder<'b> and 'a: (new: unit -> 'a)> () : 'b = failwith ""
-
 // // Make sure coloration support SRTP synthax
 // // The next code has been copied from
 // // https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/statically-resolved-type-parameters
@@ -489,7 +486,7 @@ let inline replace_instance< ^a, ^b, ^c, ^d when (^a or ^c): (static member repl
         ((^a or ^c): (static member replace: ^b * ^c -> ^d) (a, f))
 
 // Note the concrete type 'CFunctor' specified in the signature
-let inline replace (a: ^a) (f: ^b): ^a0 when (CFunctor or  ^b): (static member replace: ^a *  ^b ->  ^a0) =
+let inline replace (a: ^a) (f: ^b): ^a0 when (CFunctor or ^b): (static member replace: ^a *  ^b ->  ^a0) =
     replace_instance<CFunctor, _, _, _> (a, f)
 
 // End of SRTP synthax
