@@ -583,3 +583,21 @@ type Class16(value1 : ^T when (^T or ^U) : (static member (+) : ^T * ^U -> ^T), 
 
 // Make sure that `:>` isn't closing the current generic tag
 let inline create<'a, 'b when 'a :> obj and 'a: (new: unit -> 'a)> () : 'b =  failwith ""
+
+// Explicit Fields
+// Adapted from: https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/members/explicit-fields-the-val-keyword
+
+type MyType<'``Generic type with spaces``, 'T>() =
+    let mutable myInt1 = 10
+    [<DefaultValue>] static val mutable private myInt2 : int
+    [<DefaultValue>] val mutable myString : '``Generic type with spaces``
+    [<DefaultValue>] val mutable myString2 : 'T
+
+type MyClass =
+    val a : int
+    val b : int
+    // The following version of the constructor is an error
+    // because b is not initialized.
+    // new (a0, b0) = { a = a0; }
+    // The following version is acceptable because all fields are initialized.
+    new(a0, b0) = { a = a0; b = b0; }

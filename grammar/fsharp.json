@@ -798,7 +798,7 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(val mutable|val|let mutable|let inline|let|member val|static member inline|static member|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
+                    "begin": "\\b(let mutable|let inline|let|member val|static member inline|static member|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(with\\b|=|\\n+=|(?<=\\=))",
                     "beginCaptures": {
                         "1": {
@@ -820,6 +820,33 @@
                     "endCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#common_binding_definition"
+                        }
+                    ]
+                },
+                {
+                    "name": "binding.fsharp",
+                    "begin": "\\b(static val mutable|val mutable|val)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9,\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9,\\._`\\s]+|(?<=,)\\s)*)?",
+                    "end": "\\n$",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        },
+                        "2": {
+                            "name": "keyword.fsharp"
+                        },
+                        "3": {
+                            "name": "support.function.attribute.fsharp"
+                        },
+                        "4": {
+                            "name": "keyword.fsharp"
+                        },
+                        "5": {
+                            "name": "variable.fsharp"
                         }
                     },
                     "patterns": [
