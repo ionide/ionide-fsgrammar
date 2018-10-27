@@ -131,6 +131,7 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     static member (>) (v1 : int, v2 : int) = v1 > v2
     static member (<) (v1 : int, v2 : int) = v2 < v2
     static member (< ) (v1 : int, v2 : int) = v2 < v2
+    static member (<|>) (v1 : int, v2 : int) = v2 < v2
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""

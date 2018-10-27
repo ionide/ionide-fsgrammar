@@ -276,6 +276,15 @@
                     }
                 },
                 {
+                    "match": "(\\|)",
+                    "comments": "Prevent captures of `|>` as a keyword when defining custom operator like `<|>`",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    }
+                },
+                {
                     "include": "#keywords"
                 }
             ]
