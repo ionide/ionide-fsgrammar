@@ -602,3 +602,12 @@ type MyClass =
     // new (a0, b0) = { a = a0; }
     // The following version is acceptable because all fields are initialized.
     new(a0, b0) = { a = a0; b = b0; }
+
+// Check that SRTP do not break standard syntax between `(` & `)`
+let incorrect =
+    (fun loadedModel ->
+        let temp = async {
+            return 0
+        }
+        let loadedModel = { loadedModel with FormState = Form.setWaiting false loadedModel.FormState }
+        ())

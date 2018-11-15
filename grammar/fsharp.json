@@ -117,6 +117,9 @@
                     }
                 },
                 {
+                    "include": "#compiler_directives"
+                },
+                {
                     "include": "#constants"
                 },
                 {
@@ -130,6 +133,21 @@
                 },
                 {
                     "include": "#keywords"
+                },
+                {
+                    "include": "#text"
+                },
+                {
+                    "include": "#definition"
+                },
+                {
+                    "include": "#attributes"
+                },
+                {
+                    "include": "#keywords"
+                },
+                {
+                    "include": "#cexprs"
                 },
                 {
                     "include": "#text"
