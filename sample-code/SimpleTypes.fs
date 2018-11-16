@@ -121,6 +121,9 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     member __.MyReadWriteProperty with get () = myInternalValue
     member __.MyReadWriteProperty with set (value) = myInternalValue <- value
 
+    abstract Update : int * string * string option * obj -> FancyClass
+    default this.Update (thing:int, var2 : string, ``name withh spaces``: string option, extra) = this
+
     member val Property1 = thing
     member val Property2 = "" with get, set
 
