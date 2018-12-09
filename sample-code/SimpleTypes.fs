@@ -590,9 +590,11 @@ let inline create<'a, 'b when 'a :> obj and 'a: (new: unit -> 'a)> () : 'b =  fa
 
 // Explicit Fields
 // Adapted from: https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/members/explicit-fields-the-val-keyword
+// And : https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/members/let-bindings-in-classes
 
 type MyType<'``Generic type with spaces``, 'T>() =
     let mutable myInt1 = 10
+    static let mutable myInt3 = 3
     [<DefaultValue>] static val mutable private myInt2 : int
     [<DefaultValue>] val mutable myString : '``Generic type with spaces``
     [<DefaultValue>] val mutable myString2 : 'T
