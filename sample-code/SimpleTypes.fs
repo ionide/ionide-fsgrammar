@@ -144,7 +144,7 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
-
+let (<<.) a = 1
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
