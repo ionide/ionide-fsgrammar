@@ -597,7 +597,7 @@
                     "include": "#common_declaration"
                 },
                 {
-                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._ ]+)\\s*(:)(\\s*([[:alpha:]0-9'`^._ ]+)){0,1}",
+                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._ ]+)\\s*(:)((?!with\\b)\\b([\\w0-9'`^._ ]+)){0,1}",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
