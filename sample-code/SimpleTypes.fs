@@ -87,6 +87,8 @@ type Class1() =
 type R = private { X  : int }
 type U = private | X of int
 
+let private getArgResults, private removeArgResults, private setArgResults = "", "", ""
+
 // Check builder detection (based on a whitelist)
 let a = promise { }
 let b = pipeline { }
