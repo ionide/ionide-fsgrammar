@@ -120,6 +120,10 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
         with get () = myInternalValue
         and set (value) = myInternalValue <- value
 
+    member __.ReadAndWriteWithSignature
+        with get (count : int) : string = string count
+        and set (value : int) : unit = failwith ""
+
     member __.MyReadWriteProperty with get () = myInternalValue
     member __.MyReadWriteProperty with set (value) = myInternalValue <- value
 
@@ -140,8 +144,7 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
-let inline internal (<==) (x : int) ys = x + ys
-let inline internal (<==) x ys = x + ys
+
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
@@ -448,7 +451,6 @@ let test x =
 
        return 0
    }
-
 
 open System
 
