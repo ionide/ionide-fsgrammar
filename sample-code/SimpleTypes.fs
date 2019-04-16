@@ -144,7 +144,8 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
-
+let inline internal (<==) (x : int) ys = x + ys
+let inline internal (<==) x ys = x + ys
 
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
@@ -244,6 +245,8 @@ let listOfTuples
 let generics : Result<string list, int array> = Ok []
 
 let tupleWithGenerics : Result<string list, int array> * int = Ok [], 0
+let tupleWithAListOfGenerics : int * Map<int, int> list = 1, []
+let tupleWithAListOrArrayOfGenerics2 : int * Map<int, int> list * Map<int, int> array = 1, [], [||]
 
 // Really complexe nested generic type
 let tupleWithGenerics2 : (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int) = Ok [], 0
