@@ -285,6 +285,33 @@
                     ]
                 },
                 {
+                    "begin": "(\\()",
+                    "end": "(\\))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "match": "(([?[:alpha:]0-9'`^._ ]+))+",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.type.fsharp"
+                                }
+                            }
+                        },
+                        {
+                            "include": "#tuple_signature"
+                        }
+                    ]
+                },
+                {
                     "match": "(?!when|and|or\\b)\\b([\\w0-9'`^._]+)",
                     "comments": "Here we need the \\w modifier in order to check that the words isn't blacklisted",
                     "captures": {
@@ -773,7 +800,7 @@
                 {
                     "begin": "(<(?![[:space:]]*\\)))",
                     "beginComment": "The group (?![[:space:]]*\\) is for protection against overload operator. static member (<)",
-                    "end": "((?<!:)>)",
+                    "end": "((?<!:)>|\\))",
                     "endComment": "The group (?<!:) prevent us from stopping on :> when using SRTP synthax",
                     "beginCaptures": {
                         "1": {
