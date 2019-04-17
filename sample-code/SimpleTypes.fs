@@ -144,6 +144,7 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
 
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
+let (<<.) a = 1
 let inline internal (<==) (x : int) ys = x + ys
 let inline internal (<==) x ys = x + ys
 
