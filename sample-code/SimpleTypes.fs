@@ -419,6 +419,25 @@ type One =
 type Two =
     { Id : int }
 
+// Support for anonymous records
+
+type Employee =
+    | Engineer of {| Prop1 : int; Prop2 : {| Prop1 : int; Prop2 : {| Prop1 : GenType<GenType<obj>>; Prop2 : {| Prop1 : int; Prop2 : List<string> |} |} |} |}
+    | Manager of {| Prop1 : int; Prop2 : {| Prop1 : int; Prop2 : List<string> |} |}
+
+let private standardIntInput (props : {| Dispatch : GenType<GenType<obj>>
+                                         Disabled : {| Prop1 : int; Prop2 : {| Prop1 : int; Prop2 : List<string> |} |}
+                                         Errors : GenType<'Msg> list |}) = ""
+
+let test = fun (props : {| Dispatch : GenType<GenType<obj>>
+                           Disabled : {| Prop1 : int; Prop2 : {| Prop1 : int; Prop2 : List<string> |} |}
+                           Errors : GenType<'Msg> list |}) -> ""
+
+type AR_Class () =
+    member this.Method1 (props : {| Dispatch : GenType<GenType<obj>>
+                                    Disabled : {| Prop1 : int; Prop2 : {| Prop1 : int; Prop2 : List<string> |} |}
+                                    Errors : GenType<'Msg> list |}) = ""
+
 // Check anonymous function type signature
 let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, int>) -> ()
 
