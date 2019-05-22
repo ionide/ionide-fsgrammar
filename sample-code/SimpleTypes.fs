@@ -14,6 +14,10 @@ module SampleCode.SimpleTypes
 #nowarn
 #nowarn "9" "40"
 
+open System.Text// check that comments are handled correctly
+open System.Text // check that comments are handled correctly
+open System.Text.RegularExpressions(* check that comments are handled correctly *)
+open System.Text.RegularExpressions (* check that comments are handled correctly *)
 
 module Test =
 

@@ -1061,6 +1061,9 @@
                                     "name": "entity.name.section.fsharp"
                                 }
                             }
+                        },
+                        {
+                            "include": "#comments"
                         }
                     ]
                 },
