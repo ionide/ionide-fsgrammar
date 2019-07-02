@@ -1048,7 +1048,7 @@
             "patterns": [
                 {
                     "name": "entity.name.section.fsharp",
-                    "begin": "\\b(namespace|module)\\s*(public|internal|private|rec)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
+                    "begin": "\\b(namespace global)|(namespace|module)\\s*(public|internal|private|rec)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
                     "end": "(\\s?=|\\s|$)",
                     "beginCaptures": {
                         "1": {
@@ -1058,6 +1058,9 @@
                             "name": "keyword.fsharp"
                         },
                         "3": {
+                            "name": "keyword.fsharp"
+                        },
+                        "4": {
                             "name": "entity.name.section.fsharp"
                         }
                     },
