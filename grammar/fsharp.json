@@ -237,7 +237,7 @@
                 },
                 {
                     "name": "keyword.fsharp",
-                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|use|use\\!|struct|while|mutable)(?!')\\b"
+                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|enum|member|try|finally|and|when|or|use|use\\!|struct|while|mutable|assert|base|done|downcast|downto|extern|fixed|global|lazy|upcast|not)(?!')\\b"
                 },
                 {
                     "name": "keyword.fsharp",
@@ -600,7 +600,7 @@
                 },
                 {
                     "name": "constant.others.fsharp",
-                    "match": "\\b(true|false|null|unit)\\b"
+                    "match": "\\b(true|false|null|unit|void)\\b"
                 }
             ]
         },
@@ -977,6 +977,26 @@
                             "include": "#common_binding_definition"
                         }
                     ]
+                },
+                {
+                    "name": "binding.fsharp",
+                    "begin": "\\b(new)",
+                    "end": "(=)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#common_binding_definition"
+                        }
+                    ]
                 }
             ]
         },
@@ -1036,7 +1056,7 @@
             "patterns": [
                 {
                     "name": "keyword.fsharp",
-                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|property|union|enum|member|try|finally|and|when|or|use|use\\!|struct|while|mutable)(?!')\\b"
+                    "match": "\\b(private|to|public|internal|function|yield!|yield|class|exception|match|delegate|of|new|in|as|if|then|else|elif|for|begin|end|inherit|do|let\\!|return\\!|return|interface|with|abstract|enum|member|try|finally|and|when|or|use|use\\!|struct|while|mutable|assert|base|done|downcast|downto|extern|fixed|global|lazy|upcast|not)(?!')\\b"
                 },
                 {
                     "name": "keyword.symbol.fsharp",
@@ -1048,7 +1068,7 @@
             "patterns": [
                 {
                     "name": "entity.name.section.fsharp",
-                    "begin": "\\b(namespace|module)\\s*(public|internal|private)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
+                    "begin": "\\b(namespace global)|(namespace|module)\\s*(public|internal|private|rec)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
                     "end": "(\\s?=|\\s|$)",
                     "beginCaptures": {
                         "1": {
@@ -1058,6 +1078,9 @@
                             "name": "keyword.fsharp"
                         },
                         "3": {
+                            "name": "keyword.fsharp"
+                        },
+                        "4": {
                             "name": "entity.name.section.fsharp"
                         }
                     },
