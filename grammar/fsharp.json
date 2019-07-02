@@ -977,6 +977,26 @@
                             "include": "#common_binding_definition"
                         }
                     ]
+                },
+                {
+                    "name": "binding.fsharp",
+                    "begin": "\\b(new)",
+                    "end": "(=)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#common_binding_definition"
+                        }
+                    ]
                 }
             ]
         },
