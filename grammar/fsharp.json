@@ -980,7 +980,7 @@
                 },
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(new)",
+                    "begin": "\\b(new)\\b",
                     "end": "(=)",
                     "beginCaptures": {
                         "1": {
