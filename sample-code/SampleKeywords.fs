@@ -21,7 +21,7 @@ type AType () as self =
         default this.Rotate(delta : float) = ()
     end
 
-and MyType<'T when 'T : null and 'T : not struct> =
+and MyType<'T when 'T : null and 'T : not struct and 'T : (new: unit -> 'T)> =
     inherit AType
     interface IType with
         member this.Getter () = 42
