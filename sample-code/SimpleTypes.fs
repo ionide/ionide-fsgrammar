@@ -250,6 +250,7 @@ let listOfTuples
 let generics : Result<string list, int array> = Ok []
 
 let tupleWithGenerics : Result<string list, int array> * int = Ok [], 0
+let tupleWithAListOfGenerics (p1 : int * Map<int, int> list) (p2 : int * Map<int, int> list) : int * Map<int, int> list = 1, []
 let tupleWithAListOfGenerics : int * Map<int, int> list = 1, []
 let tupleWithAListOrArrayOfGenerics2 : int * Map<int, int> list * Map<int, int> array = 1, [], [||]
 
@@ -267,6 +268,10 @@ let lambda ( x : (Result<Result<Result<Result<string, string>, string>, string> 
 
 let inline isLoadingTime<'a> = ""
 let inline isLoadingTime<'a, 'b, 'c> = ""
+let inline method<'a> prefix chunck dzd zd = promise {
+        let! dzdz = ""
+    }
+
 
 let v ``var with spaces``= ""
 
