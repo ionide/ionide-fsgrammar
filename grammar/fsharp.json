@@ -983,10 +983,13 @@
                 },
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(new)\\b",
-                    "end": "(=)",
+                    "begin": "\\b(new)\\b\\s+(\\()",
+                    "end": "(\\))",
                     "beginCaptures": {
                         "1": {
+                            "name": "keyword.fsharp"
+                        },
+                        "2": {
                             "name": "keyword.fsharp"
                         }
                     },

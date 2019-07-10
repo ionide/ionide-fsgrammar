@@ -207,6 +207,14 @@ type private FancyClass2 (?thing:int) =
 type FancyClass3 private (?thing:int) =
     class end
 
+let foo =
+    { new System.IDisposable with
+        member __.Dispose() =
+            failwith "do nothing" }
+let bar =
+    use foo = new System.Threading.CancellationTokenSource()
+    ()
+
 let paramsColorWorksHereToo (client : obj, extraParam) (name : unit -> obj) : string = ""
 
 let endOfThisLineShouldBeCommented// (client : obj, extraParam) = ""
