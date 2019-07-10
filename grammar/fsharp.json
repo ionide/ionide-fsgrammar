@@ -825,15 +825,26 @@
                     ]
                 },
                 {
-                    "match": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
-                    "captures": {
+                    "begin": "(\\*)(\\s*([?[:alpha:]0-9'`^._ ]+))*",
+                    "beginCaptures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
                         }
-                    }
+                    },
+                    "end": "(?==)|(?=\\))",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.symbol.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#tuple_signature"
+                        }
+                    ]
                 },
                 {
                     "begin": "(<+(?![[:space:]]*\\)))",
@@ -880,14 +891,6 @@
                 },
                 {
                     "include": "#definition"
-                },
-                {
-                    "match": "(?<=>)\\s*(``([[:alpha:]0-9'^._ ]+)``|[[:alpha:]0-9'`^._]+)",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.type.fsharp"
-                        }
-                    }
                 },
                 {
                     "include": "#variables"
