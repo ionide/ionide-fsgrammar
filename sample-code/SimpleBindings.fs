@@ -59,6 +59,7 @@ printf "%1e" 1.0
 printf "sss  %-1e" 2.
 printf "%-10s" "2"
 printf "%020.1f" 0.2f
+printfn "\x00 \x1a \xff \x1g" // 1g is invalid
 
 sprintf "75.9%% ss"
 sprintf """
