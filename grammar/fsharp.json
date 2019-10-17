@@ -936,10 +936,10 @@
                 },
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b((get|set)\\s*(?=\\())(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
+                    "begin": "(?<=with|and)\\s*\\b((get|set)\\s*(?=\\())(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(=|\\n+=|(?<=\\=))",
                     "beginCaptures": {
-                        "3": {
+                        "4": {
                             "name": "variable.fsharp"
                         }
                     },

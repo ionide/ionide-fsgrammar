@@ -152,6 +152,12 @@ let (<<.) a = 1
 let inline internal (<==) (x : int) ys = x + ys
 let inline internal (<==) x ys = x + ys
 
+// Check that this `get` and `set` methods are not messing the colourisation
+let get = ignore
+get ("maxime")
+let set = ignore
+set("maxime")
+
 // Arrow should be colored as a keyword and int as type definition
 let exec (buildOptions: int -> int -> int -> int) args = ""
 
