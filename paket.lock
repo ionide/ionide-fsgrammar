@@ -1,12 +1,7 @@
-NUGET
-  remote: https://www.nuget.org/api/v2
-    FAKE (5.16)
-GITHUB
-  remote: ionide/ionide-vscode-helpers
-    src/Fable.Import.Axios.fs (04ea0e33def49df18d6325c101c428bf02ab5440)
-    src/Fable.Import.VSCode.fs (04ea0e33def49df18d6325c101c428bf02ab5440)
-    src/Helpers.fs (04ea0e33def49df18d6325c101c428bf02ab5440)
+STORAGE: NONE
+
 GROUP netcorebuild
+STORAGE: NONE
 NUGET
   remote: https://www.nuget.org/api/v2
     BlackFox.Fake.BuildTask (0.1.3)
