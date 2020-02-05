@@ -41,6 +41,13 @@ file as markdown
     *)
     let c = ""
 
+    (* Comments with nested (* *) works
+
+    This line should be shown commented.
+    class should not be colored
+    *)
+    let d = ""
+
 /// **Description**
 ///
 /// **Parameters**
