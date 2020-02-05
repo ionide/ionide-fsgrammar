@@ -5,20 +5,30 @@
 // ${fileDirname}: the current opened file's dirname
 // ${fileExtname}: the current opened file's extension
 // ${cwd}: the current working directory of the spawned process
-
 {
-  "version": "0.1.0",
-  "isShellCommand": true,
-  "showOutput": "silent",
-  "tasks": [
-    {    // use this taskname to call build.cmd to run FAKE
-      "taskName": "FakeBuild",
-      "args": [],
-      "isBuildCommand": true
-    }
-  ],
-  "osx":      { "command": "${workspaceRoot}/build.sh"    },
-  "windows":  { "command": "${workspaceRoot}/build.cmd"   },
-  // The target that FAKE will run
-  "args": [ "BuildExtension" ]  
+    "version": "2.0.0",
+    "type": "shell",
+    "tasks": [
+        { // use this taskname to call build.cmd to run FAKE
+            "label": "FakeBuild",
+            "args": [
+                "build",
+                "-t",
+                "BuildExtension"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "osx": {
+                "command": "${workspaceRoot}/fake.sh"
+            },
+            "windows": {
+                "command": "${workspaceRoot}/fake.cmd"
+            },
+            "linux": {
+                "command": "${workspaceRoot}/fake.sh"
+            }
+        }
+    ]
 }
