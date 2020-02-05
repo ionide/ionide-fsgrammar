@@ -2,12 +2,9 @@ source https://www.nuget.org/api/v2
 
 storage: none
 
-github ionide/ionide-vscode-helpers src/Fable.Import.VSCode.fs
-github ionide/ionide-vscode-helpers src/Helpers.fs
-github ionide/ionide-vscode-helpers src/Fable.Import.Axios.fs
-
 group netcorebuild
     source https://www.nuget.org/api/v2
+    storage: none
 
     nuget Fake.DotNet.Cli
     nuget Fake.DotNet.Paket
