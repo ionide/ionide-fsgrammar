@@ -417,6 +417,11 @@ let a =
         return a
     }
 
+// Test case for: https://github.com/ionide/ionide-fsgrammar/issues/147
+let testVariableWithModuleKeyword test_module =
+    if test_module then // This is the line where the problem is
+        ()
+
 // Edge cases provided by @selketjah
 // In this code some of the `type` word where colored in purple
 type Example =
