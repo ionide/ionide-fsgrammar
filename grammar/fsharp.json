@@ -545,15 +545,6 @@
                     ]
                 },
                 {
-                    "name": "comment.block.markdown.fsharp.end",
-                    "match": "^(\\s*\\*\\)$)",
-                    "captures": {
-                        "1": {
-                            "name": "comment.block.fsharp"
-                        }
-                    }
-                },
-                {
                     "name": "comment.block.fsharp",
                     "begin": "(\\(\\*(?!\\)))",
                     "end": "(\\*\\))",
@@ -563,6 +554,20 @@
                         }
                     },
                     "endCaptures": {
+                        "1": {
+                            "name": "comment.block.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#comments"
+                        }
+                    ]
+                },
+                {
+                    "name": "comment.block.markdown.fsharp.end",
+                    "match": "(\\*\\))",
+                    "captures": {
                         "1": {
                             "name": "comment.block.fsharp"
                         }
