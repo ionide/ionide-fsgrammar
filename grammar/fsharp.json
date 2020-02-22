@@ -1774,8 +1774,8 @@
         "compiler_directives": {
             "patterns": [
                 {
-                    "name": "compiler_directive.fsharp",
-                    "match": "\\s?(#if|#elif|#else|#elseif|#endif|#light|#nowarn)",
+                    "name": "keyword.control.directive.fsharp",
+                    "match": "\\s?(#if|#elif|#elseif|#else|#endif|#light|#nowarn)",
                     "captures": {}
                 }
             ]
