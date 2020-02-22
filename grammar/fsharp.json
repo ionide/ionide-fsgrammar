@@ -922,7 +922,7 @@
                             "name": "support.function.attribute.fsharp"
                         },
                         "4": {
-                            "name": "keyword.fsharp"
+                            "name": "storage.modifier.fsharp"
                         },
                         "5": {
                             "name": "variable.fsharp"
@@ -974,7 +974,7 @@
                             "name": "support.function.attribute.fsharp"
                         },
                         "4": {
-                            "name": "keyword.fsharp"
+                            "name": "storage.modifier.fsharp"
                         },
                         "5": {
                             "name": "variable.fsharp"
@@ -1089,7 +1089,7 @@
                             "name": "keyword.fsharp"
                         },
                         "3": {
-                            "name": "keyword.fsharp"
+                            "name": "storage.modifier.fsharp"
                         },
                         "4": {
                             "name": "entity.name.section.fsharp"
@@ -1511,7 +1511,7 @@
                             "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.fsharp"
+                            "name": "storage.modifier.fsharp"
                         }
                     },
                     "endCaptures": {
@@ -1623,7 +1623,7 @@
                                     "name": "keyword.symbol.fsharp"
                                 },
                                 "2": {
-                                    "name": "keyword.fsharp"
+                                    "name": "storage.modifier.fsharp"
                                 }
                             }
                         },
