@@ -596,7 +596,7 @@
                     "match": "\\(\\)"
                 },
                 {
-                    "name": "constant.numeric.floating-point.fsharp",
+                    "name": "constant.numeric.float.fsharp",
                     "match": "\\b-?[0-9][0-9_]*((\\.([0-9][0-9_]*([eE][+-]??[0-9][0-9_]*)?)?)|([eE][+-]??[0-9][0-9_]*))"
                 },
                 {
@@ -604,7 +604,7 @@
                     "match": "\\b(-?((0(x|X)[0-9a-fA-F][0-9a-fA-F_]*)|(0(o|O)[0-7][0-7_]*)|(0(b|B)[01][01_]*)|([0-9][0-9_]*)))"
                 },
                 {
-                    "name": "constant.others.fsharp",
+                    "name": "constant.other.fsharp",
                     "match": "\\b(true|false|null|unit|void)\\b"
                 }
             ]
