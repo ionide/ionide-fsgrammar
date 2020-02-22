@@ -475,7 +475,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.fsharp"
+                            "name": "keyword.operator.arrow.fsharp"
                         }
                     },
                     "patterns": [
@@ -487,12 +487,12 @@
                             "end": "\\s*(?=(->))",
                             "beginCaptures": {
                                 "1": {
-                                    "name": "keyword.symbol.fsharp"
+                                    "name": "keyword.operator.arrow.fsharp"
                                 }
                             },
                             "endCaptures": {
                                 "1": {
-                                    "name": "keyword.symbol.fsharp"
+                                    "name": "keyword.operator.arrow.fsharp"
                                 }
                             },
                             "patterns": [
