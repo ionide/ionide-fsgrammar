@@ -475,7 +475,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.operator.arrow.fsharp"
+                            "name": "keyword.symbol.arrow.fsharp"
                         }
                     },
                     "patterns": [
@@ -487,12 +487,12 @@
                             "end": "\\s*(?=(->))",
                             "beginCaptures": {
                                 "1": {
-                                    "name": "keyword.operator.arrow.fsharp"
+                                    "name": "keyword.symbol.arrow.fsharp"
                                 }
                             },
                             "endCaptures": {
                                 "1": {
-                                    "name": "keyword.operator.arrow.fsharp"
+                                    "name": "keyword.symbol.arrow.fsharp"
                                 }
                             },
                             "patterns": [
@@ -1078,7 +1078,7 @@
                     "match": "\\b(match|yield|yield!|with|if|then|else|elif|for|in|return!|return|try|finally|while|do)(?!')\\b"
                 },
                 {
-                    "name": "keyword.operator.new",
+                    "name": "keyword.symbol.new",
                     "match": "\\b(new)\\b"
                 },
                 {
