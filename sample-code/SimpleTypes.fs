@@ -483,12 +483,17 @@ let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, 
 let private mixedArray msg (decoders: string []) (path: string) (values: obj[]): Result<obj list, int> =
     Ok []
 
-type Auto =
+type Auto() =
+    static let (color, message) = failwith ""
+
+    static let (color : Result<'T, string>) = failwith ""
+
     // Here `<`& `>` not in purple
     static member GenerateDecoder<'T> (?isCamelCase : bool): GenType<'T> = failwith ""
 
     // Here generics not colored
     static member FromString<'T>(json: string, ?isCamelCase : bool): 'T = failwith ""
+
 
 type Example1 = { Test : int list }
 let test = { Test = [ 1;2;3 ] }
