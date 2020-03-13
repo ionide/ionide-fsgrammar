@@ -300,6 +300,9 @@ let printFullName { Firstname = firstname; Surname = surname } : string = firstn
 let printFirstName { Firstname = firstname } : string = firstname
 let printFirstName ({ Firstname = ``var with spaces`` } : NameRecord) ( _ : obj) : string = ``var with spaces``
 
+
+let ``test multiple backticks`` = row.``maxime``.Trim(), row.``Last Update`` // Test multiple backticks on the same line
+
 let nestedRecords ({ Nested = { Nested = { Nested = { Nested = value }; PropB = _ } }; PropB = propB } : NestedRecord) : string = value.PropB + " " + propB
 
 let variable = "value"
