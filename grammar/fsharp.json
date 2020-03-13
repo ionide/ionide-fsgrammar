@@ -1497,7 +1497,7 @@
             "patterns": [
                 {
                     "name": "variable.other.binding.fsharp",
-                    "match": "(``)(.*)(``)",
+                    "match": "(``)([^`]*)(``)",
                     "captures": {
                         "1": {
                             "name": "string.quoted.single.fsharp"
