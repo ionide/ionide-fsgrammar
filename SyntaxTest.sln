@@ -15,14 +15,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{9332
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grammar", "grammar", "{61DD59B1-BB16-4185-8612-4924EDB3DB96}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grammars", "grammars", "{61DD59B1-BB16-4185-8612-4924EDB3DB96}"
 	ProjectSection(SolutionItems) = preProject
-		grammar\fsharp.fsi.json = grammar\fsharp.fsi.json
-		grammar\fsharp.fsl.json = grammar\fsharp.fsl.json
-		grammar\fsharp.fsx.json = grammar\fsharp.fsx.json
-		grammar\fsharp.json = grammar\fsharp.json
-		grammar\paket.dependencies.json = grammar\paket.dependencies.json
-		grammar\paket.lock.json = grammar\paket.lock.json
+		grammars\fsharp.fsi.json = grammars\fsharp.fsi.json
+		grammars\fsharp.fsl.json = grammars\fsharp.fsl.json
+		grammars\fsharp.fsx.json = grammars\fsharp.fsx.json
+		grammars\fsharp.json = grammars\fsharp.json
+		grammars\paket.dependencies.json = grammars\paket.dependencies.json
+		grammars\paket.lock.json = grammars\paket.lock.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fsharp.syntaxtest", "fsharp.syntaxtest", "{FBDCCF5A-C599-4D52-AEB6-0983D89A21F1}"

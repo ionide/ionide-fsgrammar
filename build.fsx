@@ -10,7 +10,7 @@ open BlackFox.Fake
 open Fake.JavaScript
 
 /// Stores F#, Paket, FsLex & FsYacc Syntax Definition Files
-let syntaxDir           = "grammar"
+let syntaxDir           = "grammars"
 /// Location of the FSharp-SyntaxTest VSCode Extension
 let extensionDir        = "fsharp.syntaxtest"
 /// FSharp-SyntaxTest will load the Syntax Definition files in this dir
