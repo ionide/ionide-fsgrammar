@@ -48,6 +48,8 @@ file as markdown
     *)
     let d = ""
 
+    let e = (* comment// *) "not a comment"
+
 /// **Description**
 ///
 /// **Parameters**
