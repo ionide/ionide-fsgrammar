@@ -4,6 +4,10 @@ Some more documentation using `Markdown`.
 *)
 module SampleCode.SimpleTypes
 
+(**
+This comment was making the rest of the file render as a comment
+**)
+
 // Compiler directives
 
 #if true
@@ -32,7 +36,7 @@ module Test =
     let b = ""
 
     (**
-This block is colorized becasue markdown can set up his context.
+This block is colorized because markdown can set up his context.
 
 # First-level heading
 This should be parsed as `markdown`.
