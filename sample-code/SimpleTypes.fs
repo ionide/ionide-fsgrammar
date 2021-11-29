@@ -35,6 +35,8 @@ module Test =
     *)
     let b = ""
 
+    let double = (*) 2 // *) was being captured as a comment
+
     (**
 This block is colorized because markdown can set up his context.
 

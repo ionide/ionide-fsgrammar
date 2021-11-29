@@ -571,7 +571,7 @@
                 },
                 {
                     "name": "comment.block.markdown.fsharp.end",
-                    "match": "((\\*)+\\))",
+                    "match": "((?<!\\()(\\*)+\\))",
                     "captures": {
                         "1": {
                             "name": "comment.block.fsharp"
