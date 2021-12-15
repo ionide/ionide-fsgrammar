@@ -1,7 +1,14 @@
 ﻿(**
-# First-level heading
-Some more documentation using `Markdown`.
-*)
+---
+layout: standard
+title: Manual
+---
+**)
+
+// The next comment was making the rest of the file render
+// as a comment until another comment was breaking the flow
+(*** hide ***)
+
 module SampleCode.SimpleTypes
 
 (**
