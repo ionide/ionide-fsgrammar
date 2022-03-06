@@ -536,7 +536,7 @@
                 {
                     "name": "comment.block.markdown.fsharp",
                     "begin": "^\\s*(\\(\\*\\*(?!\\)))((?!\\*\\)).)*$",
-                    "while": "^(?!\\s*(\\*)+\\)$)",
+                    "while": "^(?!\\s*(\\*)+\\)\\s*$)",
                     "beginCaptures": {
                         "1": {
                             "name": "comment.block.fsharp"
