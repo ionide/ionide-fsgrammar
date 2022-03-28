@@ -61,6 +61,8 @@ file as markdown
     *)
     let d = ""
 
+
+    (* Unbalanced comment, which turn everything after itself into comment **)
     let e = (* comment// *) "not a comment"
 
 /// **Description**

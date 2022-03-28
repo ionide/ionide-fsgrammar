@@ -556,7 +556,7 @@
                 {
                     "name": "comment.block.fsharp",
                     "begin": "(\\(\\*(?!\\)))",
-                    "end": "(\\*\\))",
+                    "end": "(\\**\\))",
                     "beginCaptures": {
                         "1": {
                             "name": "comment.block.fsharp"
