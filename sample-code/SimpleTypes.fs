@@ -29,6 +29,7 @@ open System.Text// check that comments are handled correctly
 open System.Text // check that comments are handled correctly
 open System.Text.RegularExpressions(* check that comments are handled correctly *)
 open System.Text.RegularExpressions (* check that comments are handled correctly *)
+open type System.Math
 
 module Test =
 
