@@ -1147,7 +1147,7 @@
                 },
                 {
                     "name": "namespace.open.fsharp",
-                    "begin": "\\b(open)\\s+([[:alpha:]][[:alpha:]0-9'_]*)(?=(\\.[A-Z][[:alpha:]0-9_]*)*)",
+                    "begin": "\\b(open type|open)\\s+([[:alpha:]][[:alpha:]0-9'_]*)(?=(\\.[A-Z][[:alpha:]0-9_]*)*)",
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {
