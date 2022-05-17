@@ -60,6 +60,12 @@ printf "sss  %-1e" 2.
 printf "%-10s" "2"
 printf "%020.1f" 0.2f
 printfn "\x00 \x1a \xff \x1g" // 1g is invalid
+// all valid
+printfn "\a\b\f\n\r\t\v\\\"\' \000\255\111 \x00\xFF\xE7\xe7 \u0000\uffff\uFFFF \U00000000\U0010FFFF\U0001F47D\U0001f47d"
+// all invalid
+printfn "\c\h \345\256 \xxx\xFX \u123x \U12345678\U0011FFFF\U00FFFFFF\U0010FXFF"
+// all invalid with normal chars and space between
+printfn "a\ca\ha a\345a\256a\12a \12 a\xxxa\xFXa\xxa \xs a\u123x\u14a a\U12345678a\U0011FFFFa\U00FFFFFFa\U0010FXFFa \U0014e a"
 
 sprintf "75.9%% ss"
 sprintf """
