@@ -75,18 +75,5 @@
   },
   "extensionDependencies": [
     "vscode.fsharp"
-  ],
-  "scripts": {
-    "build": "fable ../src/FSharp.SyntaxTools.fsproj -s -o ../fsharp.syntaxtest -m commonjs --verbose"
-  },
-  "dependencies": {
-    "axios": "^0.13.1",
-    "fable-core": "^0.5.4",
-    "node-gyp": "^3.4.0",
-    "vscode-textmate": "^2.1.1"
-  },
-  "devDependencies": {
-    "vscode": "^0.11.17",
-    "fable-compiler": "^0.5.6"
-  }
+  ]
 }
