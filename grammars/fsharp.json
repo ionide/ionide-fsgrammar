@@ -959,6 +959,29 @@
                 },
                 {
                     "name": "binding.fsharp",
+                    "begin": "\\b(use|use\\!|and|and!)\\s*(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
+                    "end": "\\s*(=)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        },
+                        "2": {
+                            "name": "variable.fsharp"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.fsharp"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#common_binding_definition"
+                        }
+                    ]
+                },
+                {
+                    "name": "binding.fsharp",
                     "begin": "(?<=with|and)\\s*\\b((get|set)\\s*(?=\\())(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(=|\\n+=|(?<=\\=))",
                     "beginCaptures": {

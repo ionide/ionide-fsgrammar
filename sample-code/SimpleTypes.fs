@@ -710,3 +710,22 @@ let incorrect =
         }
         let loadedModel = { loadedModel with FormState = Form.setWaiting false loadedModel.FormState }
         ())
+
+// This code is used to check that we capture correctly all the variable in the binding
+
+let x = 1
+
+let rec y = 2
+and z = 3
+
+use d = new Disposable()
+
+let f =
+    foo {
+        let! a = bar
+        and! b = qux
+
+        use! c = fooBar
+
+        ()
+    }
