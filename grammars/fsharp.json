@@ -964,9 +964,6 @@
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
-                        },
-                        "2": {
-                            "name": "variable.fsharp"
                         }
                     },
                     "endCaptures": {
