@@ -34,18 +34,6 @@ let copyGrammar = BuildTask.create "CopyGrammar" [ ] {
 
 let buildExtension = BuildTask.create "BuildExtension" [ copyGrammar ] {
     Trace.trace "Building VSCode Extension - FSharp-SyntaxTest"
-    Npm.install (fun o -> { o with WorkingDirectory = extensionDir })
 }
-
-Target.create "Clean" (fun _ ->
-    !! "src/**/bin"
-    ++ "src/**/obj"
-    |> Shell.cleanDirs
-)
-
-Target.create "Build" (fun _ ->
-    !! "src/**/*.*proj"
-    |> Seq.iter (DotNet.build id)
-)
 
 BuildTask.runOrList()
