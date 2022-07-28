@@ -959,7 +959,7 @@
                 },
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(use|use\\!|and|and!)\\s*(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
+                    "begin": "\\b(use|use\\!|and|and!)\\b\\s*(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
                     "end": "\\s*(=)",
                     "beginCaptures": {
                         "1": {

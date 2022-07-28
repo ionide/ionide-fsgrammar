@@ -42,6 +42,12 @@ module rec Keywords =
     let property = "not a keyword"
     let union = "not a keyword"
 
+    type UserDto = { id: System.Guid }
+
+    let useAtStartOfWord () =
+        let user: UserDto = { id = Guid.Empty }
+        sprintf "%A" user.id
+
     let public sampleKeywords (error: exn) =
         begin
             printfn "%A" Keywords.union
