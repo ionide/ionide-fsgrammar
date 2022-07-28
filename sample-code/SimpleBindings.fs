@@ -112,3 +112,15 @@ module private test3 =
 
 module test4 =
     let x = 1
+
+let uses = None
+match uses with
+| Some uses -> ()
+| Some ands -> ()
+| uses -> ()
+| ands -> ()
+// ENHANCEMENT: Keywords should not change following tokens and highlighting
+//   -> string should still be recognized and highlighted as string
+// | and -> ()
+// | use -> ()
+"some string"
