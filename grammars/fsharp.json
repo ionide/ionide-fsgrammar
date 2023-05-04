@@ -571,7 +571,7 @@
                         {
                             "comments": "Capture // when inside of (* *) like that the rule which capture comments starting by // is not trigger. See https://github.com/ionide/ionide-fsgrammar/issues/155",
                             "name": "fast-capture.comment.line.double-slash.fsharp",
-                            "match":  "//"
+                            "match": "//"
                         },
                         {
                             "include": "#comments"
@@ -1791,7 +1791,7 @@
             "patterns": [
                 {
                     "name": "cexpr.fsharp",
-                    "match": "\\b(async|seq|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)\\s*\\{",
+                    "match": "\\b(async|seq|promise|task|maybe|asyncMaybe|controller|scope|application|pipeline)(?=\\s*\\{)",
                     "captures": {
                         "0": {
                             "name": "keyword.fsharp"

@@ -133,6 +133,10 @@ let d =
 // Whitespace between builder and opening brace is optional
 let e = async{ return 0 }
 
+// Make the sure opening and closing bracket colors match when the color
+// used for keywords is different than the color used for brackets
+let f = seq { yield! seq { yield 1 } }
+
 type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
 
     let pf() = xxx.Test()
