@@ -133,7 +133,7 @@ let d =
 // Whitespace between builder and opening brace is optional
 let e = async{ return 0 }
 
-// Make the sure opening and closing bracket colors match when the color
+// Make sure the opening and closing bracket colors match when the color
 // used for keywords is different than the color used for brackets
 let f = seq { yield! seq { yield 1 } }
 
@@ -504,6 +504,19 @@ type AR_Class () =
 
 // Check anonymous function type signature
 let tx = fun (t : ``type with spaces``) (``var with spaces`` : Result<obj list, int>) -> ()
+
+// Make sure the opening and closing parenthesis colors match when using
+// a distinct color for the arrow symbol
+let lambda0 = fun x -> x
+let lambda1 = fun (x) -> x
+let lambda2 = fun (x) (y) -> x
+let lambda3 = fun (x, y) -> x
+let lambda4 = fun ((x, y), z) -> x
+let lambda5 = (fun x -> x)
+let lambda6 = (fun (x) -> x)
+let lambda7 = (fun (x) (y) -> x)
+let lambda8 = (fun (x, y) -> x)
+let lambda9 = (fun ((x, y), z) -> x)
 
 let private mixedArray msg (decoders: string []) (path: string) (values: obj[]): Result<obj list, int> =
     Ok []
