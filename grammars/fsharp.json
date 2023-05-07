@@ -928,7 +928,7 @@
                 {
                     "name": "binding.fsharp",
                     "begin": "\\b(let mutable|static let mutable|static let|let inline|let|and|member val|static member inline|static member|default|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
-                    "end": "\\s*(with\\b|=|\\n+=|(?<=\\=))",
+                    "end": "\\s*((with\\b)|(=|\\n+=|(?<=\\=)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
@@ -947,8 +947,11 @@
                         }
                     },
                     "endCaptures": {
-                        "1": {
+                        "2": {
                             "name": "keyword.fsharp"
+                        },
+                        "3": {
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -968,7 +971,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -988,7 +991,7 @@
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
@@ -1207,7 +1210,7 @@
                             "name": "entity.name.type.namespace.fsharp"
                         },
                         "3": {
-                            "name": "punctuation.separator.namespace-definition.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         },
                         "4": {
                             "name": "entity.name.section.fsharp"

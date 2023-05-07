@@ -124,3 +124,48 @@ match uses with
 // | and -> ()
 // | use -> ()
 "some string"
+
+// Make sure the equal signs are all the same color, particularly when
+// using different colors for keywords than for symbols
+module EqualSignTest =
+
+    module Opt = Option
+
+    type Foo() =
+
+        let mutable waldo = 0
+
+        member this.A = waldo
+        member this.B with set (value) = waldo <- value
+        member this.C with get () = waldo and set (value) = waldo <- value
+        member this.D with get () = waldo
+
+    and Bar() =
+
+        interface System.IDisposable with member this.Dispose() = ()
+
+        member val A = 11
+        member val B = 22 with get, set
+
+    let quux =
+        let foo = new Foo()
+        use bar = new Bar()
+        task {
+            let! fred = task { return new Foo() }
+            use! barb = task { return new Bar() }
+            return (fred, barb)
+        }
+
+    type Boo = { A : int; B : int }
+    let boom = { A = 123; B = 456 }
+    let buzz = { boom with B = 789 }
+
+    type Goo =
+        val a : int
+        val b : int
+        new(a0, b0) = { a = a0; b = b0; }
+
+    let rec bee x =
+        bop (x - 1)
+    and bop y =
+        if (y = 0) then 0 else bee y
