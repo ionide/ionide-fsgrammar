@@ -12,7 +12,6 @@
         { // use this taskname to call build.cmd to run FAKE
             "label": "FakeBuild",
             "args": [
-                "build",
                 "-t",
                 "BuildExtension"
             ],
@@ -21,13 +20,13 @@
                 "isDefault": true
             },
             "osx": {
-                "command": "${workspaceRoot}/fake.sh"
+                "command": "${workspaceRoot}/build.sh"
             },
             "windows": {
-                "command": "${workspaceRoot}/fake.cmd"
+                "command": "${workspaceRoot}/build.cmd"
             },
             "linux": {
-                "command": "${workspaceRoot}/fake.sh"
+                "command": "${workspaceRoot}/build.sh"
             }
         }
     ]
