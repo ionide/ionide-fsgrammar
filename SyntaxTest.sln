@@ -3,11 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "build", "build\build.fsproj", "{BB61308D-48FC-4C0F-8B2C-4B0547B112B9}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{9332FE36-1213-4E68-9E66-6CC0ADA1A20D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		build.cmd = build.cmd
-		build.fsx = build.fsx
 		build.sh = build.sh
 		CONTRIBUTING.md = CONTRIBUTING.md
 		paket.dependencies = paket.dependencies
@@ -46,6 +47,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB61308D-48FC-4C0F-8B2C-4B0547B112B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB61308D-48FC-4C0F-8B2C-4B0547B112B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB61308D-48FC-4C0F-8B2C-4B0547B112B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB61308D-48FC-4C0F-8B2C-4B0547B112B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3451B674-AAFF-4F5F-8350-F7D2D97704DB}.Release|Any CPU.ActiveCfg = Release|Any CPU

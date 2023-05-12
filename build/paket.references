@@ -1,0 +1,10 @@
+group netcorebuild
+
+Fake.DotNet.Cli
+Fake.DotNet.Paket
+Fake.Core.Target
+Fake.Core.Process
+Fake.Core.String
+Fake.IO.FileSystem
+Fake.JavaScript.Npm
+BlackFox.Fake.BuildTask
