@@ -15,7 +15,7 @@ which will open at `/sample-code/`
 - Only modifications made to the syntax files in `/grammars/` will be tracked by Git
 - If you're going to add more src files to `/sample-code/` remember to add the files to `SampleCode.fsproj`
 - You may need to close and restart the extension host before changes to the syntax definitions are accurately displayed
-- [Reference the F# Language Spec for detail on the syntax grammar](http://fsharp.org/specs/language-spec/4.0/FSharpSpec-4.0-latest.pdf#page=320)
+- [Reference the F# Language Spec for detail on the syntax grammar](https://fsharp.org/specs/language-spec/4.1/FSharpSpec-4.1-latest.pdf#page=292)
 
 
 ## Grammar format
