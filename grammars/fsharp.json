@@ -1036,12 +1036,12 @@
                             "name": "keyword.fsharp"
                         },
                         "2": {
-                            "name": "keyword.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "endCaptures": {
                         "1": {
-                            "name": "keyword.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [

@@ -746,3 +746,17 @@ let f =
 
         ()
     }
+
+// The opening and closing parentheses following the `new` keyword in the
+// constructors should always use the symbol color, regardless of whether
+// or not there is a space after the `new` keyword
+
+type FooWithNoSpaceAfterNew =
+    val a : int
+    new() = { a = 0 }
+    new(b) = { a = b }
+
+type FooWithSpaceAfterNew =
+    val a : int
+    new () = { a = 0 }
+    new (b) = { a = b }
