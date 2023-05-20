@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="SampleKeywords.fs" />
     <Compile Include="SimpleBindings.fsi" />
     <Compile Include="SimpleBindings.fs" />
     <Compile Include="SimpleTypes.fsi" />
