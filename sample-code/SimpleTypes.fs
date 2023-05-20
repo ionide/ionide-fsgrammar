@@ -760,3 +760,22 @@ type FooWithSpaceAfterNew =
     val a : int
     new () = { a = 0 }
     new (b) = { a = b }
+
+// The opening and closing angle brackets `<` and `>` for generics should
+// always use the symbol color and not the keyword color. Also, the colon
+// symbol `:` and casting operator `:>` should use the symbol color.
+
+type GenericType1<'a> =
+    class end
+
+type GenericType2<'a when 'a :> obj> =
+    class end
+
+type GenericType3<'a when 'a : enum<int>> =
+    class end
+
+let genericFunc1<'a> (x : 'a) = x
+
+let genericFunc2<'a when 'a :> obj> (x : 'a) = x
+
+let genericFunc3<'a when 'a : enum<int>> (x : 'a) = x
