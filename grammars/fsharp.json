@@ -1112,15 +1112,11 @@
                 },
                 {
                     "name": "keyword.fsharp",
-                    "match": "\\b(private|to|public|internal|function|class|exception|delegate|of|as|begin|end|inherit|let!|interface|abstract|enum|member|and|when|or|use|use\\!|struct|mutable|assert|base|done|downcast|downto|extern|fixed|global|lazy|upcast|not)(?!')\\b"
+                    "match": "\\b(private|to|public|internal|function|class|exception|delegate|of|new|as|begin|end|inherit|let!|interface|abstract|enum|member|and|when|or|use|use\\!|struct|mutable|assert|base|done|downcast|downto|extern|fixed|global|lazy|upcast|not)(?!')\\b"
                 },
                 {
                     "name": "keyword.control",
                     "match": "\\b(match|yield|yield!|with|if|then|else|elif|for|in|return!|return|try|finally|while|do)(?!')\\b"
-                },
-                {
-                    "name": "keyword.symbol.new",
-                    "match": "\\b(new)\\b"
                 },
                 {
                     "name": "keyword.symbol.fsharp",
