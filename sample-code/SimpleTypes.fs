@@ -766,7 +766,7 @@ type FooWithSpaceAfterNew =
 // symbol `:` and casting operator `:>` should use the symbol color.
 
 type GenericType1<'a> =
-    class end
+    abstract member Foo : 'a -> 'a
 
 type GenericType2<'a when 'a :> obj> =
     class end

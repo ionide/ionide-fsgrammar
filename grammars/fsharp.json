@@ -642,7 +642,7 @@
                     "name": "support.function.attribute.fsharp"
                 },
                 "5": {
-                    "name": "keyword.fsharp"
+                    "name": "keyword.symbol.fsharp"
                 }
             },
             "endCaptures": {
