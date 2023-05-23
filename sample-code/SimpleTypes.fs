@@ -766,7 +766,7 @@ type FooWithSpaceAfterNew =
 // symbol `:` and casting operator `:>` should use the symbol color.
 
 type GenericType1<'a> =
-    abstract member Foo : 'a -> 'a
+    class end
 
 type GenericType2<'a when 'a :> obj> =
     class end
@@ -779,3 +779,6 @@ let genericFunc1<'a> (x : 'a) = x
 let genericFunc2<'a when 'a :> obj> (x : 'a) = x
 
 let genericFunc3<'a when 'a : enum<int>> (x : 'a) = x
+
+type AbstractType =
+    abstract member Foo : unit -> unit
