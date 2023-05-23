@@ -1669,9 +1669,6 @@
                             "match": "\\s*(private|internal|public)",
                             "captures": {
                                 "1": {
-                                    "name": "keyword.symbol.fsharp"
-                                },
-                                "2": {
                                     "name": "storage.modifier.fsharp"
                                 }
                             }
