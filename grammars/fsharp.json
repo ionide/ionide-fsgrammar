@@ -812,7 +812,7 @@
                     "match": "(->)\\s*(\\()?\\s*([?[:alpha:]0-9'`^._ ]+)*",
                     "captures": {
                         "1": {
-                            "name": "keyword.symbol.fsharp"
+                            "name": "keyword.symbol.arrow.fsharp"
                         },
                         "2": {
                             "name": "keyword.symbol.fsharp"
@@ -1119,8 +1119,12 @@
                     "match": "\\b(match|yield|yield!|with|if|then|else|elif|for|in|return!|return|try|finally|while|do)(?!')\\b"
                 },
                 {
+                    "name": "keyword.symbol.arrow.fsharp",
+                    "match": "(\\->|\\<\\-)"
+                },
+                {
                     "name": "keyword.symbol.fsharp",
-                    "match": "(&&&|\\|\\|\\||\\^\\^\\^|~~~|<<<|>>>|\\|>|\\->|\\<\\-|:>|:\\?>|:|\\[|\\]|\\;|<>|=|@|\\|\\||&&|{|}|\\||_|\\.\\.|\\,|\\+|\\-|\\*|\\/|\\^|\\!|\\>|\\>\\=|\\>\\>|\\<|\\<\\=|\\(|\\)|\\<\\<)"
+                    "match": "(&&&|\\|\\|\\||\\^\\^\\^|~~~|<<<|>>>|\\|>|:>|:\\?>|:|\\[|\\]|\\;|<>|=|@|\\|\\||&&|{|}|\\||_|\\.\\.|\\,|\\+|\\-|\\*|\\/|\\^|\\!|\\>|\\>\\=|\\>\\>|\\<|\\<\\=|\\(|\\)|\\<\\<)"
                 }
             ]
         },
@@ -1345,7 +1349,7 @@
                     "end": "(>)",
                     "beginCaptures": {
                         "1": {
-                            "name": "keyword.symbol.fsharp"
+                            "name": "keyword.symbol.arrow.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
@@ -1377,7 +1381,7 @@
                     "match": "\\s*(->)\\s*(?!with|get|set\\b)\\b([\\w0-9'`^._]+)",
                     "captures": {
                         "1": {
-                            "name": "keyword.symbol.fsharp"
+                            "name": "keyword.symbol.arrow.fsharp"
                         },
                         "2": {
                             "name": "entity.name.type.fsharp"
