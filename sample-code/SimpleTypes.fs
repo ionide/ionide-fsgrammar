@@ -780,3 +780,6 @@ let genericFunc1<'a> (x : 'a) = x
 let genericFunc2<'a when 'a :> obj> (x : 'a) = x
 
 let genericFunc3<'a when 'a : enum<int>> (x : 'a) = x
+
+type AbstractType =
+    abstract member Foo : unit -> unit
