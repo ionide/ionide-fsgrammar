@@ -169,3 +169,29 @@ module EqualSignTest =
         bop (x - 1)
     and bop y =
         if (y = 0) then 0 else bee y
+
+// Make sure the arrow symbols `<-` and `->` are all the same color. If the
+// user sets a custom color for `keyword.symbol.arrow`, then all the arrows
+// should be that color. If the user does not set an explicit configuration
+// for the arrow color, then all the arrows should be the same color as all
+// the other operator symbols (i.e. the `keyword.symbol` color).
+module ArrowTest =
+
+    let mutable foo1 = 0
+
+    foo1 <- 1
+
+    let foo2 = (fun () -> 123)
+    let foo3 = (fun x -> 456)
+    let foo4 : (unit -> unit) = id
+    let foo5 =
+        match foo1 with
+        | 0 -> ()
+        | _ -> ()
+
+    [<AbstractClass>]
+    type FooWithArrows(item : unit -> unit) =
+        abstract member Bar : unit -> unit
+        abstract member Baz : unit -> array<int>
+        member this.Boo : unit -> unit = id
+        member this.Goo : unit -> array<int> = failwith "foo"
