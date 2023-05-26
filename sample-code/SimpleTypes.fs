@@ -762,6 +762,26 @@ type FooWithSpaceAfterNew =
     new () = { a = 0 }
     new (b) = { a = b }
 
+// Opening and closing parentheses associated with tuples, unit literals,
+// and parameters should be colored consistently.
+
+let parensFoo1 = ()
+let parensFoo2 = ( )
+let parensFoo3 = (1)
+let parensFoo4 = (2, 3)
+let parensFoo5 = (), ()
+let parensFoo6 = ((), ())
+let parensFoo7 = DateTime()
+let parensFoo8 = DateTime(456)
+
+let parensBar1 () = "foo"
+let parensBar2 ( ) = "bar"
+let parensBar3 (x) = "baz"
+
+type ParensBaz1() = class end
+type ParensBaz2( ) = class end
+type ParensBaz3(x) = class end
+
 // The opening and closing angle brackets `<` and `>` for generics should
 // always use the symbol color and not the keyword color. Also, the colon
 // symbol `:` and casting operator `:>` should use the symbol color.

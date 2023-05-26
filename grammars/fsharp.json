@@ -606,7 +606,7 @@
         "constants": {
             "patterns": [
                 {
-                    "name": "constant.language.unit.fsharp",
+                    "name": "keyword.symbol.fsharp",
                     "match": "\\(\\)"
                 },
                 {
@@ -1326,7 +1326,7 @@
         "variables": {
             "patterns": [
                 {
-                    "name": "constant.language.unit.fsharp",
+                    "name": "keyword.symbol.fsharp",
                     "match": "\\(\\)"
                 },
                 {
@@ -1584,7 +1584,7 @@
                             "name": "keyword.symbol.fsharp"
                         },
                         "7": {
-                            "name": "constant.language.unit.fsharp"
+                            "name": "keyword.symbol.fsharp"
                         }
                     },
                     "patterns": [
