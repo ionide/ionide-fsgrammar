@@ -195,3 +195,19 @@ module ArrowTest =
         abstract member Baz : unit -> array<int>
         member this.Boo : unit -> unit = id
         member this.Goo : unit -> array<int> = failwith "foo"
+
+// The word `unit` should be styled the same as built-in primitive types such
+// as `char`, `byte`, `int`, `float`, `bool`, etc.
+module UnitAsTypeTest =
+
+    let unit = "foo"
+    let char = "bar"
+    let byte = "baz"
+
+    let bing = unit
+    let bang = char
+    let boom = byte
+
+    let mike : unit = ()
+    let john : char = 'A'
+    let gary : byte = 0uy

@@ -623,7 +623,7 @@
                 },
                 {
                     "name": "constant.other.fsharp",
-                    "match": "\\b(null|unit|void)\\b"
+                    "match": "\\b(null|void)\\b"
                 }
             ]
         },
