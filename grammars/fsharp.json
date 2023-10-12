@@ -1132,7 +1132,7 @@
             "patterns": [
                 {
                     "name": "entity.name.section.fsharp",
-                    "begin": "\\b(namespace global)|\\b(namespace|module)\\s*(public|internal|private|rec)?\\s+([[:alpha:]][[:alpha:]0-9'_. ]*)",
+                    "begin": "\\b(namespace global)|\\b(namespace|module)\\s*(public|internal|private|rec)?\\s+([[:alpha:]|``][[:alpha:]0-9'_. ]*)",
                     "end": "(\\s?=|\\s|$)",
                     "beginCaptures": {
                         "1": {
@@ -1170,7 +1170,7 @@
                 },
                 {
                     "name": "namespace.open.fsharp",
-                    "begin": "\\b(open type|open)\\s+([[:alpha:]][[:alpha:]0-9'_]*)(?=(\\.[A-Z][[:alpha:]0-9_]*)*)",
+                    "begin": "\\b(open type|open)\\s+([[:alpha:]|``][[:alpha:]0-9'_]*)(?=(\\.[A-Z][[:alpha:]0-9_]*)*)",
                     "end": "(\\s|$)",
                     "beginCaptures": {
                         "1": {
