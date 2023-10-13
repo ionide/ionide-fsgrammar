@@ -123,6 +123,10 @@ let a = promise { }
 let b = pipeline { }
 let c = noColor { }
 
+let origin = struct (0,0)
+
+let private (struct (x0,y0)) = origin
+
 // Check that known builder names aren't captured as builders when a
 // value name begins with one of them (e.g. `asyncResult`)
 // Also see ionide/ionide-vscode-fsharp#836
