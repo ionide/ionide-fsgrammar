@@ -1330,7 +1330,7 @@
                     "match": "\\(\\)"
                 },
                 {
-                    "match": "(\\?{0,1})(``[[:alpha:]0-9'`^:,._ ]+``|(?!private\\b)\\b[\\w[:alpha:]0-9'`<>^._ ]+)",
+                    "match": "(\\?{0,1})(``[[:alpha:]0-9'`^:,._ ]+``|(?!private|struct\\b)\\b[\\w[:alpha:]0-9'`<>^._ ]+)",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
