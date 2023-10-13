@@ -88,6 +88,77 @@ let markdownDemo2 (arg1 : string) (arg2 : string) =
 
 (* Neither this one *)
 
+// See https://github.com/ionide/ionide-fsgrammar/issues/177
+// Check that custom operators definition that use any number of `/` are not captured as a comment
+let (!//!) x y = x + y
+let (%//%) x y = x + y
+let (&//&) x y = x + y
+let (+//+) x y = x + y
+let (-//-) x y = x + y
+let (.//.) x y = x + y
+// This definition generates errors below, but I don't think it is common enough to spend time on it
+// The bug is probably due to the open `<` at the end
+// let (<//<) x y = x + y
+let (=//=) x y = x + y
+let (>//>) x y = x + y
+let (?//?) x y = x + y
+let (@//@) x y = x + y
+let (^//^) x y = x + y
+let (|//|) x y = x + y
+let (<//>) x y = x + y
+
+let (!///!) x y = x + y
+let (%///%) x y = x + y
+let (&///&) x y = x + y
+let (+///+) x y = x + y
+let (-///-) x y = x + y
+let (.///.) x y = x + y
+// This definition generates errors below, but I don't think it is common enough to spend time on it
+// The bug is probably due to the open `<` at the end
+// let (<///<) x y = x + y
+let (=///=) x y = x + y
+let (>///>) x y = x + y
+let (?///?) x y = x + y
+let (@///@) x y = x + y
+let (^///^) x y = x + y
+let (|///|) x y = x + y
+let (<///>) x y = x + y
+// Works for any number of `/`
+let (</////////>) x y = x + y
+
+// // Check that custom operators usage that use `//` is not captured as a comment
+let add1 x y = x (!//!) y
+let add2 x y = x (%//%) y
+let add3 x y = x (&//&) y
+let add4 x y = x (+//+) y
+let add5 x y = x (-//-) y
+let add6 x y = x (.//.) y
+let add7 x y = x (<//<) y
+let add8 x y = x (=//=) y
+let add9 x y = x (>//>) y
+let add10 x y = x (?//?) y
+let add11 x y = x (@//@) y
+let add12 x y = x (^//^) y
+let add13 x y = x (|//|) y
+let add14 x y = x (<//>) y
+
+let add15 x y = x (!///!) y
+let add16 x y = x (%///%) y
+let add17 x y = x (&///&) y
+let add18 x y = x (+///+) y
+let add19 x y = x (-///-) y
+let add20 x y = x (.///.) y
+let add21 x y = x (<///<) y
+let add22 x y = x (=///=) y
+let add23 x y = x (>///>) y
+let add24 x y = x (?///?) y
+let add25 x y = x (@///@) y
+let add26 x y = x (^///^) y
+let add27 x y = x (|///|) y
+let add28 x y = x (<///>) y
+// Works for any number of `/`
+let add29 x y = x (</////////>) y
+
 exception UndefinedValueException of string
 
 type Alias = int
@@ -136,6 +207,8 @@ let d =
 
 // Whitespace between builder and opening brace is optional
 let e = async{ return 0 }
+
+type Foo = int
 
 // Make sure the opening and closing bracket colors match when the color
 // used for keywords is different than the color used for brackets
