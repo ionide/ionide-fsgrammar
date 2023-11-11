@@ -159,6 +159,9 @@ let add28 x y = x (<///>) y
 // Works for any number of `/`
 let add29 x y = x (</////////>) y
 
+// operator chars after comments don't break comment rendering
+let r = 23 + 42 //|> id
+
 exception UndefinedValueException of string
 
 type Alias = int
