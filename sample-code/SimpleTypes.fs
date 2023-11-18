@@ -309,9 +309,11 @@ type T =
     abstract Test : Result<string list, int array>
     abstract Test2 : mode: float * test : (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)
     abstract TupleOfTuples : (int * (int * (Result<Result<Result<Result<string, string>, string>, string> list, int array> * int)))
+    abstract Decode<'Json> : spaces : int -> string // Should trigger generic coloration and have int colored as type
+    abstract member Decode2<'Json, 'Output> : spaces : int -> string// This was breaking coloration of lines below
 
 type FancyClass with
-    member __.Run (program : Program<'arg, 'model, 'msg, array<'view>>) = ()
+    member __.Run<'JsonValue> (program : Program<'arg, 'model, 'msg, array<'view>>) = ()
 
 type FancyClass1(?thing:int) =
     class end
@@ -883,3 +885,6 @@ let genericFunc3<'a when 'a : enum<int>> (x : 'a) = x
 
 type AbstractType =
     abstract member Foo : unit -> unit
+
+
+type DecoderError<'JsonValue> = string * ErrorReason<'JsonValue>
