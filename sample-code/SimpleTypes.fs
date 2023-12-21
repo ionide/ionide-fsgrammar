@@ -65,6 +65,10 @@ file as markdown
 
     (* Unbalanced comment, which turn everything after itself into comment **)
     let e = (* comment// *) "not a comment"
+    
+    // The infix multiplication operator (*) should not be parsed as the end of a 
+    // block comment.
+    (* (*) "This text is a comment" (*) *)
 
 /// **Description**
 ///

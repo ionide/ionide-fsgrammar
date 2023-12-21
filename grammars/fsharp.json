@@ -574,6 +574,11 @@
                             "match": "//"
                         },
                         {
+                            "comments": "Capture (*) when inside of (* *) so that it doesn't prematurely end the comment block.",
+                            "name": "fast-capture.comment.line.mul-operator.fsharp",
+                            "match": "\\(\\*\\)"
+                        },
+                        {
                             "include": "#comments"
                         }
                     ]
