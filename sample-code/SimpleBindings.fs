@@ -72,7 +72,8 @@ sprintf """
 dfdfdf %s
 """
 
-let numbers = [ 1 .. 10 ]
+let numbers = [1 .. 10]
+let numbers = [1..10]
 let numbers = [1 .. 10 .. 100]
 let numbers = [1..10..100]
 let numbers = [1.0 .. 10.0]
