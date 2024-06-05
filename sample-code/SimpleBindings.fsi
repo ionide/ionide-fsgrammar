@@ -31,3 +31,5 @@ module SimpleBindings =
     val e_float64    : float
     val a_bigint     : bigint
 
+    val inline foo : 'a -> 'a
+    val inline internal bar : 'a -> 'a
