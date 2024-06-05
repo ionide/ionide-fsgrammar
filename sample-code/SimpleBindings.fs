@@ -36,6 +36,10 @@ let e_float64    = 0x0000000000000000LF
 
 let a_bigint     = 304554I
 
+let inline s (array: ^T array -> ^T when ^T: (static member (+): ^T * ^T -> ^T)) = ignore array
+let p = 3
+let q = p
+
 let π = 3.1415
 
 

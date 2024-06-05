@@ -31,3 +31,12 @@ module SimpleBindings =
     val e_float64    : float
     val a_bigint     : bigint
 
+    // The highlighting used to go awry starting after the (static member (+): ^T * ^T -> ^T).
+    val inline s: array: ^T array -> ^T when ^T: (static member (+): ^T * ^T -> ^T)
+
+    // This used to be highlighted wrong.
+    val p : int
+
+    // This comment has two magic characters in it, which fixed things:
+    // )=
+    val q : int
