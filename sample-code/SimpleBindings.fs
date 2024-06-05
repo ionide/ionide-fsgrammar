@@ -234,3 +234,6 @@ module UnitAsTypeTest =
 type IFace =
     static abstract M : unit
     static abstract member N : unit
+
+let inline foo x = x
+let inline bar x = x
