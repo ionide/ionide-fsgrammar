@@ -72,7 +72,20 @@ sprintf """
 dfdfdf %s
 """
 
-let numbers = [ 1 .. 10 ]
+let numbers = [1 .. 10]
+let numbers = [1..10]
+let numbers = [1 .. 10 .. 100]
+let numbers = [1..10..100]
+let numbers = [1.0 .. 10.0]
+let numbers = [1.0..10.0]
+let numbers = [1.0 .. 10.0 .. 100.0]
+let numbers = [1.0..10.0..100.0]
+let numbers = numbers[1 ..]
+let numbers = numbers[1..]
+let numbers = numbers[1 .. 10]
+let numbers = numbers[1..10]
+let numbers = numbers[.. 10]
+let numbers = numbers[..10]
 let square x = x * x
 let squares = List.map square numbers
 printfn "N^2 = %A" squares
