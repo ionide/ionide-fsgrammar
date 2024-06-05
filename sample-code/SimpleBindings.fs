@@ -224,3 +224,9 @@ module UnitAsTypeTest =
     let mike : unit = ()
     let john : char = 'A'
     let gary : byte = 0uy
+
+#nowarn "3535"
+
+type IFace =
+    static abstract M : unit
+    static abstract member N : unit
