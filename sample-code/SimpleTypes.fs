@@ -259,6 +259,9 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     static member (< ) (v1 : int, v2 : int) = v2 < v2
     static member (<|>) (v1 : int, v2 : int) = v2 < v2
 
+    member inline _.Q () = 3
+    member inline internal _.P () = 3
+
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
 let (<<.) a = 1
