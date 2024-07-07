@@ -237,9 +237,6 @@ let inline bar x = x
 let baz
     (qux : unit * ('T))
     =
+    let x = 1
+    let y = System.Collections.Generic.List<string>()
     ()
-
-let foo =
-    match true with
-    | true -> ()
-    | false -> ()
