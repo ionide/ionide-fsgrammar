@@ -234,7 +234,7 @@ type IFace =
 let inline foo x = x
 let inline bar x = x
 
-let baz 
+let baz
     (qux : unit * ('T))
     =
     ()
