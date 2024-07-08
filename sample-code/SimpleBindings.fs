@@ -233,3 +233,10 @@ type IFace =
 
 let inline foo x = x
 let inline bar x = x
+
+let baz
+    (qux : unit * ('T))
+    =
+    let x = 1
+    let y = System.Collections.Generic.List<string>()
+    ()
