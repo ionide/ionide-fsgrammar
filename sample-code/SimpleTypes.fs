@@ -250,6 +250,8 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     member val Property1 = thing
     member val Property2 = "" with get, set
 
+    static member val StaticProperty1 = thing
+
     /// The typo in withh is intentional, because with is one of the `end` possibility
     /// We consider it ok, because there is a low chance that a person will use `with` in a quoted variable
     member __.Test2(thing:int, var2 : string, ``name withh spaces``: string option, extra) = ""
