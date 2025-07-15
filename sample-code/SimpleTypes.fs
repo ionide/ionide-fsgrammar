@@ -264,6 +264,10 @@ type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extr
     member inline _.Q () = 3
     member inline internal _.P () = 3
 
+    member this.Value
+        with inline get() = ()
+        and inline set v = ()
+
 let inline internal (<) (x : int) ys = x + ys
 let (< ) (x : int) ys = x + ys
 let (<<.) a = 1

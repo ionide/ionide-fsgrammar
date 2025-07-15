@@ -935,8 +935,8 @@
             "patterns": [
                 {
                     "name": "binding.fsharp",
-                    "begin": "\\b(let mutable|static let mutable|static let|let inline|let|and|member val|member inline|static member inline|static member val|static member|default|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
-                    "end": "\\s*((with\\b)|(=|\\n+=|(?<=\\=)))",
+                    "begin": "\\b(let mutable|static let mutable|static let|let inline|let|and inline|and|member val|member inline|static member inline|static member val|static member|default|member|override|let!)(\\s+rec|mutable)?(\\s+\\[\\<.*\\>\\])?\\s*(private|internal|public)?\\s+(\\[[^-=]*\\]|[_[:alpha:]]([_[:alpha:]0-9\\._]+)*|``[_[:alpha:]]([_[:alpha:]0-9\\._`\\s]+|(?<=,)\\s)*)?",
+                    "end": "\\s*((with inline|with)\\b|(=|\\n+=|(?<=\\=)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.fsharp"
