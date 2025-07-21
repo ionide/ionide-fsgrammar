@@ -901,3 +901,21 @@ type AbstractType =
 
 
 type DecoderError<'JsonValue> = string * ErrorReason<'JsonValue>
+
+// Nullness related
+
+let myNullValue : objnull = null
+
+type NullnessConstraint<'T when 'T : null> =
+    class end
+
+// Check that we don't break the non nullness case
+let toUpperString (txt : string) = ()
+
+let toUpper (txt : string | null) = ()
+
+let toUpperLambda = 
+    fun (txt: string | null) -> ()
+
+type StringHelper =
+    member this.ToUpper (txt : string | null) = ()

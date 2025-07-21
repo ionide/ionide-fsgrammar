@@ -797,12 +797,15 @@
                     ]
                 },
                 {
-                    "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)",
+                    "match": "(:)\\s*([?[:alpha:]0-9'`^._ ]+)(\\|\\s*(null))?",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
                         },
                         "2": {
+                            "name": "entity.name.type.fsharp"
+                        },
+                        "4": {
                             "name": "entity.name.type.fsharp"
                         }
                     }
@@ -1512,7 +1515,7 @@
                     "match": "(\\(|\\))"
                 },
                 {
-                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._]+|``[[:alpha:]0-9'`^:,._ ]+``)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'`<>._ ]+)){0,1}",
+                    "match": "(\\?{0,1})([[:alpha:]0-9'`^._]+|``[[:alpha:]0-9'`^:,._ ]+``)\\s*(:{0,1})(\\s*([?[:alpha:]0-9'`<>._ ]+)){0,1}(\\|\\s*(null))?",
                     "captures": {
                         "1": {
                             "name": "keyword.symbol.fsharp"
@@ -1524,6 +1527,9 @@
                             "name": "keyword.symbol.fsharp"
                         },
                         "4": {
+                            "name": "entity.name.type.fsharp"
+                        },
+                        "7": {
                             "name": "entity.name.type.fsharp"
                         }
                     }
