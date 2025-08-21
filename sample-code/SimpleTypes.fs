@@ -44,6 +44,16 @@ module Test =
     let b = ""
 
     let double = (*) 2 // *) was being captured as a comment
+    
+    // Both of these operators should have the same syntax highlighting,
+    // specifically the infix multiplication operator.
+    let foldSum xs = Seq.fold (+) 0 xs
+    let foldProduct xs = Seq.fold (*) 1 xs
+    
+    // Parenthesizing the above expression should not associate the `)`
+    // part of the multiplication operator with the opening paren before
+    // the expression.
+    let foldProduct2 xs = (Seq.fold (*) 1 xs)
 
     (**
 This block is colorized because markdown can set up his context.
