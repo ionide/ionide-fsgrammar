@@ -9,6 +9,8 @@
     <Compile Include="SimpleBindings.fs" />
     <Compile Include="SimpleTypes.fsi" />
     <Compile Include="SimpleTypes.fs" />
+    <Compile Include="InterpolatedStrings.fs" />
+    <Compile Include="Highlighting.fs" />
     <None Include="Directives.fsx" />
   </ItemGroup>
 </Project>
